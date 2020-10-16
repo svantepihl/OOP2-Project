@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 // TODO: {Här skriver vi saker som behöver göras i denna class}
 
@@ -16,9 +17,19 @@ namespace OOP2_Project_EA3
         /// </summary>
         public int Code
         {
-            // TODO: Code får inte vara negativt
+            // TODO: Code får inte vara negativt, kasstar exception om felaktigt
             get => _code;
-            set => _code = value;
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(value), "Product code must be positive.");
+                }
+                else
+                {
+                    _code = value;
+                }
+            }
         }
 
         /// <summary>
@@ -26,9 +37,16 @@ namespace OOP2_Project_EA3
         /// </summary>
         public string Name
         {
-            // TODO: Namn får inte vara tomt
+            // TODO: Namn får inte vara tomt eller null, kastar exception om felaktigt.
             get => _name;
-            set => _name = value;
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException(nameof(value), "Name cannot be null or empty.");
+                }
+                _name = value;
+            }
         }
 
         /// <summary>
@@ -37,7 +55,17 @@ namespace OOP2_Project_EA3
         public double Price
         {
             get => _price;
-            set => _price = Math.Round(value,2);
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(value), "Price cannot be negative.");
+                }
+                else
+                {
+                    _price = Math.Round(value, 2);
+                }
+            }
         }
 
         /// <summary>
@@ -46,7 +74,17 @@ namespace OOP2_Project_EA3
         public int Stock
         {
             get => _stock;
-            set => _stock = value;
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(value), "Stock cannot be negative!");
+                }
+                else
+                {
+                    _stock = value;
+                }
+            }
         }
 
         /// <summary>
@@ -55,7 +93,7 @@ namespace OOP2_Project_EA3
         public DateTime FirstAvailable()
         {
             // TODO: Vart ska informationen komma ifrån?
-            throw new NotImplementedException(); 
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -63,7 +101,7 @@ namespace OOP2_Project_EA3
         /// </summary>
         public DateTime NextStocking()
         {   // TODO: Vart ska informationen komma ifrån?
-            throw new NotImplementedException(); 
+            throw new NotImplementedException();
         }
     }
 }
