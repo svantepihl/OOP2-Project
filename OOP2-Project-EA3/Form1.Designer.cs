@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -37,4 +38,3 @@
         #endregion
     }
 }
-
