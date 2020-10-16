@@ -14,6 +14,7 @@ namespace OOP2_Project_EA3
         /// </summary>
         public int Number
         {
+            // Todo: Får inte vara negativt
             get => _number;
             set => _number = value;
         }
