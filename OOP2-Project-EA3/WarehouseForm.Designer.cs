@@ -1,6 +1,6 @@
 ﻿namespace OOP2_Project_EA3
 {
-    partial class Form1
+    partial class WareHouseForm
     {
         /// <summary>
         ///  Required designer variable.

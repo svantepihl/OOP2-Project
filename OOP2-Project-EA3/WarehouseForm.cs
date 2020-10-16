@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OOP2_Project_EA3
 {
-    public partial class Form1 : Form
+    public partial class WareHouseForm : Form
     {
-        public Form1()
+        public WareHouseForm()
         {
             InitializeComponent();
         }
