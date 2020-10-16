@@ -52,16 +52,16 @@ namespace OOP2_Project_EA3
         /// </summary>
         public DateTime FirstAvailable()
         {
-
-            throw new NotImplementedException(); // Vart ska informationen komma ifrån?
+            // TODO: Vart ska informationen komma ifrån?
+            throw new NotImplementedException(); 
         }
 
         /// <summary>
         /// Returns the next DataTime when item will be in stock.
         /// </summary>
         public DateTime NextStocking()
-        {
-            throw new NotImplementedException(); // Vart ska informationen komma ifrån?
+        {   // TODO: Vart ska informationen komma ifrån?
+            throw new NotImplementedException(); 
         }
     }
 }
