@@ -17,7 +17,6 @@ namespace OOP2_Project_EA3
         /// </summary>
         public int Code
         {
-            // TODO: Code får inte vara negativt, kasstar exception om felaktigt
             get => _code;
             set
             {
@@ -33,11 +32,10 @@ namespace OOP2_Project_EA3
         }
 
         /// <summary>
-        /// A products offical name.
+        /// A products official name.
         /// </summary>
         public string Name
         {
-            // TODO: Namn får inte vara tomt eller null, kastar exception om felaktigt.
             get => _name;
             set
             {
