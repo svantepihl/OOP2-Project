@@ -16,6 +16,7 @@ namespace OOP2_Project_EA3
         /// </summary>
         public int Code
         {
+            // TODO: Code får inte vara negativt
             get => _code;
             set => _code = value;
         }
@@ -25,6 +26,7 @@ namespace OOP2_Project_EA3
         /// </summary>
         public string Name
         {
+            // TODO: Namn får inte vara tomt
             get => _name;
             set => _name = value;
         }
