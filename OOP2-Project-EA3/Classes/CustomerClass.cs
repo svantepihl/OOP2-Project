@@ -14,7 +14,7 @@ namespace OOP2_Project_EA3
         /// </summary>
         public int Number
         {
-            // Todo: Får inte vara negativt
+            // TODO: Number får inte vara negativt, kassta exception om felaktigt
             get => _number;
             set => _number = value;
         }
@@ -24,6 +24,7 @@ namespace OOP2_Project_EA3
         /// </summary>
         public string Name
         {
+            // TODO: Namn får inte vara tomt eller null, kasta exception om felaktigt.
             get => _name;
             set => _name = value;
         }
@@ -33,6 +34,7 @@ namespace OOP2_Project_EA3
         /// </summary>
         public string Phone
         {
+            // TODO: Phone får inte vara tomt eller null, kasta exception om felaktigt.
             get => _phone;
             set => _phone = value;
         }
@@ -42,8 +44,11 @@ namespace OOP2_Project_EA3
         /// </summary>
         public string Email
         {
+            // TODO: Email får inte vara tomt eller null, kasta exception om felaktigt.
             get => _email;
             set => _email = value;
         }
+
+
     }
 }
