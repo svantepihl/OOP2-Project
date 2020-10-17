@@ -115,6 +115,10 @@ namespace OOP2_Project_EA3
             {
                 throw new Exception("The new object needs to have the same identifier as the old one.");
             }
+            if (oldObj == null || newObj == null)
+            {
+                throw new ArgumentNullException("Arguements cannot be null!");
+            }
             int index = _orders.IndexOf(oldObj);
             if (index != -1)
             {
