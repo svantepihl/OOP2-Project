@@ -48,6 +48,5 @@ namespace OOP2_Project_EA3
             get => _email;
             set => _email = value;
         }
-
     }
 }

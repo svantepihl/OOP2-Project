@@ -369,6 +369,7 @@ FodyWeavers.xsd
 # Common IntelliJ Platform excludes
 
 # User specific
+**/.vscode
 **/.idea/**/workspace.xml
 **/.idea/**/tasks.xml
 **/.idea/shelf/*
