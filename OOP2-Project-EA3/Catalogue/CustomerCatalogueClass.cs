@@ -127,7 +127,7 @@ namespace OOP2_Project_EA3
             if (index != -1)
             {
                 _customers[index] = newObj;
-                                OnCatalogueChanged();
+                OnCatalogueChanged();
                 return true;
             }
             return false;

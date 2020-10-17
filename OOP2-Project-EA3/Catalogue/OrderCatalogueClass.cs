@@ -75,6 +75,7 @@ namespace OOP2_Project_EA3
                 throw new ArgumentNullException(nameof(obj), "Object cannot be null!");
             }
             _orders.Add(obj);
+            OnCatalogueChanged();
         }
 
         /// <summary>
@@ -97,9 +98,9 @@ namespace OOP2_Project_EA3
         {
             if (_orders.Remove(obj))
             {
+                OnCatalogueChanged();
                 return true;
             }
-
             return false;
         }
 
@@ -123,6 +124,7 @@ namespace OOP2_Project_EA3
             if (index != -1)
             {
                 _orders[index] = newObj;
+                OnCatalogueChanged();
                 return true;
             }
             return false;
