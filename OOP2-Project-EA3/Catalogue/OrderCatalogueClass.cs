@@ -117,7 +117,7 @@ namespace OOP2_Project_EA3
             }
             if (oldObj == null || newObj == null)
             {
-                throw new ArgumentNullException("Arguements cannot be null!");
+                throw new ArgumentNullException();
             }
             int index = _orders.IndexOf(oldObj);
             if (index != -1)

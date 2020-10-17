@@ -39,6 +39,15 @@ namespace OOP2_Project_EA3
             get => _orderDate;
             set => _orderDate = value;
         }
+        
+        /// <summary>
+        ///  Delivery address associated with the order.
+        /// </summary>
+        public string DeliveryAddress
+        {
+            get => _deliveryAddress;
+            set => _deliveryAddress = value;
+        }
 
         /// <summary>
         /// All products their quantities in the order.
