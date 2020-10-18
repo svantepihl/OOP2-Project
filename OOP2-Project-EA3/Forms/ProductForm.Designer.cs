@@ -37,8 +37,8 @@
             this.productPriceTB = new System.Windows.Forms.TextBox();
             this.productStockTB = new System.Windows.Forms.TextBox();
             this.productStockLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.addProductBtn = new System.Windows.Forms.Button();
+            this.updateProductBtn = new System.Windows.Forms.Button();
             this.productAvailableTB = new System.Windows.Forms.TextBox();
             this.productAvailableLabel = new System.Windows.Forms.Label();
             this.productStockingLabel = new System.Windows.Forms.Label();
@@ -119,23 +119,23 @@
             this.productStockLabel.TabIndex = 8;
             this.productStockLabel.Text = "Stock";
             // 
-            // button1
+            // addProductBtn
             // 
-            this.button1.Location = new System.Drawing.Point(433, 682);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 46);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addProductBtn.Location = new System.Drawing.Point(433, 682);
+            this.addProductBtn.Name = "addProductBtn";
+            this.addProductBtn.Size = new System.Drawing.Size(150, 46);
+            this.addProductBtn.TabIndex = 9;
+            this.addProductBtn.Text = "Add";
+            this.addProductBtn.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // updateProductBtn
             // 
-            this.button2.Location = new System.Drawing.Point(433, 734);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 46);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
+            this.updateProductBtn.Location = new System.Drawing.Point(433, 734);
+            this.updateProductBtn.Name = "updateProductBtn";
+            this.updateProductBtn.Size = new System.Drawing.Size(150, 46);
+            this.updateProductBtn.TabIndex = 10;
+            this.updateProductBtn.Text = "Update";
+            this.updateProductBtn.UseVisualStyleBackColor = true;
             // 
             // productAvailableTB
             // 
@@ -188,8 +188,8 @@
             this.Controls.Add(this.productStockingLabel);
             this.Controls.Add(this.productAvailableLabel);
             this.Controls.Add(this.productAvailableTB);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.updateProductBtn);
+            this.Controls.Add(this.addProductBtn);
             this.Controls.Add(this.productStockLabel);
             this.Controls.Add(this.productStockTB);
             this.Controls.Add(this.productPriceTB);
@@ -217,8 +217,8 @@
         private System.Windows.Forms.TextBox productPriceTB;
         private System.Windows.Forms.TextBox productStockTB;
         private System.Windows.Forms.Label productStockLabel;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addProductBtn;
+        private System.Windows.Forms.Button updateProductBtn;
         private System.Windows.Forms.TextBox productAvailableTB;
         private System.Windows.Forms.Label productAvailableLabel;
         private System.Windows.Forms.Label productStockingLabel;

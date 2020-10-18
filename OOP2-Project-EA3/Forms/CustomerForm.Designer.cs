@@ -37,7 +37,7 @@
             this.customerPhoneTB = new System.Windows.Forms.TextBox();
             this.customerEmailTB = new System.Windows.Forms.TextBox();
             this.customerEmailLabel = new System.Windows.Forms.Label();
-            this.AddCustomerBtn = new System.Windows.Forms.Button();
+            this.addCustomerBtn = new System.Windows.Forms.Button();
             this.updateCustomerBtn = new System.Windows.Forms.Button();
             this.customerActiveRBtn = new System.Windows.Forms.RadioButton();
             this.customerArchivedRBtn = new System.Windows.Forms.RadioButton();
@@ -117,14 +117,14 @@
             this.customerEmailLabel.TabIndex = 8;
             this.customerEmailLabel.Text = "Email";
             // 
-            // AddCustomerBtn
+            // addCustomerBtn
             // 
-            this.AddCustomerBtn.Location = new System.Drawing.Point(460, 509);
-            this.AddCustomerBtn.Name = "AddCustomerBtn";
-            this.AddCustomerBtn.Size = new System.Drawing.Size(150, 46);
-            this.AddCustomerBtn.TabIndex = 9;
-            this.AddCustomerBtn.Text = "Add";
-            this.AddCustomerBtn.UseVisualStyleBackColor = true;
+            this.addCustomerBtn.Location = new System.Drawing.Point(460, 509);
+            this.addCustomerBtn.Name = "addCustomerBtn";
+            this.addCustomerBtn.Size = new System.Drawing.Size(150, 46);
+            this.addCustomerBtn.TabIndex = 9;
+            this.addCustomerBtn.Text = "Add";
+            this.addCustomerBtn.UseVisualStyleBackColor = true;
             // 
             // updateCustomerBtn
             // 
@@ -175,7 +175,7 @@
             this.Controls.Add(this.customerArchivedRBtn);
             this.Controls.Add(this.customerActiveRBtn);
             this.Controls.Add(this.updateCustomerBtn);
-            this.Controls.Add(this.AddCustomerBtn);
+            this.Controls.Add(this.addCustomerBtn);
             this.Controls.Add(this.customerEmailLabel);
             this.Controls.Add(this.customerEmailTB);
             this.Controls.Add(this.customerPhoneTB);
@@ -203,7 +203,7 @@
         private System.Windows.Forms.TextBox customerPhoneTB;
         private System.Windows.Forms.TextBox customerEmailTB;
         private System.Windows.Forms.Label customerEmailLabel;
-        private System.Windows.Forms.Button AddCustomerBtn;
+        private System.Windows.Forms.Button addCustomerBtn;
         private System.Windows.Forms.Button updateCustomerBtn;
         private System.Windows.Forms.RadioButton customerActiveRBtn;
         private System.Windows.Forms.RadioButton customerArchivedRBtn;
