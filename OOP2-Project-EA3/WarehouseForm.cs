@@ -8,11 +8,11 @@ namespace OOP2_Project_EA3
     public partial class WareHouseForm : Form
     {
         // Tre knappar, en till kunder, en till orders och en till produkter
-        public Warehouse Data;
+        public Warehouse Warehouse;
 
-        public WareHouseForm(Warehouse data)
+        public WareHouseForm(Warehouse warehouse)
         {
-            Data = data;
+            Warehouse = warehouse;
             InitializeComponent();
 
             //Watch for new orders in ./neworders
@@ -31,7 +31,7 @@ namespace OOP2_Project_EA3
             Thread.Sleep(500);
             string json = File.ReadAllText(e.FullPath);
             Order o = JsonSerializer.Deserialize<Order>(json);
-            Data.Orders.Add(o);
+            Warehouse.Orders.Add(o);
             File.Delete(e.FullPath);
         }
     }

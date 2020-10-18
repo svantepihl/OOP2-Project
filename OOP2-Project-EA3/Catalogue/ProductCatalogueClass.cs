@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace OOP2_Project_EA3
 {
-    public class ProductCatalogue : ICatalogue<Product>
+    public class ProductCatalogue : IProducts
     {
         private List<Product> _products;
 
@@ -139,6 +139,43 @@ namespace OOP2_Project_EA3
         public IEnumerable<Product> GetAll()
         {
             return _products.ToList() ;
+        }
+
+        /// <summary>
+        /// Retrieves number of items with given productCode available for dispatch.
+        /// </summary>
+        /// <param name="productCode">Code for the product of interest.</param>
+        /// <returns>Number of available items.</returns>
+        public int GetStock(int productCode)
+        {
+            return _products.Single(x => x.Code == productCode).Stock;
+        }
+
+        /// <summary>
+        /// Updates stock in product catalogue for specific product.
+        /// </summary>
+        /// <param name="productCode">Code of the product of interest</param>
+        /// <param name="items">Number of items to add to the stock, if add is negative the stock is decreased.</param>
+        /// <returns>Returns true if operation was successful. False if e.g the resulting count would be less than zero.</returns>
+        public void DispatchStock(int productCode, int items)
+        {
+            int index = _products.FindIndex(x => x.Code == productCode);
+            if (_products[index].Stock - items < 0)
+            {
+                throw new InvalidOperationException("Cannot remove more items than there is stock!");
+            }
+            _products[index].Stock -= items;
+        }
+
+        /// <summary>
+        /// Checks that the product exists in the catalogue and that all information is correct. Returns true if product exists and it's information is correct.
+        /// </summary>
+        /// <param name="product">Product to be validated.</param>
+        /// <returns>True if product exists and it's information is correct.</returns>
+        public bool ValidateProduct(Product product)
+        {
+            return _products.Exists(x => 
+                x.Code == product.Code && x.Name == product.Name && Math.Abs(x.Price - product.Price) < 0.01);
         }
     }
 }

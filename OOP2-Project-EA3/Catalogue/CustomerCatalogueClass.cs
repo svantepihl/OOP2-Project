@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace OOP2_Project_EA3
 {
-    public class CustomerCatalogue : ICatalogue<Customer>
+    public class CustomerCatalogue : ICustomers
     {
         private List<Customer> _customers;
 

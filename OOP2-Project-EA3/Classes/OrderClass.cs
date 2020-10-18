@@ -11,6 +11,9 @@ namespace OOP2_Project_EA3
         private Customer _customer;
         private DateTime _orderDate;
         private string _deliveryAddress;
+        private bool _paymentCompleted;
+        private bool _paymentRefunded;
+        private bool _dispatched;
         private List<OrderLine> _items;
 
         /// <summary>
@@ -59,20 +62,30 @@ namespace OOP2_Project_EA3
         }
 
         /// <summary>
-        /// Returns true if the payment for the order has been collected and false otherwise.
+        /// True if the payment for the order has been collected and false otherwise.
         /// </summary>
-        public bool PaymentCompleted()
+        public bool PaymentCompleted
         {
-            throw new NotImplementedException(); // Hur ska denna funktion fungera?
+            get => _paymentCompleted;
+            set => _paymentCompleted = value;
+        }
+        
+        /// <summary>
+        /// True if the order has been refunded and false otherwise.
+        /// </summary>
+        public bool PaymentRefunded
+        {
+            get => _paymentRefunded;
+            set => _paymentRefunded = value;
         }
 
         /// <summary>
-        /// Returns true if the order has been refunded and false otherwise.
+        /// True if the order has been dispatched, false otherwise.
         /// </summary>
-        public bool PaymentRefunded()
+        public bool Dispatched
         {
-            throw new NotImplementedException(); // Hur ska denna funktion fungera?
+            get => _dispatched;
+            set => _dispatched = value;
         }
-        
     }
 }

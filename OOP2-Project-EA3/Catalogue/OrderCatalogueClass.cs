@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace OOP2_Project_EA3
 {
-    public class OrderCatalogue: ICatalogue<Order>
+    public class OrderCatalogue: IOrders
     {
         private List<Order> _orders;
 
@@ -137,6 +137,26 @@ namespace OOP2_Project_EA3
         public IEnumerable<Order> GetAll()
         {
             return _orders.ToList();
+        }
+
+        /// <summary>
+        /// Refunds the order with the order number passed as argument. Throws exception if the order is not found.
+        /// </summary>
+        /// <param name="orderNumber">Order number of order to be refunded.</param>
+        /// <exception cref="System.InvalidOperationException">If the order does not exists in the catalogue.</exception>
+        public void RefundOrder(int orderNumber)
+        {
+            _orders.Single(x => x.Number == orderNumber).PaymentRefunded = true;
+        }
+
+        /// <summary>
+        /// Dispatches the order with the order number passed as argument.
+        /// </summary>
+        /// <param name="orderNumber">Order number of order to be dispatched.</param>
+        /// <exception cref="System.InvalidOperationException">If the order does not exists in the catalogue.</exception>
+        public void DispatchOrder(int orderNumber)
+        {
+            _orders.Single(x => x.Number == orderNumber).Dispatched = true;
         }
     }
 }
