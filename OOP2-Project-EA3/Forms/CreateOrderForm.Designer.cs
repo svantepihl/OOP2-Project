@@ -34,7 +34,7 @@
             this.selectQuantityNUD = new System.Windows.Forms.NumericUpDown();
             this.addSelectedProductBtn = new System.Windows.Forms.Button();
             this.shippingAdressTB = new System.Windows.Forms.TextBox();
-            this.shippingAdressLabel = new System.Windows.Forms.Label();
+            this.shippingAddressLabel = new System.Windows.Forms.Label();
             this.orderPaidRBtn = new System.Windows.Forms.RadioButton();
             this.orderUnpaidRBtn = new System.Windows.Forms.RadioButton();
             this.placeOrderBtn = new System.Windows.Forms.Button();
@@ -91,14 +91,14 @@
             this.shippingAdressTB.Size = new System.Drawing.Size(335, 39);
             this.shippingAdressTB.TabIndex = 5;
             // 
-            // shippingAdressLabel
+            // shippingAddressLabel
             // 
-            this.shippingAdressLabel.AutoSize = true;
-            this.shippingAdressLabel.Location = new System.Drawing.Point(1023, 116);
-            this.shippingAdressLabel.Name = "shippingAdressLabel";
-            this.shippingAdressLabel.Size = new System.Drawing.Size(183, 32);
-            this.shippingAdressLabel.TabIndex = 6;
-            this.shippingAdressLabel.Text = "Shipping adress";
+            this.shippingAddressLabel.AutoSize = true;
+            this.shippingAddressLabel.Location = new System.Drawing.Point(1023, 116);
+            this.shippingAddressLabel.Name = "shippingAddressLabel";
+            this.shippingAddressLabel.Size = new System.Drawing.Size(197, 32);
+            this.shippingAddressLabel.TabIndex = 6;
+            this.shippingAddressLabel.Text = "Shipping address";
             // 
             // orderPaidRBtn
             // 
@@ -139,7 +139,7 @@
             this.Controls.Add(this.placeOrderBtn);
             this.Controls.Add(this.orderUnpaidRBtn);
             this.Controls.Add(this.orderPaidRBtn);
-            this.Controls.Add(this.shippingAdressLabel);
+            this.Controls.Add(this.shippingAddressLabel);
             this.Controls.Add(this.shippingAdressTB);
             this.Controls.Add(this.addSelectedProductBtn);
             this.Controls.Add(this.selectQuantityNUD);
@@ -162,7 +162,7 @@
         private System.Windows.Forms.NumericUpDown selectQuantityNUD;
         private System.Windows.Forms.Button addSelectedProductBtn;
         private System.Windows.Forms.TextBox shippingAdressTB;
-        private System.Windows.Forms.Label shippingAdressLabel;
+        private System.Windows.Forms.Label shippingAddressLabel;
         private System.Windows.Forms.RadioButton orderPaidRBtn;
         private System.Windows.Forms.RadioButton orderUnpaidRBtn;
         private System.Windows.Forms.Button placeOrderBtn;
