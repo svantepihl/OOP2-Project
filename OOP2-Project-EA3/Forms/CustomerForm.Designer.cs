@@ -58,9 +58,9 @@
             this.customerNumberLabel.AutoSize = true;
             this.customerNumberLabel.Location = new System.Drawing.Point(410, 144);
             this.customerNumberLabel.Name = "customerNumberLabel";
-            this.customerNumberLabel.Size = new System.Drawing.Size(102, 32);
+            this.customerNumberLabel.Size = new System.Drawing.Size(208, 32);
             this.customerNumberLabel.TabIndex = 1;
-            this.customerNumberLabel.Text = "Number";
+            this.customerNumberLabel.Text = "Customer number";
             // 
             // customerNumberTB
             // 
@@ -90,9 +90,9 @@
             this.customerPhoneLabel.AutoSize = true;
             this.customerPhoneLabel.Location = new System.Drawing.Point(410, 328);
             this.customerPhoneLabel.Name = "customerPhoneLabel";
-            this.customerPhoneLabel.Size = new System.Drawing.Size(82, 32);
+            this.customerPhoneLabel.Size = new System.Drawing.Size(173, 32);
             this.customerPhoneLabel.TabIndex = 5;
-            this.customerPhoneLabel.Text = "Phone";
+            this.customerPhoneLabel.Text = "Phone number";
             // 
             // customerPhoneTB
             // 
