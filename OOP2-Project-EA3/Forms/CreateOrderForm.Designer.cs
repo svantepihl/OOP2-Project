@@ -39,6 +39,8 @@
             this.orderUnpaidRBtn = new System.Windows.Forms.RadioButton();
             this.placeOrderBtn = new System.Windows.Forms.Button();
             this.selectCustomerBtn = new System.Windows.Forms.Button();
+            this.customerNameLabel = new System.Windows.Forms.Label();
+            this.customerNameTB = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.selectQuantityNUD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +99,7 @@
             // 
             // shippingAdressTB
             // 
-            this.shippingAdressTB.Location = new System.Drawing.Point(1023, 160);
+            this.shippingAdressTB.Location = new System.Drawing.Point(1023, 215);
             this.shippingAdressTB.Name = "shippingAdressTB";
             this.shippingAdressTB.Size = new System.Drawing.Size(335, 39);
             this.shippingAdressTB.TabIndex = 5;
@@ -105,7 +107,7 @@
             // shippingAddressLabel
             // 
             this.shippingAddressLabel.AutoSize = true;
-            this.shippingAddressLabel.Location = new System.Drawing.Point(1023, 116);
+            this.shippingAddressLabel.Location = new System.Drawing.Point(1023, 171);
             this.shippingAddressLabel.Name = "shippingAddressLabel";
             this.shippingAddressLabel.Size = new System.Drawing.Size(197, 32);
             this.shippingAddressLabel.TabIndex = 6;
@@ -114,7 +116,7 @@
             // orderPaidRBtn
             // 
             this.orderPaidRBtn.AutoSize = true;
-            this.orderPaidRBtn.Location = new System.Drawing.Point(1023, 235);
+            this.orderPaidRBtn.Location = new System.Drawing.Point(1023, 290);
             this.orderPaidRBtn.Name = "orderPaidRBtn";
             this.orderPaidRBtn.Size = new System.Drawing.Size(153, 36);
             this.orderPaidRBtn.TabIndex = 7;
@@ -125,7 +127,7 @@
             // orderUnpaidRBtn
             // 
             this.orderUnpaidRBtn.AutoSize = true;
-            this.orderUnpaidRBtn.Location = new System.Drawing.Point(1023, 278);
+            this.orderUnpaidRBtn.Location = new System.Drawing.Point(1023, 333);
             this.orderUnpaidRBtn.Name = "orderUnpaidRBtn";
             this.orderUnpaidRBtn.Size = new System.Drawing.Size(185, 36);
             this.orderUnpaidRBtn.TabIndex = 8;
@@ -151,11 +153,30 @@
             this.selectCustomerBtn.Text = "Select customer";
             this.selectCustomerBtn.UseVisualStyleBackColor = true;
             // 
+            // customerNameLabel
+            // 
+            this.customerNameLabel.AutoSize = true;
+            this.customerNameLabel.Location = new System.Drawing.Point(1023, 49);
+            this.customerNameLabel.Name = "customerNameLabel";
+            this.customerNameLabel.Size = new System.Drawing.Size(184, 32);
+            this.customerNameLabel.TabIndex = 11;
+            this.customerNameLabel.Text = "Customer name";
+            // 
+            // customerNameTB
+            // 
+            this.customerNameTB.Location = new System.Drawing.Point(1023, 84);
+            this.customerNameTB.Name = "customerNameTB";
+            this.customerNameTB.ReadOnly = true;
+            this.customerNameTB.Size = new System.Drawing.Size(200, 39);
+            this.customerNameTB.TabIndex = 12;
+            // 
             // CreateOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1474, 973);
+            this.Controls.Add(this.customerNameTB);
+            this.Controls.Add(this.customerNameLabel);
             this.Controls.Add(this.selectCustomerBtn);
             this.Controls.Add(this.placeOrderBtn);
             this.Controls.Add(this.orderUnpaidRBtn);
@@ -188,5 +209,7 @@
         private System.Windows.Forms.RadioButton orderUnpaidRBtn;
         private System.Windows.Forms.Button placeOrderBtn;
         private System.Windows.Forms.Button selectCustomerBtn;
+        private System.Windows.Forms.Label customerNameLabel;
+        private System.Windows.Forms.TextBox customerNameTB;
     }
 }

@@ -43,7 +43,7 @@
             this.productStockingLabel = new System.Windows.Forms.Label();
             this.productStockingTB = new System.Windows.Forms.TextBox();
             this.productStockZeroListLB = new System.Windows.Forms.ListBox();
-            this.addNewProductBtn = new System.Windows.Forms.Button();
+            this.createNewProductBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // productListLB
@@ -169,21 +169,21 @@
             this.productStockZeroListLB.Size = new System.Drawing.Size(420, 676);
             this.productStockZeroListLB.TabIndex = 15;
             // 
-            // addNewProductBtn
+            // createNewProductBtn
             // 
-            this.addNewProductBtn.Location = new System.Drawing.Point(43, 805);
-            this.addNewProductBtn.Name = "addNewProductBtn";
-            this.addNewProductBtn.Size = new System.Drawing.Size(303, 78);
-            this.addNewProductBtn.TabIndex = 9;
-            this.addNewProductBtn.Text = "Add new product";
-            this.addNewProductBtn.UseVisualStyleBackColor = true;
+            this.createNewProductBtn.Location = new System.Drawing.Point(43, 805);
+            this.createNewProductBtn.Name = "createNewProductBtn";
+            this.createNewProductBtn.Size = new System.Drawing.Size(303, 78);
+            this.createNewProductBtn.TabIndex = 9;
+            this.createNewProductBtn.Text = "Create new product";
+            this.createNewProductBtn.UseVisualStyleBackColor = true;
             // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1565, 1121);
-            this.Controls.Add(this.addNewProductBtn);
+            this.Controls.Add(this.createNewProductBtn);
             this.Controls.Add(this.productStockZeroListLB);
             this.Controls.Add(this.productStockingTB);
             this.Controls.Add(this.productStockingLabel);
@@ -223,6 +223,6 @@
         private System.Windows.Forms.Label productStockingLabel;
         private System.Windows.Forms.TextBox productStockingTB;
         private System.Windows.Forms.ListBox productStockZeroListLB;
-        private System.Windows.Forms.Button addNewProductBtn;
+        private System.Windows.Forms.Button createNewProductBtn;
     }
 }
