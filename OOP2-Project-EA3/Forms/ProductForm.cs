@@ -4,7 +4,7 @@ namespace OOP2_Project_EA3
 {
     public partial class ProductForm : Form
     {
-        public ProductForm(Warehouse warehouse)
+        public ProductForm()
         {
             InitializeComponent();
         }

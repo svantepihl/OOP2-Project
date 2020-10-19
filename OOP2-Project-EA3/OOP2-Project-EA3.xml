@@ -1,0 +1,550 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OOP2-Project-EA3</name>
+    </assembly>
+    <members>
+        <member name="F:OOP2_Project_EA3.CustomerCatalogue._folder">
+            <summary>
+            Path of folder to store json files
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.CustomerCatalogue.#ctor(System.String)">
+            <summary>
+            The constructor take the folder location of the file "customers.json" and reads the contents of the file.
+            </summary>
+            <param name="folder">Location of folder to store the json file "customers.json".</param>
+        </member>
+        <member name="E:OOP2_Project_EA3.CustomerCatalogue.CatalogueChanged">
+            <summary>
+            Invoked when there is any changes made to the catalogue.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.CustomerCatalogue.OnCatalogueChanged">
+            <summary>
+            Invokes CatalogueChanged and writes updates to json file.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.CustomerCatalogue.WriteToFile">
+            <summary>
+            Write contents of catalogue to json file.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.CustomerCatalogue.InitiateCatalogue">
+            <summary>
+            Reads contents from json file, if it exists, and stores in catalogue. Otherwise creates new internal list for catalogue.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.CustomerCatalogue.Add(OOP2_Project_EA3.Customer)">
+            <summary>
+            Adds an object 'obj' to the catalogue.
+            </summary>
+            <param name="obj"> Object to be added to the catalogue.</param>
+        </member>
+        <member name="M:OOP2_Project_EA3.CustomerCatalogue.Find(System.Int32)">
+            <summary>
+            Finds the object based on the specified identifier.
+            </summary>
+            <param name="identifier">The unique identifier for objects in catalogue eg. for customers: customerNumber</param>
+            <returns>The object with the specified identifier.</returns>
+            <exception cref="T:System.InvalidOperationException">If zero or more than one object are found an exception is thrown.</exception>
+        </member>
+        <member name="M:OOP2_Project_EA3.CustomerCatalogue.Remove(OOP2_Project_EA3.Customer)">
+            <summary>
+            Removes the object 'obj' from the catalogue.
+            </summary>
+            <param name="obj">The object to be removed</param>
+            <returns>Returns true if object was successfully removed from catalogue.</returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.CustomerCatalogue.Update(OOP2_Project_EA3.Customer,OOP2_Project_EA3.Customer)">
+            <summary>
+            Updates an object in the collection by replacing it with a new object with the same identifier.
+            </summary>
+            <param name="oldObj">Current object in the collection.</param>
+            <param name="newObj">New object to replace the old object with the same identifier</param>
+            <returns>True if the object was found and successfully replaced with the new object. </returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.CustomerCatalogue.GetAll">
+            <summary>
+            Get all objects in the catalogue.
+            </summary>
+            <returns>An IEnumerable with all objects stored in the catalogue.</returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.ICatalogue`1.Add(`0)">
+            <summary>
+            Adds an object 'obj' to the catalogue.
+            </summary>
+            <param name="obj"> Object to be added to the catalogue.</param>
+        </member>
+        <member name="M:OOP2_Project_EA3.ICatalogue`1.Find(System.Int32)">
+            <summary>
+            Finds the object based on the specified identifier.
+            </summary>
+            <param name="identifier">The unique identifier for objects in catalogue eg. for customers: customerNumber</param>
+            <returns>The object with the specified identifier.</returns>
+            <exception cref="T:System.InvalidOperationException">If zero or more than one object are found an exception is thrown.</exception>
+        </member>
+        <member name="M:OOP2_Project_EA3.ICatalogue`1.Remove(`0)">
+            <summary>
+            Removes the object 'obj' from the catalogue.
+            </summary>
+            <param name="obj">The object to be removed</param>
+            <returns>Returns true if object was successfully removed from catalogue.</returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.ICatalogue`1.Update(`0,`0)">
+            <summary>
+            Updates an object in the collection by replacing it with a new object with the same identifier.
+            </summary>
+            <param name="oldObj">Current object in the collection</param>
+            <param name="newObj">New object to replace the old object with</param>
+            <returns>True if the object was found and successfully replaced with the new object. </returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.ICatalogue`1.GetAll">
+            <summary>
+            Get all objects in the catalogue.
+            </summary>
+            <returns>An IEnumerable with all objects stored in the catalogue.</returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.IOrders.RefundOrder(System.Int32)">
+            <summary>
+            Refunds the order with the order number passed as argument.
+            </summary>
+            <param name="orderNumber">Order number of order to be refunded.</param>
+            <exception cref="T:System.InvalidOperationException">If the order does not exists in the catalogue.</exception>
+        </member>
+        <member name="M:OOP2_Project_EA3.IOrders.DispatchOrder(System.Int32)">
+            <summary>
+            Dispatches the order with the order number passed as argument.
+            </summary>
+            <param name="orderNumber">Order number of order to be dispatched.</param>
+            <exception cref="T:System.InvalidOperationException">If the order does not exists in the catalogue.</exception>
+        </member>
+        <member name="M:OOP2_Project_EA3.IProducts.GetStock(System.Int32)">
+            <summary>
+            Retrieves number of items with given productCode available for dispatch.
+            </summary>
+            <param name="productCode">Code for the product of interest.</param>
+            <returns>Number of available items.</returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.IProducts.DispatchStock(System.Int32,System.Int32)">
+            <summary>
+            Dispatches selected number of items of selected product from stock.
+            </summary>
+            <param name="productCode">Code of the product to be dispatched.</param>
+            <param name="items">Number of items to remove from stock.</param>
+            <returns>Returns true if operation was successful. False if e.g the resulting count would be less than zero.</returns>
+            <exception cref="T:System.InvalidOperationException">If product does not exists in product catalogue.</exception>
+        </member>
+        <member name="M:OOP2_Project_EA3.IProducts.ValidateProduct(OOP2_Project_EA3.Product)">
+            <summary>
+            Checks that the product exists in the catalogue and that all information is correct. Returns true if product exists and it's information is correct.
+            </summary>
+            <param name="product">Product to be validated.</param>
+            <returns>True if product exists and it's information is correct.</returns>
+        </member>
+        <member name="F:OOP2_Project_EA3.OrderCatalogue._folder">
+            <summary>
+            Path of folder to store json files
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrderCatalogue.#ctor(System.String)">
+            <summary>
+            The constructor take the folder location of the file "products.json" and reads the contents of the file.
+            </summary>
+            <param name="folder">Location of folder to store the json file "products.json".</param>
+        </member>
+        <member name="E:OOP2_Project_EA3.OrderCatalogue.CatalogueChanged">
+            <summary>
+            Invoked when there is any changes made to the catalogue.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrderCatalogue.OnCatalogueChanged">
+            <summary>
+            Invokes CatalogueChanged and writes updates to json file.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrderCatalogue.WriteToFile">
+            <summary>
+            Write contents of catalogue to json file.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrderCatalogue.InitiateCatalogue">
+            <summary>
+            Reads contents from json file, if it exists, and stores in catalogue. Otherwise creates new internal list for catalogue.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrderCatalogue.Add(OOP2_Project_EA3.Order)">
+            <summary>
+            Adds an object 'obj' to the catalogue.
+            </summary>
+            <param name="obj"> Object to be added to the catalogue.</param>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrderCatalogue.Find(System.Int32)">
+            <summary>
+            Finds the object based on the specified identifier.
+            </summary>
+            <param name="identifier">The unique identifier for objects in catalogue eg. for customers: customerNumber</param>
+            <returns>The object with the specified identifier.</returns>
+            <exception cref="T:System.InvalidOperationException">If zero or more than one object are found an exception is thrown.</exception>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrderCatalogue.Remove(OOP2_Project_EA3.Order)">
+            <summary>
+            Removes the object 'obj' from the catalogue.
+            </summary>
+            <param name="obj">The object to be removed</param>
+            <returns>Returns true if object was successfully removed from catalogue.</returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrderCatalogue.Update(OOP2_Project_EA3.Order,OOP2_Project_EA3.Order)">
+            <summary>
+            Updates an object in the collection by replacing it with a new object.
+            </summary>
+            <param name="oldObj">Current object in the collection</param>
+            <param name="newObj">New object to replace the old object with</param>
+            <returns>True if the object was found and successfully replaced with the new object. </returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrderCatalogue.GetAll">
+            <summary>
+            Get all objects in the catalogue.
+            </summary>
+            <returns>An IEnumerable with all objects stored in the catalogue.</returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrderCatalogue.RefundOrder(System.Int32)">
+            <summary>
+            Refunds the order with the order number passed as argument. Throws exception if the order is not found.
+            </summary>
+            <param name="orderNumber">Order number of order to be refunded.</param>
+            <exception cref="T:System.InvalidOperationException">If the order does not exists in the catalogue.</exception>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrderCatalogue.DispatchOrder(System.Int32)">
+            <summary>
+            Dispatches the order with the order number passed as argument.
+            </summary>
+            <param name="orderNumber">Order number of order to be dispatched.</param>
+            <exception cref="T:System.InvalidOperationException">If the order does not exists in the catalogue.</exception>
+        </member>
+        <member name="F:OOP2_Project_EA3.ProductCatalogue._folder">
+            <summary>
+            Path of folder to store json files
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductCatalogue.#ctor(System.String)">
+            <summary>
+            The constructor take the folder location of the file "products.json" and reads the contents of the file.
+            </summary>
+            <param name="folder">Location of folder to store the json file "products.json".</param>
+        </member>
+        <member name="E:OOP2_Project_EA3.ProductCatalogue.CatalogueChanged">
+            <summary>
+            Invoked when there is any changes made to the catalogue.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductCatalogue.OnCatalogueChanged">
+            <summary>
+            Invokes CatalogueChanged and writes updates to json file.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductCatalogue.WriteToFile">
+            <summary>
+            Write contents of catalogue to json file.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductCatalogue.InitiateCatalogue">
+            <summary>
+            Reads contents from json file, if it exists, and stores in catalogue. Otherwise creates new internal list for catalogue.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductCatalogue.Add(OOP2_Project_EA3.Product)">
+            <summary>
+            Adds an object 'obj' to the catalogue.
+            </summary>
+            <param name="obj"> Object to be added to the catalogue.</param>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductCatalogue.Find(System.Int32)">
+            <summary>
+            Finds the object based on the specified identifier.
+            </summary>
+            <param name="identifier">The unique identifier for objects in catalogue eg. for customers: customerNumber</param>
+            <returns>The object if found, otherwise returns null.</returns>
+            <exception cref="T:System.InvalidOperationException">If zero or more than one object are found an exception is thrown.</exception>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductCatalogue.Remove(OOP2_Project_EA3.Product)">
+            <summary>
+            Removes the object 'obj' from the catalogue.
+            </summary>
+            <param name="obj">The object to be removed</param>
+            <returns>Returns true if object was successfully removed from catalogue.</returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductCatalogue.Update(OOP2_Project_EA3.Product,OOP2_Project_EA3.Product)">
+            <summary>
+            Updates an object in the collection by replacing it with a new object.
+            </summary>
+            <param name="oldObj">Current object in the collection</param>
+            <param name="newObj">New object to replace the old object with</param>
+            <returns>True if the object was found and successfully replaced with the new object. </returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductCatalogue.GetAll">
+            <summary>
+            Get all objects in the catalogue.
+            </summary>
+            <returns>An IEnumerable with all objects stored in the catalogue.</returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductCatalogue.GetStock(System.Int32)">
+            <summary>
+            Retrieves number of items with given productCode available for dispatch.
+            </summary>
+            <param name="productCode">Code for the product of interest.</param>
+            <returns>Number of available items.</returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductCatalogue.DispatchStock(System.Int32,System.Int32)">
+            <summary>
+            Updates stock in product catalogue for specific product.
+            </summary>
+            <param name="productCode">Code of the product of interest</param>
+            <param name="items">Number of items to add to the stock, if add is negative the stock is decreased.</param>
+            <returns>Returns true if operation was successful. False if e.g the resulting count would be less than zero.</returns>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductCatalogue.ValidateProduct(OOP2_Project_EA3.Product)">
+            <summary>
+            Checks that the product exists in the catalogue and that all information is correct. Returns true if product exists and it's information is correct.
+            </summary>
+            <param name="product">Product to be validated.</param>
+            <returns>True if product exists and it's information is correct.</returns>
+        </member>
+        <member name="P:OOP2_Project_EA3.Customer.Number">
+            <summary>
+            A customer unique 'customer number'
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Customer.Name">
+            <summary>
+            A customer first- and lastname
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Customer.Phone">
+            <summary>
+            A customers phone number including country code.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Customer.Email">
+            <summary>
+            A customers email address.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Order.Number">
+            <summary>
+            A orders unique 'order number'.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Order.Customer">
+            <summary>
+            The customer who placed the order.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Order.OrderDate">
+            <summary>
+            Date and time when the order was placed. 
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Order.DeliveryAddress">
+            <summary>
+             Delivery address associated with the order.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Order.Items">
+            <summary>
+            All products their quantities in the order.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Order.PaymentCompleted">
+            <summary>
+            True if the payment for the order has been collected and false otherwise.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Order.PaymentRefunded">
+            <summary>
+            True if the order has been refunded and false otherwise.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Order.Dispatched">
+            <summary>
+            True if the order has been dispatched, false otherwise.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.OrderLine.Product">
+            <summary>
+            Type of product on the order line.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.OrderLine.Count">
+            <summary>
+            Number of this product on the order line.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Product.Code">
+            <summary>
+            A products unique product code.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Product.Name">
+            <summary>
+            A products official name.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Product.Price">
+            <summary>
+            The price of the product with two decimalsplaces precision.
+            </summary>
+        </member>
+        <member name="P:OOP2_Project_EA3.Product.Stock">
+            <summary>
+            Number items of this product that are ready to be dispatched from warehouse.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.Product.FirstAvailable">
+            <summary>
+            Returns first possible DateTime when the product is available.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.Product.NextStocking">
+            <summary>
+            Returns the next DataTime when item will be in stock.
+            </summary>
+        </member>
+        <member name="F:OOP2_Project_EA3.CreateCustomerForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.CreateCustomerForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:OOP2_Project_EA3.CreateCustomerForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:OOP2_Project_EA3.CreateOrderForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.CreateOrderForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:OOP2_Project_EA3.CreateOrderForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:OOP2_Project_EA3.CreateProductForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.CreateProductForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:OOP2_Project_EA3.CreateProductForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:OOP2_Project_EA3.CustomerForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.CustomerForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:OOP2_Project_EA3.CustomerForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:OOP2_Project_EA3.OrdersForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrdersForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:OOP2_Project_EA3.OrdersForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:OOP2_Project_EA3.ProductForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:OOP2_Project_EA3.ProductForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.Program.Main">
+            <summary>
+             The main entry point for the application.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.Warehouse.BatchProcessOrders">
+            <summary>
+            Process all orders that are not dispatched and where payment is collected and not refunded.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.Warehouse.ProcessOrder(OOP2_Project_EA3.Order)">
+            <summary>
+            Processes the order given in the argument.
+            If all products are valid and there is enough stock the order is marked as dispatched inventory is updated.
+            </summary>
+            <param name="order">Order to be processed</param>
+        </member>
+        <member name="F:OOP2_Project_EA3.WareHouseForm.components">
+            <summary>
+             Required designer variable.
+            </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.WareHouseForm.Dispose(System.Boolean)">
+            <summary>
+             Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:OOP2_Project_EA3.WareHouseForm.InitializeComponent">
+            <summary>
+             Required method for Designer support - do not modify
+             the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

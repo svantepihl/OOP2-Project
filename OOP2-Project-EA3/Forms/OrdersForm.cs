@@ -13,20 +13,14 @@ namespace OOP2_Project_EA3
 
         private void OrdersForm_Load(object sender, System.EventArgs e)
         {
-            
+
         }
 
         private void addNewOrderBtn_Click(object sender, System.EventArgs e)
         {
-            Form CreateOrder = new CreateOrderForm();
+            CreateOrderForm CreateOrder = new CreateOrderForm();
             CreateOrder.Show();
-            
-        }
 
-        private void addNewOrderBtn_Click(object sender, System.EventArgs e)
-        {
-            CreateOrderForm createOrderForm = new CreateOrderForm();
-            createOrderForm.Show();
         }
     }
 }
