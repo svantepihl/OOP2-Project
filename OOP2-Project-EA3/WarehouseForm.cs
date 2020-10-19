@@ -16,10 +16,10 @@ namespace OOP2_Project_EA3
             InitializeComponent();
 
             //Watch for new orders in ./neworders
-            WatchNewOrders();
+            //WatchNewOrders();
         }
 
-        private void WatchNewOrders()
+        /*private void WatchNewOrders()
         {
             FileSystemWatcher fsw = new FileSystemWatcher("./neworders", "*.json");
             fsw.SynchronizingObject = this;
@@ -33,6 +33,24 @@ namespace OOP2_Project_EA3
             Order o = JsonSerializer.Deserialize<Order>(json);
             Warehouse.Orders.Add(o);
             File.Delete(e.FullPath);
+        }*/
+
+        private void ordersBtn_Click(object sender, System.EventArgs e)
+        {
+            Form orders = new OrdersForm(Warehouse);
+            orders.Show();
+        }
+
+        private void customersBtn_Click(object sender, System.EventArgs e)
+        {
+            Form customers = new CustomerForm(Warehouse);
+            customers.Show();
+        }
+
+        private void productsBtn_Click(object sender, System.EventArgs e)
+        {
+            Form products = new ProductForm(Warehouse);
+            products.Show();
         }
     }
 }

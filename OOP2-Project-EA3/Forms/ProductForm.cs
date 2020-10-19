@@ -4,9 +4,15 @@ namespace OOP2_Project_EA3
 {
     public partial class ProductForm : Form
     {
-        public ProductForm()
+        public ProductForm(Warehouse warehouse)
         {
             InitializeComponent();
+        }
+
+        private void createNewProductBtn_Click(object sender, System.EventArgs e)
+        {
+            CreateProductForm createProductForm = new CreateProductForm();
+            createProductForm.Show();
         }
 
         // TODO: Lägga till produkt till katalogen,
