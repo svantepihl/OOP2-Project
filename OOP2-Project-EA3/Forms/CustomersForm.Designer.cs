@@ -1,6 +1,6 @@
-﻿namespace OOP2_Project_EA3
+namespace OOP2_Project_EA3
 {
-    partial class CustomerForm
+    partial class CustomersForm
     {
         /// <summary>
         /// Required designer variable.
@@ -181,7 +181,7 @@
             this.customerOrderListLB.Size = new System.Drawing.Size(165, 319);
             this.customerOrderListLB.TabIndex = 13;
             // 
-            // CustomerForm
+            // CustomersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -201,7 +201,7 @@
             this.Controls.Add(this.customerNumberLabel);
             this.Controls.Add(this.customerListLB);
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.Name = "CustomerForm";
+            this.Name = "CustomersForm";
             this.Text = "Add";
             this.ResumeLayout(false);
             this.PerformLayout();

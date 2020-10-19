@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace OOP2_Project_EA3
@@ -13,6 +14,7 @@ namespace OOP2_Project_EA3
 
         public Warehouse(string folder)
         {
+            Directory.CreateDirectory(folder);
             Customers = new CustomerCatalogue(folder);
             Products = new ProductCatalogue(folder);
             Orders = new OrderCatalogue(folder);

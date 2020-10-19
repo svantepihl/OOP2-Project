@@ -45,7 +45,7 @@ namespace OOP2_Project_EA3
         private void WriteToFile()
         {
             string contents = JsonSerializer.Serialize(_customers);
-            File.WriteAllText(_folder +"/customers.json", contents);
+            File.WriteAllText(_folder + "\\customers.json", contents);
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace OOP2_Project_EA3
         {
             if (File.Exists(_folder))
             {
-                string fileContents = File.ReadAllText(_folder +"/customers.json");
+                string fileContents = File.ReadAllText(_folder +"\\customers.json");
                 _customers = JsonSerializer.Deserialize<List<Customer>>(fileContents);
             }
             else _customers = new List<Customer>();
