@@ -47,90 +47,102 @@
             // customerListLB
             // 
             this.customerListLB.FormattingEnabled = true;
-            this.customerListLB.ItemHeight = 32;
-            this.customerListLB.Location = new System.Drawing.Point(70, 121);
+            this.customerListLB.ItemHeight = 15;
+            this.customerListLB.Location = new System.Drawing.Point(38, 57);
+            this.customerListLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerListLB.Name = "customerListLB";
-            this.customerListLB.Size = new System.Drawing.Size(303, 580);
+            this.customerListLB.Size = new System.Drawing.Size(165, 274);
             this.customerListLB.TabIndex = 0;
             // 
             // customerNumberLabel
             // 
             this.customerNumberLabel.AutoSize = true;
-            this.customerNumberLabel.Location = new System.Drawing.Point(410, 144);
+            this.customerNumberLabel.Location = new System.Drawing.Point(221, 68);
+            this.customerNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customerNumberLabel.Name = "customerNumberLabel";
-            this.customerNumberLabel.Size = new System.Drawing.Size(208, 32);
+            this.customerNumberLabel.Size = new System.Drawing.Size(104, 15);
             this.customerNumberLabel.TabIndex = 1;
             this.customerNumberLabel.Text = "Customer number";
             // 
             // customerNumberTB
             // 
-            this.customerNumberTB.Location = new System.Drawing.Point(410, 179);
+            this.customerNumberTB.Location = new System.Drawing.Point(221, 84);
+            this.customerNumberTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerNumberTB.Name = "customerNumberTB";
-            this.customerNumberTB.Size = new System.Drawing.Size(200, 39);
+            this.customerNumberTB.Size = new System.Drawing.Size(110, 23);
             this.customerNumberTB.TabIndex = 2;
             // 
             // customerNameLabel
             // 
             this.customerNameLabel.AutoSize = true;
-            this.customerNameLabel.Location = new System.Drawing.Point(410, 233);
+            this.customerNameLabel.Location = new System.Drawing.Point(221, 109);
+            this.customerNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customerNameLabel.Name = "customerNameLabel";
-            this.customerNameLabel.Size = new System.Drawing.Size(78, 32);
+            this.customerNameLabel.Size = new System.Drawing.Size(39, 15);
             this.customerNameLabel.TabIndex = 3;
             this.customerNameLabel.Text = "Name";
             // 
             // customerNameTB
             // 
-            this.customerNameTB.Location = new System.Drawing.Point(410, 269);
+            this.customerNameTB.Location = new System.Drawing.Point(221, 126);
+            this.customerNameTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerNameTB.Name = "customerNameTB";
-            this.customerNameTB.Size = new System.Drawing.Size(200, 39);
+            this.customerNameTB.Size = new System.Drawing.Size(110, 23);
             this.customerNameTB.TabIndex = 4;
             // 
             // customerPhoneLabel
             // 
             this.customerPhoneLabel.AutoSize = true;
-            this.customerPhoneLabel.Location = new System.Drawing.Point(410, 328);
+            this.customerPhoneLabel.Location = new System.Drawing.Point(221, 154);
+            this.customerPhoneLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customerPhoneLabel.Name = "customerPhoneLabel";
-            this.customerPhoneLabel.Size = new System.Drawing.Size(173, 32);
+            this.customerPhoneLabel.Size = new System.Drawing.Size(86, 15);
             this.customerPhoneLabel.TabIndex = 5;
             this.customerPhoneLabel.Text = "Phone number";
             // 
             // customerPhoneTB
             // 
-            this.customerPhoneTB.Location = new System.Drawing.Point(410, 363);
+            this.customerPhoneTB.Location = new System.Drawing.Point(221, 170);
+            this.customerPhoneTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerPhoneTB.Name = "customerPhoneTB";
-            this.customerPhoneTB.Size = new System.Drawing.Size(200, 39);
+            this.customerPhoneTB.Size = new System.Drawing.Size(110, 23);
             this.customerPhoneTB.TabIndex = 6;
             // 
             // customerEmailTB
             // 
-            this.customerEmailTB.Location = new System.Drawing.Point(410, 450);
+            this.customerEmailTB.Location = new System.Drawing.Point(221, 211);
+            this.customerEmailTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerEmailTB.Name = "customerEmailTB";
-            this.customerEmailTB.Size = new System.Drawing.Size(200, 39);
+            this.customerEmailTB.Size = new System.Drawing.Size(110, 23);
             this.customerEmailTB.TabIndex = 7;
             // 
             // customerEmailLabel
             // 
             this.customerEmailLabel.AutoSize = true;
-            this.customerEmailLabel.Location = new System.Drawing.Point(410, 415);
+            this.customerEmailLabel.Location = new System.Drawing.Point(221, 195);
+            this.customerEmailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customerEmailLabel.Name = "customerEmailLabel";
-            this.customerEmailLabel.Size = new System.Drawing.Size(71, 32);
+            this.customerEmailLabel.Size = new System.Drawing.Size(36, 15);
             this.customerEmailLabel.TabIndex = 8;
             this.customerEmailLabel.Text = "Email";
             // 
             // createNewCustomerBtn
             // 
-            this.createNewCustomerBtn.Location = new System.Drawing.Point(70, 719);
+            this.createNewCustomerBtn.Location = new System.Drawing.Point(38, 337);
+            this.createNewCustomerBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.createNewCustomerBtn.Name = "createNewCustomerBtn";
-            this.createNewCustomerBtn.Size = new System.Drawing.Size(303, 78);
+            this.createNewCustomerBtn.Size = new System.Drawing.Size(163, 37);
             this.createNewCustomerBtn.TabIndex = 9;
             this.createNewCustomerBtn.Text = "Create new customer";
             this.createNewCustomerBtn.UseVisualStyleBackColor = true;
+            this.createNewCustomerBtn.Click += new System.EventHandler(this.createNewCustomerBtn_Click);
             // 
             // updateCustomerBtn
             // 
-            this.updateCustomerBtn.Location = new System.Drawing.Point(410, 507);
+            this.updateCustomerBtn.Location = new System.Drawing.Point(221, 238);
+            this.updateCustomerBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.updateCustomerBtn.Name = "updateCustomerBtn";
-            this.updateCustomerBtn.Size = new System.Drawing.Size(200, 46);
+            this.updateCustomerBtn.Size = new System.Drawing.Size(108, 22);
             this.updateCustomerBtn.TabIndex = 10;
             this.updateCustomerBtn.Text = "Update";
             this.updateCustomerBtn.UseVisualStyleBackColor = true;
@@ -138,9 +150,10 @@
             // customerActiveRBtn
             // 
             this.customerActiveRBtn.AutoSize = true;
-            this.customerActiveRBtn.Location = new System.Drawing.Point(1299, 140);
+            this.customerActiveRBtn.Location = new System.Drawing.Point(699, 66);
+            this.customerActiveRBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerActiveRBtn.Name = "customerActiveRBtn";
-            this.customerActiveRBtn.Size = new System.Drawing.Size(215, 36);
+            this.customerActiveRBtn.Size = new System.Drawing.Size(109, 19);
             this.customerActiveRBtn.TabIndex = 11;
             this.customerActiveRBtn.TabStop = true;
             this.customerActiveRBtn.Text = "All active orders";
@@ -149,9 +162,10 @@
             // customerArchivedRBtn
             // 
             this.customerArchivedRBtn.AutoSize = true;
-            this.customerArchivedRBtn.Location = new System.Drawing.Point(1299, 182);
+            this.customerArchivedRBtn.Location = new System.Drawing.Point(699, 85);
+            this.customerArchivedRBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerArchivedRBtn.Name = "customerArchivedRBtn";
-            this.customerArchivedRBtn.Size = new System.Drawing.Size(243, 36);
+            this.customerArchivedRBtn.Size = new System.Drawing.Size(123, 19);
             this.customerArchivedRBtn.TabIndex = 12;
             this.customerArchivedRBtn.TabStop = true;
             this.customerArchivedRBtn.Text = "All archived orders";
@@ -160,17 +174,18 @@
             // customerOrderListLB
             // 
             this.customerOrderListLB.FormattingEnabled = true;
-            this.customerOrderListLB.ItemHeight = 32;
-            this.customerOrderListLB.Location = new System.Drawing.Point(961, 121);
+            this.customerOrderListLB.ItemHeight = 15;
+            this.customerOrderListLB.Location = new System.Drawing.Point(517, 57);
+            this.customerOrderListLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerOrderListLB.Name = "customerOrderListLB";
-            this.customerOrderListLB.Size = new System.Drawing.Size(303, 676);
+            this.customerOrderListLB.Size = new System.Drawing.Size(165, 319);
             this.customerOrderListLB.TabIndex = 13;
             // 
             // CustomerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1601, 1066);
+            this.ClientSize = new System.Drawing.Size(862, 500);
             this.Controls.Add(this.customerOrderListLB);
             this.Controls.Add(this.customerArchivedRBtn);
             this.Controls.Add(this.customerActiveRBtn);
@@ -185,6 +200,7 @@
             this.Controls.Add(this.customerNumberTB);
             this.Controls.Add(this.customerNumberLabel);
             this.Controls.Add(this.customerListLB);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "CustomerForm";
             this.Text = "Add";
             this.ResumeLayout(false);
