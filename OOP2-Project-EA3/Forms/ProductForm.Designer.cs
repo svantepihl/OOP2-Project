@@ -37,13 +37,13 @@
             this.productPriceTB = new System.Windows.Forms.TextBox();
             this.productStockTB = new System.Windows.Forms.TextBox();
             this.productStockLabel = new System.Windows.Forms.Label();
-            this.addProductBtn = new System.Windows.Forms.Button();
             this.updateProductBtn = new System.Windows.Forms.Button();
             this.productAvailableTB = new System.Windows.Forms.TextBox();
             this.productAvailableLabel = new System.Windows.Forms.Label();
             this.productStockingLabel = new System.Windows.Forms.Label();
             this.productStockingTB = new System.Windows.Forms.TextBox();
             this.productStockZeroListLB = new System.Windows.Forms.ListBox();
+            this.addNewProductBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // productListLB
@@ -119,20 +119,11 @@
             this.productStockLabel.TabIndex = 8;
             this.productStockLabel.Text = "Stock";
             // 
-            // addProductBtn
-            // 
-            this.addProductBtn.Location = new System.Drawing.Point(433, 682);
-            this.addProductBtn.Name = "addProductBtn";
-            this.addProductBtn.Size = new System.Drawing.Size(150, 46);
-            this.addProductBtn.TabIndex = 9;
-            this.addProductBtn.Text = "Add";
-            this.addProductBtn.UseVisualStyleBackColor = true;
-            // 
             // updateProductBtn
             // 
-            this.updateProductBtn.Location = new System.Drawing.Point(433, 734);
+            this.updateProductBtn.Location = new System.Drawing.Point(382, 680);
             this.updateProductBtn.Name = "updateProductBtn";
-            this.updateProductBtn.Size = new System.Drawing.Size(150, 46);
+            this.updateProductBtn.Size = new System.Drawing.Size(201, 46);
             this.updateProductBtn.TabIndex = 10;
             this.updateProductBtn.Text = "Update";
             this.updateProductBtn.UseVisualStyleBackColor = true;
@@ -178,18 +169,27 @@
             this.productStockZeroListLB.Size = new System.Drawing.Size(420, 676);
             this.productStockZeroListLB.TabIndex = 15;
             // 
+            // addNewProductBtn
+            // 
+            this.addNewProductBtn.Location = new System.Drawing.Point(43, 805);
+            this.addNewProductBtn.Name = "addNewProductBtn";
+            this.addNewProductBtn.Size = new System.Drawing.Size(303, 78);
+            this.addNewProductBtn.TabIndex = 9;
+            this.addNewProductBtn.Text = "Add new product";
+            this.addNewProductBtn.UseVisualStyleBackColor = true;
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1569, 1037);
+            this.ClientSize = new System.Drawing.Size(1565, 1121);
+            this.Controls.Add(this.addNewProductBtn);
             this.Controls.Add(this.productStockZeroListLB);
             this.Controls.Add(this.productStockingTB);
             this.Controls.Add(this.productStockingLabel);
             this.Controls.Add(this.productAvailableLabel);
             this.Controls.Add(this.productAvailableTB);
             this.Controls.Add(this.updateProductBtn);
-            this.Controls.Add(this.addProductBtn);
             this.Controls.Add(this.productStockLabel);
             this.Controls.Add(this.productStockTB);
             this.Controls.Add(this.productPriceTB);
@@ -217,12 +217,12 @@
         private System.Windows.Forms.TextBox productPriceTB;
         private System.Windows.Forms.TextBox productStockTB;
         private System.Windows.Forms.Label productStockLabel;
-        private System.Windows.Forms.Button addProductBtn;
         private System.Windows.Forms.Button updateProductBtn;
         private System.Windows.Forms.TextBox productAvailableTB;
         private System.Windows.Forms.Label productAvailableLabel;
         private System.Windows.Forms.Label productStockingLabel;
         private System.Windows.Forms.TextBox productStockingTB;
         private System.Windows.Forms.ListBox productStockZeroListLB;
+        private System.Windows.Forms.Button addNewProductBtn;
     }
 }

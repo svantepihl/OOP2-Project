@@ -38,6 +38,7 @@
             this.orderPaidRBtn = new System.Windows.Forms.RadioButton();
             this.orderUnpaidRBtn = new System.Windows.Forms.RadioButton();
             this.placeOrderBtn = new System.Windows.Forms.Button();
+            this.selectCustomerBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.selectQuantityNUD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@
             this.selectCustomerListLB.ItemHeight = 32;
             this.selectCustomerListLB.Location = new System.Drawing.Point(44, 49);
             this.selectCustomerListLB.Name = "selectCustomerListLB";
-            this.selectCustomerListLB.Size = new System.Drawing.Size(308, 644);
+            this.selectCustomerListLB.Size = new System.Drawing.Size(308, 580);
             this.selectCustomerListLB.TabIndex = 0;
             // 
             // selectProductListLB
@@ -71,9 +72,19 @@
             // selectQuantityNUD
             // 
             this.selectQuantityNUD.Location = new System.Drawing.Point(405, 649);
+            this.selectQuantityNUD.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.selectQuantityNUD.Name = "selectQuantityNUD";
             this.selectQuantityNUD.Size = new System.Drawing.Size(82, 39);
             this.selectQuantityNUD.TabIndex = 3;
+            this.selectQuantityNUD.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // addSelectedProductBtn
             // 
@@ -131,11 +142,21 @@
             this.placeOrderBtn.Text = "Place order";
             this.placeOrderBtn.UseVisualStyleBackColor = true;
             // 
+            // selectCustomerBtn
+            // 
+            this.selectCustomerBtn.Location = new System.Drawing.Point(44, 649);
+            this.selectCustomerBtn.Name = "selectCustomerBtn";
+            this.selectCustomerBtn.Size = new System.Drawing.Size(308, 46);
+            this.selectCustomerBtn.TabIndex = 10;
+            this.selectCustomerBtn.Text = "Select customer";
+            this.selectCustomerBtn.UseVisualStyleBackColor = true;
+            // 
             // CreateOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1474, 973);
+            this.Controls.Add(this.selectCustomerBtn);
             this.Controls.Add(this.placeOrderBtn);
             this.Controls.Add(this.orderUnpaidRBtn);
             this.Controls.Add(this.orderPaidRBtn);
@@ -166,5 +187,6 @@
         private System.Windows.Forms.RadioButton orderPaidRBtn;
         private System.Windows.Forms.RadioButton orderUnpaidRBtn;
         private System.Windows.Forms.Button placeOrderBtn;
+        private System.Windows.Forms.Button selectCustomerBtn;
     }
 }

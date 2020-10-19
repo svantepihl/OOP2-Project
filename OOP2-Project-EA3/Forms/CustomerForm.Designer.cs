@@ -37,7 +37,7 @@
             this.customerPhoneTB = new System.Windows.Forms.TextBox();
             this.customerEmailTB = new System.Windows.Forms.TextBox();
             this.customerEmailLabel = new System.Windows.Forms.Label();
-            this.addCustomerBtn = new System.Windows.Forms.Button();
+            this.createNewCustomerBtn = new System.Windows.Forms.Button();
             this.updateCustomerBtn = new System.Windows.Forms.Button();
             this.customerActiveRBtn = new System.Windows.Forms.RadioButton();
             this.customerArchivedRBtn = new System.Windows.Forms.RadioButton();
@@ -50,7 +50,7 @@
             this.customerListLB.ItemHeight = 32;
             this.customerListLB.Location = new System.Drawing.Point(70, 121);
             this.customerListLB.Name = "customerListLB";
-            this.customerListLB.Size = new System.Drawing.Size(303, 676);
+            this.customerListLB.Size = new System.Drawing.Size(303, 580);
             this.customerListLB.TabIndex = 0;
             // 
             // customerNumberLabel
@@ -117,20 +117,20 @@
             this.customerEmailLabel.TabIndex = 8;
             this.customerEmailLabel.Text = "Email";
             // 
-            // addCustomerBtn
+            // createNewCustomerBtn
             // 
-            this.addCustomerBtn.Location = new System.Drawing.Point(460, 509);
-            this.addCustomerBtn.Name = "addCustomerBtn";
-            this.addCustomerBtn.Size = new System.Drawing.Size(150, 46);
-            this.addCustomerBtn.TabIndex = 9;
-            this.addCustomerBtn.Text = "Add";
-            this.addCustomerBtn.UseVisualStyleBackColor = true;
+            this.createNewCustomerBtn.Location = new System.Drawing.Point(70, 719);
+            this.createNewCustomerBtn.Name = "createNewCustomerBtn";
+            this.createNewCustomerBtn.Size = new System.Drawing.Size(303, 78);
+            this.createNewCustomerBtn.TabIndex = 9;
+            this.createNewCustomerBtn.Text = "Create new customer";
+            this.createNewCustomerBtn.UseVisualStyleBackColor = true;
             // 
             // updateCustomerBtn
             // 
-            this.updateCustomerBtn.Location = new System.Drawing.Point(460, 561);
+            this.updateCustomerBtn.Location = new System.Drawing.Point(410, 507);
             this.updateCustomerBtn.Name = "updateCustomerBtn";
-            this.updateCustomerBtn.Size = new System.Drawing.Size(150, 46);
+            this.updateCustomerBtn.Size = new System.Drawing.Size(200, 46);
             this.updateCustomerBtn.TabIndex = 10;
             this.updateCustomerBtn.Text = "Update";
             this.updateCustomerBtn.UseVisualStyleBackColor = true;
@@ -170,12 +170,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1601, 1020);
+            this.ClientSize = new System.Drawing.Size(1601, 1066);
             this.Controls.Add(this.customerOrderListLB);
             this.Controls.Add(this.customerArchivedRBtn);
             this.Controls.Add(this.customerActiveRBtn);
             this.Controls.Add(this.updateCustomerBtn);
-            this.Controls.Add(this.addCustomerBtn);
+            this.Controls.Add(this.createNewCustomerBtn);
             this.Controls.Add(this.customerEmailLabel);
             this.Controls.Add(this.customerEmailTB);
             this.Controls.Add(this.customerPhoneTB);
@@ -203,7 +203,7 @@
         private System.Windows.Forms.TextBox customerPhoneTB;
         private System.Windows.Forms.TextBox customerEmailTB;
         private System.Windows.Forms.Label customerEmailLabel;
-        private System.Windows.Forms.Button addCustomerBtn;
+        private System.Windows.Forms.Button createNewCustomerBtn;
         private System.Windows.Forms.Button updateCustomerBtn;
         private System.Windows.Forms.RadioButton customerActiveRBtn;
         private System.Windows.Forms.RadioButton customerArchivedRBtn;

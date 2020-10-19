@@ -8,5 +8,10 @@ namespace OOP2_Project_EA3
         {
             InitializeComponent();
         }
+
+        private void OrdersForm_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
