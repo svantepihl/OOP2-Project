@@ -53,6 +53,7 @@ namespace OOP2_Project_EA3
             this.customerListLB.Name = "customerListLB";
             this.customerListLB.Size = new System.Drawing.Size(165, 274);
             this.customerListLB.TabIndex = 0;
+            this.customerListLB.SelectedIndexChanged += new System.EventHandler(this.customerListLB_SelectedIndexChanged);
             // 
             // customerNumberLabel
             // 
@@ -69,6 +70,7 @@ namespace OOP2_Project_EA3
             this.customerNumberTB.Location = new System.Drawing.Point(221, 84);
             this.customerNumberTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerNumberTB.Name = "customerNumberTB";
+            this.customerNumberTB.ReadOnly = true;
             this.customerNumberTB.Size = new System.Drawing.Size(110, 23);
             this.customerNumberTB.TabIndex = 2;
             // 
@@ -128,7 +130,7 @@ namespace OOP2_Project_EA3
             // 
             // createNewCustomerBtn
             // 
-            this.createNewCustomerBtn.Location = new System.Drawing.Point(38, 337);
+            this.createNewCustomerBtn.Location = new System.Drawing.Point(38, 339);
             this.createNewCustomerBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.createNewCustomerBtn.Name = "createNewCustomerBtn";
             this.createNewCustomerBtn.Size = new System.Drawing.Size(163, 37);
@@ -142,14 +144,16 @@ namespace OOP2_Project_EA3
             this.updateCustomerBtn.Location = new System.Drawing.Point(221, 238);
             this.updateCustomerBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.updateCustomerBtn.Name = "updateCustomerBtn";
-            this.updateCustomerBtn.Size = new System.Drawing.Size(108, 22);
+            this.updateCustomerBtn.Size = new System.Drawing.Size(110, 22);
             this.updateCustomerBtn.TabIndex = 10;
             this.updateCustomerBtn.Text = "Update";
             this.updateCustomerBtn.UseVisualStyleBackColor = true;
+            this.updateCustomerBtn.Click += new System.EventHandler(this.updateCustomerBtn_Click);
             // 
             // customerActiveRBtn
             // 
             this.customerActiveRBtn.AutoSize = true;
+            this.customerActiveRBtn.Checked = true;
             this.customerActiveRBtn.Location = new System.Drawing.Point(699, 66);
             this.customerActiveRBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerActiveRBtn.Name = "customerActiveRBtn";
@@ -158,6 +162,7 @@ namespace OOP2_Project_EA3
             this.customerActiveRBtn.TabStop = true;
             this.customerActiveRBtn.Text = "All active orders";
             this.customerActiveRBtn.UseVisualStyleBackColor = true;
+            this.customerActiveRBtn.CheckedChanged += new System.EventHandler(this.customerActiveRBtn_CheckedChanged);
             // 
             // customerArchivedRBtn
             // 
@@ -167,9 +172,9 @@ namespace OOP2_Project_EA3
             this.customerArchivedRBtn.Name = "customerArchivedRBtn";
             this.customerArchivedRBtn.Size = new System.Drawing.Size(123, 19);
             this.customerArchivedRBtn.TabIndex = 12;
-            this.customerArchivedRBtn.TabStop = true;
             this.customerArchivedRBtn.Text = "All archived orders";
             this.customerArchivedRBtn.UseVisualStyleBackColor = true;
+            this.customerArchivedRBtn.CheckedChanged += new System.EventHandler(this.customerArchivedRBtn_CheckedChanged);
             // 
             // customerOrderListLB
             // 

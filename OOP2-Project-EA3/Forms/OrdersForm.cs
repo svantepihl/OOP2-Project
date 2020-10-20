@@ -24,5 +24,23 @@ namespace OOP2_Project_EA3
             createOrder.Show();
 
         }
+
+        private void dispatchedOrdersRBtn_CheckedChanged(object sender, System.EventArgs e)
+        {
+            if (pendingOrdersRBtn.Checked == true)
+            {
+                orderListLabel.Text = "Pending orders";
+                dateLabel.Text = "Est. dispatch date";
+            }
+        }
+
+        private void pendingOrdersRBtn_CheckedChanged(object sender, System.EventArgs e)
+        {
+            if (dispatchedOrdersRBtn.Checked == true)
+            {
+                orderListLabel.Text = "Dispatched orders";
+                dateLabel.Text = "Date dispatched";
+            }
+        }
     }
 }

@@ -330,6 +330,10 @@
             A customers email address.
             </summary>
         </member>
+        <member name="M:OOP2_Project_EA3.Customer.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
         <member name="P:OOP2_Project_EA3.Order.Number">
             <summary>
             A orders unique 'order number'.

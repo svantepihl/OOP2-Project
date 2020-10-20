@@ -48,5 +48,13 @@ namespace OOP2_Project_EA3
             get => _email;
             set => _email = value;
         }
+
+
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override string ToString()
+        {
+            return  "#" + _number + " Name: " + _name;
+        }
     }
 }

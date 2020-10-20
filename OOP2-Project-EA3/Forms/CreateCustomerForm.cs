@@ -16,5 +16,16 @@ namespace OOP2_Project_EA3
             _warehouse = warehouse;
             InitializeComponent();
         }
+
+        private void createCustomerBtn_Click(object sender, EventArgs e)
+        {
+            Customer temp = new Customer();
+            temp.Name = customerNameTB.Text;
+            temp.Email = customerEmailTB.Text;
+            temp.Number = Int32.Parse(customerNumberTB.Text);
+            temp.Phone = customerPhoneTB.Text;
+            _warehouse.Customers.Add(temp);
+            this.Close();
+        }
     }
 }

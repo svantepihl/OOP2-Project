@@ -130,7 +130,7 @@
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(92, 15);
             this.dateLabel.TabIndex = 1;
-            this.dateLabel.Text = "Dispatched date";
+            this.dateLabel.Text = "Date dispatched";
             // 
             // dateTB
             // 
@@ -172,10 +172,12 @@
             this.pendingOrdersRBtn.TabStop = true;
             this.pendingOrdersRBtn.Text = "Pending orders";
             this.pendingOrdersRBtn.UseVisualStyleBackColor = true;
+            this.pendingOrdersRBtn.CheckedChanged += new System.EventHandler(this.pendingOrdersRBtn_CheckedChanged);
             // 
             // dispatchedOrdersRBtn
             // 
             this.dispatchedOrdersRBtn.AutoSize = true;
+            this.dispatchedOrdersRBtn.Checked = true;
             this.dispatchedOrdersRBtn.Location = new System.Drawing.Point(25, 167);
             this.dispatchedOrdersRBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dispatchedOrdersRBtn.Name = "dispatchedOrdersRBtn";
@@ -184,6 +186,7 @@
             this.dispatchedOrdersRBtn.TabStop = true;
             this.dispatchedOrdersRBtn.Text = "Dispatched orders";
             this.dispatchedOrdersRBtn.UseVisualStyleBackColor = true;
+            this.dispatchedOrdersRBtn.CheckedChanged += new System.EventHandler(this.dispatchedOrdersRBtn_CheckedChanged);
             // 
             // orderLineListLB
             // 
