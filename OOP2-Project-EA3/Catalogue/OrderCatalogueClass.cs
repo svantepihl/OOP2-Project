@@ -53,7 +53,7 @@ namespace OOP2_Project_EA3
         /// </summary>
         private void InitiateCatalogue()
         {
-            if (File.Exists(_folder))
+            if (File.Exists(_folder+ "\\orders.json"))
             {
                 string fileContents = File.ReadAllText(_folder + "\\orders.json");
                 _orders = JsonSerializer.Deserialize<List<Order>>(fileContents);

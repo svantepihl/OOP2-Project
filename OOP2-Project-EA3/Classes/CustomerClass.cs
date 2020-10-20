@@ -1,4 +1,4 @@
-﻿// TODO: {Här skriver vi saker som behöver göras i denna class}
+﻿using System;
 
 namespace OOP2_Project_EA3
 {
@@ -14,9 +14,16 @@ namespace OOP2_Project_EA3
         /// </summary>
         public int Number
         {
-            // TODO: Number får inte vara negativt, kassta exception om felaktigt
             get => _number;
-            set => _number = value;
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(value),"Customer number cannot be less than zero!");
+                }
+
+                _number = value;
+            }
         }
 
         /// <summary>
@@ -24,9 +31,15 @@ namespace OOP2_Project_EA3
         /// </summary>
         public string Name
         {
-            // TODO: Namn får inte vara tomt eller null, kasta exception om felaktigt.
             get => _name;
-            set => _name = value;
+            set
+            {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException(nameof(value),"Name cannot be empty or null!");
+                }
+                _name = value;
+            }
         }
 
         /// <summary>
@@ -34,9 +47,16 @@ namespace OOP2_Project_EA3
         /// </summary>
         public string Phone
         {
-            // TODO: Phone får inte vara tomt eller null, kasta exception om felaktigt.
             get => _phone;
-            set => _phone = value;
+            set
+            {
+                // TODO: Kolla att det är ett riktigt telefonnummer
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException(nameof(value),"Phone number cannot be empty or null!");
+                }
+                _phone = value;
+            }
         }
 
         /// <summary>
@@ -44,9 +64,17 @@ namespace OOP2_Project_EA3
         /// </summary>
         public string Email
         {
-            // TODO: Email får inte vara tomt eller null, kasta exception om felaktigt.
             get => _email;
-            set => _email = value;
+            set
+            {
+                // TODO: Kolla om det är en riktigt epostadress
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException(nameof(value),"Email cannot be empty or null!");
+                }
+
+                _email = value;
+            }
         }
 
 

@@ -52,6 +52,7 @@ namespace OOP2_Project_EA3
             this.customerListLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerListLB.Name = "customerListLB";
             this.customerListLB.Size = new System.Drawing.Size(165, 274);
+            this.customerListLB.Sorted = true;
             this.customerListLB.TabIndex = 0;
             this.customerListLB.SelectedIndexChanged += new System.EventHandler(this.customerListLB_SelectedIndexChanged);
             // 

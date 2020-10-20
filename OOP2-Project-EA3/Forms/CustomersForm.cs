@@ -91,15 +91,22 @@ namespace OOP2_Project_EA3
 
         private void updateCustomerBtn_Click(object sender, System.EventArgs e)
         {
-            Customer current = customerListLB.SelectedItem as Customer;
-            Customer updated = new Customer();
-            updated.Name = customerNameTB.Text;
-            updated.Email = customerEmailTB.Text;
-            updated.Phone = customerPhoneTB.Text;
-            updated.Number = Int32.Parse(customerNumberTB.Text);
-            if(_warehouse.Customers.Update(current,updated))
+            try
             {
-                MessageBox.Show("Customer successfully updated!");
+                Customer current = customerListLB.SelectedItem as Customer;
+                Customer updated = new Customer();
+                updated.Name = customerNameTB.Text;
+                updated.Email = customerEmailTB.Text;
+                updated.Phone = customerPhoneTB.Text;
+                updated.Number = Int32.Parse(customerNumberTB.Text);
+                if (_warehouse.Customers.Update(current, updated))
+                {
+                    MessageBox.Show("Customer successfully updated!");
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
             }
         }
 
