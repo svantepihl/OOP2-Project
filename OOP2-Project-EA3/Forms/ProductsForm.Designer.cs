@@ -1,6 +1,6 @@
 ﻿namespace OOP2_Project_EA3
 {
-    partial class ProductForm
+    partial class ProductsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -195,7 +195,7 @@
             this.createNewProductBtn.UseVisualStyleBackColor = true;
             this.createNewProductBtn.Click += new System.EventHandler(this.createNewProductBtn_Click);
             // 
-            // ProductForm
+            // ProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -217,8 +217,8 @@
             this.Controls.Add(this.productCodeTB);
             this.Controls.Add(this.productListLB);
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.Name = "ProductForm";
-            this.Text = "ProductForm";
+            this.Name = "ProductsForm";
+            this.Text = "ProductsForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

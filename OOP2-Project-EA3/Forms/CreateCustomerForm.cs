@@ -10,8 +10,10 @@ namespace OOP2_Project_EA3
 {
     public partial class CreateCustomerForm : Form
     {
-        public CreateCustomerForm()
+        private Warehouse _warehouse;
+        public CreateCustomerForm(Warehouse warehouse)
         {
+            _warehouse = warehouse;
             InitializeComponent();
         }
     }

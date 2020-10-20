@@ -461,18 +461,18 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="F:OOP2_Project_EA3.CustomerForm.components">
+        <member name="F:OOP2_Project_EA3.CustomersForm.components">
             <summary>
             Required designer variable.
             </summary>
         </member>
-        <member name="M:OOP2_Project_EA3.CustomerForm.Dispose(System.Boolean)">
+        <member name="M:OOP2_Project_EA3.CustomersForm.Dispose(System.Boolean)">
             <summary>
             Clean up any resources being used.
             </summary>
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
-        <member name="M:OOP2_Project_EA3.CustomerForm.InitializeComponent">
+        <member name="M:OOP2_Project_EA3.CustomersForm.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -495,18 +495,18 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="F:OOP2_Project_EA3.ProductForm.components">
+        <member name="F:OOP2_Project_EA3.ProductsForm.components">
             <summary>
             Required designer variable.
             </summary>
         </member>
-        <member name="M:OOP2_Project_EA3.ProductForm.Dispose(System.Boolean)">
+        <member name="M:OOP2_Project_EA3.ProductsForm.Dispose(System.Boolean)">
             <summary>
             Clean up any resources being used.
             </summary>
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
-        <member name="M:OOP2_Project_EA3.ProductForm.InitializeComponent">
+        <member name="M:OOP2_Project_EA3.ProductsForm.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.

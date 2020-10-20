@@ -2,16 +2,18 @@
 
 namespace OOP2_Project_EA3
 {
-    public partial class ProductForm : Form
+    public partial class ProductsForm : Form
     {
-        public ProductForm()
+        private Warehouse _warehouse;
+        public ProductsForm(Warehouse warehouse)
         {
+            _warehouse = warehouse;
             InitializeComponent();
         }
 
         private void createNewProductBtn_Click(object sender, System.EventArgs e)
         {
-            CreateProductForm createProductForm = new CreateProductForm();
+            CreateProductForm createProductForm = new CreateProductForm(_warehouse);
             createProductForm.Show();
         }
 

@@ -5,9 +5,11 @@ namespace OOP2_Project_EA3
 {
     public partial class OrdersForm : Form
     {
+        private Warehouse _warehouse;
 
-        public OrdersForm()
+        public OrdersForm(Warehouse warehouse)
         {
+            _warehouse = warehouse;
             InitializeComponent();
         }
 
@@ -18,8 +20,8 @@ namespace OOP2_Project_EA3
 
         private void addNewOrderBtn_Click(object sender, System.EventArgs e)
         {
-            CreateOrderForm CreateOrder = new CreateOrderForm();
-            CreateOrder.Show();
+            CreateOrderForm createOrder = new CreateOrderForm(_warehouse);
+            createOrder.Show();
 
         }
     }
