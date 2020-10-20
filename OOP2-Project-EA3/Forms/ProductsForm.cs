@@ -43,7 +43,17 @@ namespace OOP2_Project_EA3
                 }
             }
 
-            nearestDateLabel.Text = allProducts.Min(x => x.NextStocking).ToShortDateString();
+
+            try
+            {
+                nearestDateLabel.Text = allProducts.Min(x => x.NextStocking).ToShortDateString();
+            }
+            catch (Exception)
+            {
+                nearestDateLabel.Text = "N/A";
+            }
+
+            
 
 
         }
