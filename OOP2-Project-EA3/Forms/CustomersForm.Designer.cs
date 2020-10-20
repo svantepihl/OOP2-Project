@@ -181,10 +181,10 @@ namespace OOP2_Project_EA3
             // 
             this.customerOrderListLB.FormattingEnabled = true;
             this.customerOrderListLB.ItemHeight = 15;
-            this.customerOrderListLB.Location = new System.Drawing.Point(517, 57);
+            this.customerOrderListLB.Location = new System.Drawing.Point(397, 57);
             this.customerOrderListLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerOrderListLB.Name = "customerOrderListLB";
-            this.customerOrderListLB.Size = new System.Drawing.Size(165, 319);
+            this.customerOrderListLB.Size = new System.Drawing.Size(285, 319);
             this.customerOrderListLB.TabIndex = 13;
             // 
             // CustomersForm

@@ -38,12 +38,16 @@
             this.productStockTB = new System.Windows.Forms.TextBox();
             this.productStockLabel = new System.Windows.Forms.Label();
             this.updateProductBtn = new System.Windows.Forms.Button();
-            this.productAvailableTB = new System.Windows.Forms.TextBox();
             this.productAvailableLabel = new System.Windows.Forms.Label();
             this.productStockingLabel = new System.Windows.Forms.Label();
-            this.productStockingTB = new System.Windows.Forms.TextBox();
             this.productStockZeroListLB = new System.Windows.Forms.ListBox();
             this.createNewProductBtn = new System.Windows.Forms.Button();
+            this.availableDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.restockDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.nextRestockLabel = new System.Windows.Forms.Label();
+            this.nearestDateLabel = new System.Windows.Forms.Label();
+            this.allProductsLabel = new System.Windows.Forms.Label();
+            this.zeroStockProductsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // productListLB
@@ -55,19 +59,21 @@
             this.productListLB.Name = "productListLB";
             this.productListLB.Size = new System.Drawing.Size(165, 319);
             this.productListLB.TabIndex = 0;
+            this.productListLB.SelectedIndexChanged += new System.EventHandler(this.productListLB_SelectedIndexChanged);
             // 
             // productCodeTB
             // 
-            this.productCodeTB.Location = new System.Drawing.Point(206, 76);
+            this.productCodeTB.Location = new System.Drawing.Point(206, 93);
             this.productCodeTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.productCodeTB.Name = "productCodeTB";
+            this.productCodeTB.ReadOnly = true;
             this.productCodeTB.Size = new System.Drawing.Size(110, 23);
             this.productCodeTB.TabIndex = 2;
             // 
             // productCodeLabel
             // 
             this.productCodeLabel.AutoSize = true;
-            this.productCodeLabel.Location = new System.Drawing.Point(206, 60);
+            this.productCodeLabel.Location = new System.Drawing.Point(206, 77);
             this.productCodeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.productCodeLabel.Name = "productCodeLabel";
             this.productCodeLabel.Size = new System.Drawing.Size(35, 15);
@@ -76,7 +82,7 @@
             // 
             // productNameTB
             // 
-            this.productNameTB.Location = new System.Drawing.Point(206, 118);
+            this.productNameTB.Location = new System.Drawing.Point(206, 135);
             this.productNameTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.productNameTB.Name = "productNameTB";
             this.productNameTB.Size = new System.Drawing.Size(110, 23);
@@ -85,7 +91,7 @@
             // productNameLabel
             // 
             this.productNameLabel.AutoSize = true;
-            this.productNameLabel.Location = new System.Drawing.Point(206, 101);
+            this.productNameLabel.Location = new System.Drawing.Point(206, 118);
             this.productNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.productNameLabel.Name = "productNameLabel";
             this.productNameLabel.Size = new System.Drawing.Size(39, 15);
@@ -95,7 +101,7 @@
             // productPriceLabel
             // 
             this.productPriceLabel.AutoSize = true;
-            this.productPriceLabel.Location = new System.Drawing.Point(206, 146);
+            this.productPriceLabel.Location = new System.Drawing.Point(206, 163);
             this.productPriceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.productPriceLabel.Name = "productPriceLabel";
             this.productPriceLabel.Size = new System.Drawing.Size(33, 15);
@@ -104,7 +110,7 @@
             // 
             // productPriceTB
             // 
-            this.productPriceTB.Location = new System.Drawing.Point(206, 162);
+            this.productPriceTB.Location = new System.Drawing.Point(206, 179);
             this.productPriceTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.productPriceTB.Name = "productPriceTB";
             this.productPriceTB.Size = new System.Drawing.Size(110, 23);
@@ -112,7 +118,7 @@
             // 
             // productStockTB
             // 
-            this.productStockTB.Location = new System.Drawing.Point(206, 203);
+            this.productStockTB.Location = new System.Drawing.Point(206, 220);
             this.productStockTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.productStockTB.Name = "productStockTB";
             this.productStockTB.Size = new System.Drawing.Size(110, 23);
@@ -121,7 +127,7 @@
             // productStockLabel
             // 
             this.productStockLabel.AutoSize = true;
-            this.productStockLabel.Location = new System.Drawing.Point(206, 187);
+            this.productStockLabel.Location = new System.Drawing.Point(206, 204);
             this.productStockLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.productStockLabel.Name = "productStockLabel";
             this.productStockLabel.Size = new System.Drawing.Size(36, 15);
@@ -130,26 +136,19 @@
             // 
             // updateProductBtn
             // 
-            this.updateProductBtn.Location = new System.Drawing.Point(206, 319);
+            this.updateProductBtn.Location = new System.Drawing.Point(206, 336);
             this.updateProductBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.updateProductBtn.Name = "updateProductBtn";
-            this.updateProductBtn.Size = new System.Drawing.Size(108, 22);
+            this.updateProductBtn.Size = new System.Drawing.Size(110, 30);
             this.updateProductBtn.TabIndex = 10;
             this.updateProductBtn.Text = "Update";
             this.updateProductBtn.UseVisualStyleBackColor = true;
-            // 
-            // productAvailableTB
-            // 
-            this.productAvailableTB.Location = new System.Drawing.Point(206, 247);
-            this.productAvailableTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.productAvailableTB.Name = "productAvailableTB";
-            this.productAvailableTB.Size = new System.Drawing.Size(110, 23);
-            this.productAvailableTB.TabIndex = 11;
+            this.updateProductBtn.Click += new System.EventHandler(this.updateProductBtn_Click);
             // 
             // productAvailableLabel
             // 
             this.productAvailableLabel.AutoSize = true;
-            this.productAvailableLabel.Location = new System.Drawing.Point(206, 231);
+            this.productAvailableLabel.Location = new System.Drawing.Point(206, 248);
             this.productAvailableLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.productAvailableLabel.Name = "productAvailableLabel";
             this.productAvailableLabel.Size = new System.Drawing.Size(78, 15);
@@ -159,20 +158,12 @@
             // productStockingLabel
             // 
             this.productStockingLabel.AutoSize = true;
-            this.productStockingLabel.Location = new System.Drawing.Point(206, 274);
+            this.productStockingLabel.Location = new System.Drawing.Point(206, 291);
             this.productStockingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.productStockingLabel.Name = "productStockingLabel";
             this.productStockingLabel.Size = new System.Drawing.Size(80, 15);
             this.productStockingLabel.TabIndex = 13;
             this.productStockingLabel.Text = "Next stocking";
-            // 
-            // productStockingTB
-            // 
-            this.productStockingTB.Location = new System.Drawing.Point(206, 291);
-            this.productStockingTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.productStockingTB.Name = "productStockingTB";
-            this.productStockingTB.Size = new System.Drawing.Size(110, 23);
-            this.productStockingTB.TabIndex = 14;
             // 
             // productStockZeroListLB
             // 
@@ -195,17 +186,73 @@
             this.createNewProductBtn.UseVisualStyleBackColor = true;
             this.createNewProductBtn.Click += new System.EventHandler(this.createNewProductBtn_Click);
             // 
+            // availableDatePicker
+            // 
+            this.availableDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.availableDatePicker.Location = new System.Drawing.Point(206, 266);
+            this.availableDatePicker.Name = "availableDatePicker";
+            this.availableDatePicker.Size = new System.Drawing.Size(110, 23);
+            this.availableDatePicker.TabIndex = 16;
+            // 
+            // restockDatePicker
+            // 
+            this.restockDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.restockDatePicker.Location = new System.Drawing.Point(206, 309);
+            this.restockDatePicker.Name = "restockDatePicker";
+            this.restockDatePicker.Size = new System.Drawing.Size(110, 23);
+            this.restockDatePicker.TabIndex = 16;
+            // 
+            // nextRestockLabel
+            // 
+            this.nextRestockLabel.AutoSize = true;
+            this.nextRestockLabel.Location = new System.Drawing.Point(206, 36);
+            this.nextRestockLabel.Name = "nextRestockLabel";
+            this.nextRestockLabel.Size = new System.Drawing.Size(154, 15);
+            this.nextRestockLabel.TabIndex = 17;
+            this.nextRestockLabel.Text = "Next restock for warehouse:";
+            // 
+            // nearestDateLabel
+            // 
+            this.nearestDateLabel.AutoSize = true;
+            this.nearestDateLabel.Location = new System.Drawing.Point(206, 51);
+            this.nearestDateLabel.Name = "nearestDateLabel";
+            this.nearestDateLabel.Size = new System.Drawing.Size(70, 15);
+            this.nearestDateLabel.TabIndex = 18;
+            this.nearestDateLabel.Text = "Not defined";
+            // 
+            // allProductsLabel
+            // 
+            this.allProductsLabel.AutoSize = true;
+            this.allProductsLabel.Location = new System.Drawing.Point(23, 33);
+            this.allProductsLabel.Name = "allProductsLabel";
+            this.allProductsLabel.Size = new System.Drawing.Size(71, 15);
+            this.allProductsLabel.TabIndex = 19;
+            this.allProductsLabel.Text = "All products";
+            // 
+            // zeroStockProductsLabel
+            // 
+            this.zeroStockProductsLabel.AutoSize = true;
+            this.zeroStockProductsLabel.Location = new System.Drawing.Point(517, 33);
+            this.zeroStockProductsLabel.Name = "zeroStockProductsLabel";
+            this.zeroStockProductsLabel.Size = new System.Drawing.Size(128, 15);
+            this.zeroStockProductsLabel.TabIndex = 20;
+            this.zeroStockProductsLabel.Text = "Products with no stock";
+            // 
             // ProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 525);
+            this.ClientSize = new System.Drawing.Size(854, 525);
+            this.Controls.Add(this.zeroStockProductsLabel);
+            this.Controls.Add(this.allProductsLabel);
+            this.Controls.Add(this.nearestDateLabel);
+            this.Controls.Add(this.nextRestockLabel);
+            this.Controls.Add(this.restockDatePicker);
+            this.Controls.Add(this.availableDatePicker);
             this.Controls.Add(this.createNewProductBtn);
             this.Controls.Add(this.productStockZeroListLB);
-            this.Controls.Add(this.productStockingTB);
             this.Controls.Add(this.productStockingLabel);
             this.Controls.Add(this.productAvailableLabel);
-            this.Controls.Add(this.productAvailableTB);
             this.Controls.Add(this.updateProductBtn);
             this.Controls.Add(this.productStockLabel);
             this.Controls.Add(this.productStockTB);
@@ -236,11 +283,15 @@
         private System.Windows.Forms.TextBox productStockTB;
         private System.Windows.Forms.Label productStockLabel;
         private System.Windows.Forms.Button updateProductBtn;
-        private System.Windows.Forms.TextBox productAvailableTB;
         private System.Windows.Forms.Label productAvailableLabel;
         private System.Windows.Forms.Label productStockingLabel;
-        private System.Windows.Forms.TextBox productStockingTB;
         private System.Windows.Forms.ListBox productStockZeroListLB;
         private System.Windows.Forms.Button createNewProductBtn;
+        private System.Windows.Forms.DateTimePicker availableDatePicker;
+        private System.Windows.Forms.DateTimePicker restockDatePicker;
+        private System.Windows.Forms.Label nextRestockLabel;
+        private System.Windows.Forms.Label nearestDateLabel;
+        private System.Windows.Forms.Label allProductsLabel;
+        private System.Windows.Forms.Label zeroStockProductsLabel;
     }
 }

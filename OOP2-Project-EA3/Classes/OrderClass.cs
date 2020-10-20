@@ -87,5 +87,12 @@ namespace OOP2_Project_EA3
             get => _dispatched;
             set => _dispatched = value;
         }
+
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override string ToString()
+        {
+            return "#" + _number + "  " + _orderDate.ToShortDateString() + "  Dispatched: " + _dispatched;
+        }
     }
 }

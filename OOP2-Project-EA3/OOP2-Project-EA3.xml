@@ -374,6 +374,10 @@
             True if the order has been dispatched, false otherwise.
             </summary>
         </member>
+        <member name="M:OOP2_Project_EA3.Order.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
         <member name="P:OOP2_Project_EA3.OrderLine.Product">
             <summary>
             Type of product on the order line.
@@ -404,15 +408,19 @@
             Number items of this product that are ready to be dispatched from warehouse.
             </summary>
         </member>
-        <member name="M:OOP2_Project_EA3.Product.FirstAvailable">
+        <member name="P:OOP2_Project_EA3.Product.Firstavailable">
             <summary>
-            Returns first possible DateTime when the product is available.
+            Date the product was created.
             </summary>
         </member>
-        <member name="M:OOP2_Project_EA3.Product.NextStocking">
+        <member name="P:OOP2_Project_EA3.Product.NextStocking">
             <summary>
-            Returns the next DataTime when item will be in stock.
+            Stores the next date that the product will be restocked.
             </summary>
+        </member>
+        <member name="M:OOP2_Project_EA3.Product.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
         </member>
         <member name="F:OOP2_Project_EA3.CreateCustomerForm.components">
             <summary>

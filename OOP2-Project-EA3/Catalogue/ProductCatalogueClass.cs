@@ -69,7 +69,7 @@ namespace OOP2_Project_EA3
         {
             if (_products.Exists(x => x.Code == obj.Code))
             {
-                throw new Exception("Customer with that number already exists in catalogue!");
+                throw new Exception("A product with that number already exists in catalogue!");
             }
             if (obj == null)
             {
@@ -162,7 +162,7 @@ namespace OOP2_Project_EA3
             int index = _products.FindIndex(x => x.Code == productCode);
             if (_products[index].Stock - items < 0)
             {
-                throw new InvalidOperationException("Cannot remove more items than there is stock!");
+                throw new InvalidOperationException("Cannot dispatch more items than there is stock!");
             }
             _products[index].Stock -= items;
         }

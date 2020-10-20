@@ -1,4 +1,6 @@
-﻿namespace OOP2_Project_EA3
+﻿using System.Configuration;
+
+namespace OOP2_Project_EA3
 {
     public interface IOrders : ICatalogue<Order>
     {

@@ -40,7 +40,7 @@ namespace OOP2_Project_EA3
         private void ordersBtn_Click(object sender, System.EventArgs e)
         {
             Form orders = new OrdersForm(Warehouse);
-            //orders.Show();
+            orders.Show();
         }
 
         private void customersBtn_Click(object sender, System.EventArgs e)
@@ -52,7 +52,7 @@ namespace OOP2_Project_EA3
         private void productsBtn_Click(object sender, System.EventArgs e)
         {
             Form products = new ProductsForm(Warehouse);
-            //products.Show();
+            products.Show();
         }
     }
 }

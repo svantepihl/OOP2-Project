@@ -10,6 +10,8 @@ namespace OOP2_Project_EA3
         private string _name;
         private double _price;
         private int _stock;
+        private DateTime _firstavailable;
+        private DateTime _nextStocking;
 
         /// <summary>
         /// A products unique product code.
@@ -84,21 +86,31 @@ namespace OOP2_Project_EA3
             }
         }
 
+
         /// <summary>
-        /// Returns first possible DateTime when the product is available.
+        /// Date the product was created.
         /// </summary>
-        public DateTime FirstAvailable()
+        public DateTime Firstavailable
         {
-            // TODO: Vart ska informationen komma ifrån?
-            throw new NotImplementedException();
+            get => _firstavailable;
+            set => _firstavailable = value;
         }
 
         /// <summary>
-        /// Returns the next DataTime when item will be in stock.
+        /// Stores the next date that the product will be restocked.
         /// </summary>
-        public DateTime NextStocking()
-        {   // TODO: Vart ska informationen komma ifrån?
-            throw new NotImplementedException();
+        public DateTime NextStocking
+        {
+            get => _nextStocking;
+            set => _nextStocking = value;
+        }
+
+
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override string ToString()
+        {
+            return "#" + _code + " Name: " + _name;
         }
     }
 }
