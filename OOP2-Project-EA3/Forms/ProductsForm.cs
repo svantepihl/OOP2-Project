@@ -26,6 +26,7 @@ namespace OOP2_Project_EA3
 
         private void Products_CatalogueChanged(object sender, System.EventArgs e)
         {
+            // Uppdatera produktinformation
             GetProducts();
         }
 
