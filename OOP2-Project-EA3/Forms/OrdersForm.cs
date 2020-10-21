@@ -1,5 +1,8 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace OOP2_Project_EA3
 {
@@ -11,9 +14,22 @@ namespace OOP2_Project_EA3
         {
             _warehouse = warehouse;
             InitializeComponent();
+            GetOrders();
         }
 
-        private void OrdersForm_Load(object sender, System.EventArgs e)
+
+        private void GetOrders()
+        {
+            orderLineListLB.Items.Clear();
+
+            List<Order> allOrders = _warehouse.Orders.GetAll().ToList();
+            foreach (Order order in allOrders)
+            {
+                orderLineListLB.Items.Add(order.Items);
+            }
+        }
+
+            private void OrdersForm_Load(object sender, System.EventArgs e)
         {
         }
 
@@ -40,6 +56,21 @@ namespace OOP2_Project_EA3
                 orderListLabel.Text = "Dispatched orders";
                 dateLabel.Text = "Date dispatched";
             }
+        }
+
+        private void customerPendingListLB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void orderLineListLB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void ordersListLB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
