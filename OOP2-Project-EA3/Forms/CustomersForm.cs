@@ -91,22 +91,29 @@ namespace OOP2_Project_EA3
 
         private void updateCustomerBtn_Click(object sender, System.EventArgs e)
         {
-            try
+            if (customerListLB.SelectedItem != null)
             {
-                Customer current = customerListLB.SelectedItem as Customer;
-                Customer updated = new Customer();
-                updated.Name = customerNameTB.Text;
-                updated.Email = customerEmailTB.Text;
-                updated.Phone = customerPhoneTB.Text;
-                updated.Number = Int32.Parse(customerNumberTB.Text);
-                if (_warehouse.Customers.Update(current, updated))
+                try
                 {
-                    MessageBox.Show("Customer successfully updated!");
+                    Customer current = customerListLB.SelectedItem as Customer;
+                    Customer updated = new Customer();
+                    updated.Number = int.Parse(customerNumberTB.Text);
+                    updated.Name = customerNameTB.Text;
+                    updated.Email = customerEmailTB.Text;
+                    updated.Phone = customerPhoneTB.Text;
+                    if (_warehouse.Customers.Update(current, updated))
+                    {
+                        MessageBox.Show("Customer successfully updated!");
+                    }
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
                 }
             }
-            catch (Exception exception)
+            else
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show("No customer is currently selected!");
             }
         }
 
@@ -145,6 +152,6 @@ namespace OOP2_Project_EA3
             ShowCustomerOrders();
         }
 
-        // TODO: Lägga till nya kunder, updatera kundinformation, visa alla ark
+        // TODO: Lï¿½gga till nya kunder, updatera kundinformation, visa alla ark
     }
 }
