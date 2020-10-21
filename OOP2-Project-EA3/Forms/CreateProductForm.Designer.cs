@@ -180,7 +180,7 @@
             this.Controls.Add(this.productNameTB);
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "CreateProductForm";
-            this.Text = "CreateProductForm";
+            this.Text = "Add new product";
             this.ResumeLayout(false);
             this.PerformLayout();
 

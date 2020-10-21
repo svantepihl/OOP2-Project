@@ -253,7 +253,7 @@
             this.Controls.Add(this.ordersListLB);
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "OrdersForm";
-            this.Text = "Estimated dispatch date";
+            this.Text = "Orders";
             this.Load += new System.EventHandler(this.OrdersForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

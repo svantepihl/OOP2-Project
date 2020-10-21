@@ -51,7 +51,7 @@
             this.customersBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customersBtn.Name = "customersBtn";
             this.customersBtn.Size = new System.Drawing.Size(185, 67);
-            this.customersBtn.TabIndex = 0;
+            this.customersBtn.TabIndex = 1;
             this.customersBtn.Text = "Customers";
             this.customersBtn.UseVisualStyleBackColor = true;
             this.customersBtn.Click += new System.EventHandler(this.customersBtn_Click);
@@ -62,7 +62,7 @@
             this.productsBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.productsBtn.Name = "productsBtn";
             this.productsBtn.Size = new System.Drawing.Size(185, 67);
-            this.productsBtn.TabIndex = 0;
+            this.productsBtn.TabIndex = 2;
             this.productsBtn.Text = "Products";
             this.productsBtn.UseVisualStyleBackColor = true;
             this.productsBtn.Click += new System.EventHandler(this.productsBtn_Click);
@@ -77,7 +77,7 @@
             this.Controls.Add(this.ordersBtn);
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "WareHouseForm";
-            this.Text = "Form1";
+            this.Text = "Warehouse management";
             this.ResumeLayout(false);
 
         }

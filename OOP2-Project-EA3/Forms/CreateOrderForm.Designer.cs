@@ -47,40 +47,44 @@
             // selectCustomerListLB
             // 
             this.selectCustomerListLB.FormattingEnabled = true;
-            this.selectCustomerListLB.ItemHeight = 32;
-            this.selectCustomerListLB.Location = new System.Drawing.Point(44, 49);
+            this.selectCustomerListLB.ItemHeight = 15;
+            this.selectCustomerListLB.Location = new System.Drawing.Point(24, 23);
+            this.selectCustomerListLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.selectCustomerListLB.Name = "selectCustomerListLB";
-            this.selectCustomerListLB.Size = new System.Drawing.Size(308, 580);
+            this.selectCustomerListLB.Size = new System.Drawing.Size(168, 274);
             this.selectCustomerListLB.TabIndex = 0;
             // 
             // selectProductListLB
             // 
             this.selectProductListLB.FormattingEnabled = true;
-            this.selectProductListLB.ItemHeight = 32;
-            this.selectProductListLB.Location = new System.Drawing.Point(405, 49);
+            this.selectProductListLB.ItemHeight = 15;
+            this.selectProductListLB.Location = new System.Drawing.Point(218, 23);
+            this.selectProductListLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.selectProductListLB.Name = "selectProductListLB";
-            this.selectProductListLB.Size = new System.Drawing.Size(256, 580);
+            this.selectProductListLB.Size = new System.Drawing.Size(140, 274);
             this.selectProductListLB.TabIndex = 1;
             // 
             // selectedProductsListLB
             // 
             this.selectedProductsListLB.FormattingEnabled = true;
-            this.selectedProductsListLB.ItemHeight = 32;
-            this.selectedProductsListLB.Location = new System.Drawing.Point(704, 49);
+            this.selectedProductsListLB.ItemHeight = 15;
+            this.selectedProductsListLB.Location = new System.Drawing.Point(379, 23);
+            this.selectedProductsListLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.selectedProductsListLB.Name = "selectedProductsListLB";
-            this.selectedProductsListLB.Size = new System.Drawing.Size(268, 580);
+            this.selectedProductsListLB.Size = new System.Drawing.Size(146, 274);
             this.selectedProductsListLB.TabIndex = 2;
             // 
             // selectQuantityNUD
             // 
-            this.selectQuantityNUD.Location = new System.Drawing.Point(405, 649);
+            this.selectQuantityNUD.Location = new System.Drawing.Point(218, 304);
+            this.selectQuantityNUD.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.selectQuantityNUD.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.selectQuantityNUD.Name = "selectQuantityNUD";
-            this.selectQuantityNUD.Size = new System.Drawing.Size(82, 39);
+            this.selectQuantityNUD.Size = new System.Drawing.Size(44, 23);
             this.selectQuantityNUD.TabIndex = 3;
             this.selectQuantityNUD.Value = new decimal(new int[] {
             1,
@@ -90,35 +94,39 @@
             // 
             // addSelectedProductBtn
             // 
-            this.addSelectedProductBtn.Location = new System.Drawing.Point(511, 644);
+            this.addSelectedProductBtn.Location = new System.Drawing.Point(275, 302);
+            this.addSelectedProductBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.addSelectedProductBtn.Name = "addSelectedProductBtn";
-            this.addSelectedProductBtn.Size = new System.Drawing.Size(150, 46);
+            this.addSelectedProductBtn.Size = new System.Drawing.Size(81, 22);
             this.addSelectedProductBtn.TabIndex = 4;
             this.addSelectedProductBtn.Text = "Add";
             this.addSelectedProductBtn.UseVisualStyleBackColor = true;
             // 
             // shippingAdressTB
             // 
-            this.shippingAdressTB.Location = new System.Drawing.Point(1023, 215);
+            this.shippingAdressTB.Location = new System.Drawing.Point(551, 101);
+            this.shippingAdressTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.shippingAdressTB.Name = "shippingAdressTB";
-            this.shippingAdressTB.Size = new System.Drawing.Size(335, 39);
+            this.shippingAdressTB.Size = new System.Drawing.Size(182, 23);
             this.shippingAdressTB.TabIndex = 5;
             // 
             // shippingAddressLabel
             // 
             this.shippingAddressLabel.AutoSize = true;
-            this.shippingAddressLabel.Location = new System.Drawing.Point(1023, 171);
+            this.shippingAddressLabel.Location = new System.Drawing.Point(551, 80);
+            this.shippingAddressLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.shippingAddressLabel.Name = "shippingAddressLabel";
-            this.shippingAddressLabel.Size = new System.Drawing.Size(197, 32);
+            this.shippingAddressLabel.Size = new System.Drawing.Size(97, 15);
             this.shippingAddressLabel.TabIndex = 6;
             this.shippingAddressLabel.Text = "Shipping address";
             // 
             // orderPaidRBtn
             // 
             this.orderPaidRBtn.AutoSize = true;
-            this.orderPaidRBtn.Location = new System.Drawing.Point(1023, 290);
+            this.orderPaidRBtn.Location = new System.Drawing.Point(551, 136);
+            this.orderPaidRBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.orderPaidRBtn.Name = "orderPaidRBtn";
-            this.orderPaidRBtn.Size = new System.Drawing.Size(153, 36);
+            this.orderPaidRBtn.Size = new System.Drawing.Size(79, 19);
             this.orderPaidRBtn.TabIndex = 7;
             this.orderPaidRBtn.TabStop = true;
             this.orderPaidRBtn.Text = "Paid order";
@@ -127,9 +135,10 @@
             // orderUnpaidRBtn
             // 
             this.orderUnpaidRBtn.AutoSize = true;
-            this.orderUnpaidRBtn.Location = new System.Drawing.Point(1023, 333);
+            this.orderUnpaidRBtn.Location = new System.Drawing.Point(551, 156);
+            this.orderUnpaidRBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.orderUnpaidRBtn.Name = "orderUnpaidRBtn";
-            this.orderUnpaidRBtn.Size = new System.Drawing.Size(185, 36);
+            this.orderUnpaidRBtn.Size = new System.Drawing.Size(94, 19);
             this.orderUnpaidRBtn.TabIndex = 8;
             this.orderUnpaidRBtn.TabStop = true;
             this.orderUnpaidRBtn.Text = "Unpaid order";
@@ -137,18 +146,20 @@
             // 
             // placeOrderBtn
             // 
-            this.placeOrderBtn.Location = new System.Drawing.Point(1023, 547);
+            this.placeOrderBtn.Location = new System.Drawing.Point(551, 256);
+            this.placeOrderBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.placeOrderBtn.Name = "placeOrderBtn";
-            this.placeOrderBtn.Size = new System.Drawing.Size(335, 82);
+            this.placeOrderBtn.Size = new System.Drawing.Size(180, 38);
             this.placeOrderBtn.TabIndex = 9;
             this.placeOrderBtn.Text = "Place order";
             this.placeOrderBtn.UseVisualStyleBackColor = true;
             // 
             // selectCustomerBtn
             // 
-            this.selectCustomerBtn.Location = new System.Drawing.Point(44, 649);
+            this.selectCustomerBtn.Location = new System.Drawing.Point(24, 304);
+            this.selectCustomerBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.selectCustomerBtn.Name = "selectCustomerBtn";
-            this.selectCustomerBtn.Size = new System.Drawing.Size(308, 46);
+            this.selectCustomerBtn.Size = new System.Drawing.Size(166, 22);
             this.selectCustomerBtn.TabIndex = 10;
             this.selectCustomerBtn.Text = "Select customer";
             this.selectCustomerBtn.UseVisualStyleBackColor = true;
@@ -156,25 +167,27 @@
             // customerNameLabel
             // 
             this.customerNameLabel.AutoSize = true;
-            this.customerNameLabel.Location = new System.Drawing.Point(1023, 49);
+            this.customerNameLabel.Location = new System.Drawing.Point(551, 23);
+            this.customerNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customerNameLabel.Name = "customerNameLabel";
-            this.customerNameLabel.Size = new System.Drawing.Size(184, 32);
+            this.customerNameLabel.Size = new System.Drawing.Size(92, 15);
             this.customerNameLabel.TabIndex = 11;
             this.customerNameLabel.Text = "Customer name";
             // 
             // customerNameTB
             // 
-            this.customerNameTB.Location = new System.Drawing.Point(1023, 84);
+            this.customerNameTB.Location = new System.Drawing.Point(551, 39);
+            this.customerNameTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerNameTB.Name = "customerNameTB";
             this.customerNameTB.ReadOnly = true;
-            this.customerNameTB.Size = new System.Drawing.Size(200, 39);
+            this.customerNameTB.Size = new System.Drawing.Size(110, 23);
             this.customerNameTB.TabIndex = 12;
             // 
             // CreateOrderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1474, 973);
+            this.ClientSize = new System.Drawing.Size(794, 456);
             this.Controls.Add(this.customerNameTB);
             this.Controls.Add(this.customerNameLabel);
             this.Controls.Add(this.selectCustomerBtn);
@@ -188,8 +201,9 @@
             this.Controls.Add(this.selectedProductsListLB);
             this.Controls.Add(this.selectProductListLB);
             this.Controls.Add(this.selectCustomerListLB);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "CreateOrderForm";
-            this.Text = " ";
+            this.Text = " Create new order";
             ((System.ComponentModel.ISupportInitialize)(this.selectQuantityNUD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

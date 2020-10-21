@@ -42,6 +42,8 @@ namespace OOP2_Project_EA3
             this.customerActiveRBtn = new System.Windows.Forms.RadioButton();
             this.customerArchivedRBtn = new System.Windows.Forms.RadioButton();
             this.customerOrderListLB = new System.Windows.Forms.ListBox();
+            this.customerListLabel = new System.Windows.Forms.Label();
+            this.customerOrderListLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // customerListLB
@@ -134,7 +136,7 @@ namespace OOP2_Project_EA3
             this.createNewCustomerBtn.Location = new System.Drawing.Point(38, 339);
             this.createNewCustomerBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.createNewCustomerBtn.Name = "createNewCustomerBtn";
-            this.createNewCustomerBtn.Size = new System.Drawing.Size(163, 37);
+            this.createNewCustomerBtn.Size = new System.Drawing.Size(165, 37);
             this.createNewCustomerBtn.TabIndex = 9;
             this.createNewCustomerBtn.Text = "Create new customer";
             this.createNewCustomerBtn.UseVisualStyleBackColor = true;
@@ -187,11 +189,31 @@ namespace OOP2_Project_EA3
             this.customerOrderListLB.Size = new System.Drawing.Size(285, 319);
             this.customerOrderListLB.TabIndex = 13;
             // 
+            // customerListLabel
+            // 
+            this.customerListLabel.AutoSize = true;
+            this.customerListLabel.Location = new System.Drawing.Point(38, 41);
+            this.customerListLabel.Name = "customerListLabel";
+            this.customerListLabel.Size = new System.Drawing.Size(79, 15);
+            this.customerListLabel.TabIndex = 14;
+            this.customerListLabel.Text = "All customers";
+            // 
+            // customerOrderListLabel
+            // 
+            this.customerOrderListLabel.AutoSize = true;
+            this.customerOrderListLabel.Location = new System.Drawing.Point(397, 41);
+            this.customerOrderListLabel.Name = "customerOrderListLabel";
+            this.customerOrderListLabel.Size = new System.Drawing.Size(103, 15);
+            this.customerOrderListLabel.TabIndex = 14;
+            this.customerOrderListLabel.Text = "Customer\'s orders";
+            // 
             // CustomersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 500);
+            this.Controls.Add(this.customerOrderListLabel);
+            this.Controls.Add(this.customerListLabel);
             this.Controls.Add(this.customerOrderListLB);
             this.Controls.Add(this.customerArchivedRBtn);
             this.Controls.Add(this.customerActiveRBtn);
@@ -208,7 +230,7 @@ namespace OOP2_Project_EA3
             this.Controls.Add(this.customerListLB);
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "CustomersForm";
-            this.Text = "Add";
+            this.Text = "Customers";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,5 +252,7 @@ namespace OOP2_Project_EA3
         private System.Windows.Forms.RadioButton customerActiveRBtn;
         private System.Windows.Forms.RadioButton customerArchivedRBtn;
         private System.Windows.Forms.ListBox customerOrderListLB;
+        private System.Windows.Forms.Label customerListLabel;
+        private System.Windows.Forms.Label customerOrderListLabel;
     }
 }

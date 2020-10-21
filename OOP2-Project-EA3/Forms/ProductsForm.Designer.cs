@@ -265,7 +265,7 @@
             this.Controls.Add(this.productListLB);
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "ProductsForm";
-            this.Text = "ProductsForm";
+            this.Text = "Products";
             this.ResumeLayout(false);
             this.PerformLayout();
 

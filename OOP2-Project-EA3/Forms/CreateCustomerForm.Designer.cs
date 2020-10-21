@@ -42,7 +42,7 @@
             // customerNumberLabel
             // 
             this.customerNumberLabel.AutoSize = true;
-            this.customerNumberLabel.Location = new System.Drawing.Point(27, 42);
+            this.customerNumberLabel.Location = new System.Drawing.Point(37, 39);
             this.customerNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customerNumberLabel.Name = "customerNumberLabel";
             this.customerNumberLabel.Size = new System.Drawing.Size(104, 15);
@@ -52,7 +52,7 @@
             // customerEmailLabel
             // 
             this.customerEmailLabel.AutoSize = true;
-            this.customerEmailLabel.Location = new System.Drawing.Point(27, 169);
+            this.customerEmailLabel.Location = new System.Drawing.Point(37, 166);
             this.customerEmailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customerEmailLabel.Name = "customerEmailLabel";
             this.customerEmailLabel.Size = new System.Drawing.Size(36, 15);
@@ -61,7 +61,7 @@
             // 
             // customerEmailTB
             // 
-            this.customerEmailTB.Location = new System.Drawing.Point(27, 185);
+            this.customerEmailTB.Location = new System.Drawing.Point(37, 182);
             this.customerEmailTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerEmailTB.Name = "customerEmailTB";
             this.customerEmailTB.Size = new System.Drawing.Size(110, 23);
@@ -69,7 +69,7 @@
             // 
             // customerPhoneTB
             // 
-            this.customerPhoneTB.Location = new System.Drawing.Point(27, 144);
+            this.customerPhoneTB.Location = new System.Drawing.Point(37, 141);
             this.customerPhoneTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerPhoneTB.Name = "customerPhoneTB";
             this.customerPhoneTB.Size = new System.Drawing.Size(110, 23);
@@ -78,7 +78,7 @@
             // customerPhoneLabel
             // 
             this.customerPhoneLabel.AutoSize = true;
-            this.customerPhoneLabel.Location = new System.Drawing.Point(27, 128);
+            this.customerPhoneLabel.Location = new System.Drawing.Point(37, 125);
             this.customerPhoneLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customerPhoneLabel.Name = "customerPhoneLabel";
             this.customerPhoneLabel.Size = new System.Drawing.Size(86, 15);
@@ -87,7 +87,7 @@
             // 
             // customerNameTB
             // 
-            this.customerNameTB.Location = new System.Drawing.Point(27, 100);
+            this.customerNameTB.Location = new System.Drawing.Point(37, 97);
             this.customerNameTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerNameTB.Name = "customerNameTB";
             this.customerNameTB.Size = new System.Drawing.Size(110, 23);
@@ -96,7 +96,7 @@
             // customerNameLabel
             // 
             this.customerNameLabel.AutoSize = true;
-            this.customerNameLabel.Location = new System.Drawing.Point(27, 83);
+            this.customerNameLabel.Location = new System.Drawing.Point(37, 80);
             this.customerNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customerNameLabel.Name = "customerNameLabel";
             this.customerNameLabel.Size = new System.Drawing.Size(39, 15);
@@ -105,7 +105,7 @@
             // 
             // customerNumberTB
             // 
-            this.customerNumberTB.Location = new System.Drawing.Point(27, 58);
+            this.customerNumberTB.Location = new System.Drawing.Point(37, 55);
             this.customerNumberTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerNumberTB.Name = "customerNumberTB";
             this.customerNumberTB.Size = new System.Drawing.Size(110, 23);
@@ -113,10 +113,10 @@
             // 
             // createCustomerBtn
             // 
-            this.createCustomerBtn.Location = new System.Drawing.Point(27, 213);
+            this.createCustomerBtn.Location = new System.Drawing.Point(37, 210);
             this.createCustomerBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.createCustomerBtn.Name = "createCustomerBtn";
-            this.createCustomerBtn.Size = new System.Drawing.Size(108, 36);
+            this.createCustomerBtn.Size = new System.Drawing.Size(110, 36);
             this.createCustomerBtn.TabIndex = 15;
             this.createCustomerBtn.Text = "Create customer";
             this.createCustomerBtn.UseVisualStyleBackColor = true;
@@ -138,7 +138,7 @@
             this.Controls.Add(this.customerNumberLabel);
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "CreateCustomerForm";
-            this.Text = "CreateCustomerForm";
+            this.Text = "Add new customer";
             this.ResumeLayout(false);
             this.PerformLayout();
 
