@@ -44,13 +44,15 @@ namespace OOP2_Project_EA3
         /// <param name="order">Order to be processed</param>
         private void ProcessOrder(Order order)
         {
+
             // Check that all products in the order are valid products, if not refund order.
             if (order.Items.Exists(x => !Products.ValidateProduct(x.Product)))
             {
                 Orders.RefundOrder(order.Number);
                 return;
             }
-            
+
+            // TODO: Kolla firstavailable för alla produkter är innan dagens datum.
             // Check that there is enough stock for all items in the order, if so update stock and mark order as dispatched.
             if (order.Items.TrueForAll(x => Products.GetStock(x.Product.Code) - x.Count < 0))
             {

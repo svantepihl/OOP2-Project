@@ -15,7 +15,6 @@ namespace OOP2_Project_EA3
 
         private void OrdersForm_Load(object sender, System.EventArgs e)
         {
-
         }
 
         private void addNewOrderBtn_Click(object sender, System.EventArgs e)

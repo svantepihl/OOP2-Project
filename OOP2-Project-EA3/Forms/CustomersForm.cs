@@ -142,7 +142,6 @@ namespace OOP2_Project_EA3
                     {
                         customerOrderListLB.Items.Add(order);
                     }
-
             }
             catch (Exception e)
             {
