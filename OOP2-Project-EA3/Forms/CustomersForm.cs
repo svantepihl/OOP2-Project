@@ -119,27 +119,35 @@ namespace OOP2_Project_EA3
 
         private void ShowCustomerOrders()
         {
-            int customerNumber = Int32.Parse(customerNumberTB.Text);
-            List<Order> ordersToShow = null;
-            if (customerActiveRBtn.Checked)
+            try
             {
-                ordersToShow = _warehouse.Orders.GetAll().Where(x =>
-                    x.Customer.Number == customerNumber && 
-                    (x.Dispatched == false || x.OrderDate >= DateTime.Today.AddMonths(-1))).ToList();
-            }
-            else if(customerArchivedRBtn.Checked)
-            {
-                ordersToShow =_warehouse.Orders.GetAll().Where(x =>
-                    x.Customer.Number == customerNumber &&
-                    x.Dispatched == true && x.OrderDate < DateTime.Today.AddMonths(-1)).ToList();
-            }
-
-            customerOrderListLB.Items.Clear();
-            if (ordersToShow != null)
-                foreach (Order order in ordersToShow)
+                int customerNumber = Int32.Parse(customerNumberTB.Text);
+                List<Order> ordersToShow = null;
+                if (customerActiveRBtn.Checked)
                 {
-                    customerOrderListLB.Items.Add(order);
+                    ordersToShow = _warehouse.Orders.GetAll().Where(x =>
+                        x.Customer.Number == customerNumber &&
+                        (x.Dispatched == false || x.OrderDate >= DateTime.Today.AddMonths(-1))).ToList();
                 }
+                else if (customerArchivedRBtn.Checked)
+                {
+                    ordersToShow = _warehouse.Orders.GetAll().Where(x =>
+                        x.Customer.Number == customerNumber &&
+                        x.Dispatched == true && x.OrderDate < DateTime.Today.AddMonths(-1)).ToList();
+                }
+
+                customerOrderListLB.Items.Clear();
+                if (ordersToShow != null)
+                    foreach (Order order in ordersToShow)
+                    {
+                        customerOrderListLB.Items.Add(order);
+                    }
+
+            }
+            catch (Exception e)
+            {
+                
+            }
         }
 
         private void customerActiveRBtn_CheckedChanged(object sender, EventArgs e)
