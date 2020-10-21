@@ -138,10 +138,12 @@ namespace OOP2_Project_EA3
 
                 customerOrderListLB.Items.Clear();
                 if (ordersToShow != null)
+                {
                     foreach (Order order in ordersToShow)
                     {
                         customerOrderListLB.Items.Add(order);
                     }
+                }
             }
             catch (Exception e)
             {
