@@ -119,9 +119,9 @@ namespace OOP2_Project_EA3
             
             string paymentdenied = String.Format("Following orders cannot be dispatched because of incomplete payment: \n{0} \n", String.Join(Environment.NewLine, paymentFailed));
             string disp = String.Format("Following orders have been dispatched: \n{0} \n", String.Join(Environment.NewLine, dispatched));
-            string noavailibility = String.Format("Following orders can't be dispatched because of no availability: \n{0} \n", String.Join(Environment.NewLine, notAvailible));
+            string noavailability = String.Format("Following orders can't be dispatched because of no availability: \n{0} \n", String.Join(Environment.NewLine, notAvailible));
            
-            MessageBox.Show(paymentdenied + noavailibility + "------------------------------\n" + disp);
+            MessageBox.Show(paymentdenied + noavailability + "------------------------------\n" + disp);
 
         }
 
