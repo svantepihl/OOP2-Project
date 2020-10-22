@@ -67,14 +67,26 @@ namespace OOP2_Project_EA3
 
                         for (int i = 0; i < o.Items.Count; i++)
                         {
-                            int stock = _warehouse.Products.GetStock(ol[i].Product.Code);
-                            if (!(stock >= ol[i].Count) || o.Items[i].Product.Firstavailable > DateTime.Now)
+                            if(_warehouse.Products.ValidateProduct(o.Items[i].Product))
                             {
-                                check = false;
+                                int stock = _warehouse.Products.GetStock(ol[i].Product.Code);
+                                if (!(stock >= ol[i].Count) || o.Items[i].Product.Firstavailable > DateTime.Now)
+                                {
+                                    check = false;
+                                }
                             }
+                            else
+                            {
+                                o.PaymentRefunded = true;
+                            }
+   
                         }
-
-                        if (check)
+                        if(o.PaymentRefunded)
+                        {
+                            //remove order?
+                            //add to message that payment was refunded for order and it has been removed
+                        }
+                        else if (check)
                         {
                             for (int i = 0; i < o.Items.Count; i++)
                             {
