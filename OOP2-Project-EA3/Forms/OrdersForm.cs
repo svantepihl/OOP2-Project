@@ -49,7 +49,7 @@ namespace OOP2_Project_EA3
             List<Order> allOrders = _warehouse.Orders.GetAll().ToList();
             List<OrderLine> ol = new List<OrderLine>();
             List<string> paymentFailed = new List<string>();
-            List<string> notEnoughStockOrNotReleased = new List<string>();
+            List<string> notAvailible = new List<string>();
             List<string> dispatched = new List<string>();
 
             foreach(Order o in allOrders)
@@ -109,7 +109,7 @@ namespace OOP2_Project_EA3
                         }
                         else
                         {
-                            notEnoughStockOrNotReleased.Add("#" + o.Number.ToString());
+                            notAvailible.Add("#" + o.Number.ToString());
                         }
 
 
@@ -119,9 +119,9 @@ namespace OOP2_Project_EA3
             
             string paymentdenied = String.Format("Following orders cannot be dispatched because of incomplete payment: \n{0} \n", String.Join(Environment.NewLine, paymentFailed));
             string disp = String.Format("Following orders have been dispatched: \n{0} \n", String.Join(Environment.NewLine, dispatched));
-            string nostockornorelease = String.Format("Following orders can't be dispatched because of no availability: \n{0} \n", String.Join(Environment.NewLine, notEnoughStockOrNotReleased));
+            string noavailibility = String.Format("Following orders can't be dispatched because of no availability: \n{0} \n", String.Join(Environment.NewLine, notAvailible));
            
-            MessageBox.Show(paymentdenied + nostockornorelease + "------------------------------\n" + disp);
+            MessageBox.Show(paymentdenied + noavailibility + "------------------------------\n" + disp);
 
         }
 
