@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Linq;
 using System.Windows.Forms;
-
+using System.Globalization;
 
 namespace OOP2_Project_EA3
 {
@@ -17,8 +17,6 @@ namespace OOP2_Project_EA3
         private Customer selectedCustomer;
 
         private List<OrderLine> orderlineList = new List<OrderLine>();
-
-        private Order order = new Order();
 
         public CreateOrderForm(Warehouse warehouse)
         {
@@ -56,7 +54,10 @@ namespace OOP2_Project_EA3
 
             foreach(OrderLine o in orderlineList)
             {
-               selectedProductsListLB.Items.Add(o.Product);
+                for (int i = 0; i < o.Count; i++)
+                {
+                    selectedProductsListLB.Items.Add(o.Product);
+                }
             }
         }
         //Select the customer
@@ -82,11 +83,27 @@ namespace OOP2_Project_EA3
 
         private void placeOrderBtn_Click(object sender, System.EventArgs e)
         {
+
+            //if(selectedCustomer != null && shippingAdressTB.Text != null && orderlineList != null)?
+            List<Order> allOrders = _warehouse.Orders.GetAll().ToList();
+            int number;
+            if(allOrders.Count == 0)
+            {
+                number = 0;
+            }
+            else
+            {
+                int index = allOrders.Count - 1;
+                Order lastorder = allOrders[index];
+                number = lastorder.Number + 1;
+            }
             try
             {
                 Order temp = new Order();
+                temp.Number = number;
                 temp.Customer = selectedCustomer;
                 temp.DeliveryAddress = shippingAdressTB.Text;
+                temp.OrderDate = DateTime.Now;
                 if (orderPaidRBtn.Checked)
                 {
                     temp.PaymentCompleted = true;
@@ -99,6 +116,7 @@ namespace OOP2_Project_EA3
                 _warehouse.Orders.Add(temp);
                 this.Close();
                 MessageBox.Show("Order was added succefully!");
+
             }
 
             catch (Exception exception)
@@ -114,7 +132,17 @@ namespace OOP2_Project_EA3
 
         private void removeSelectedProductBtn_Click(object sender, EventArgs e)
         {
-            //if count == 0 after count-- then remove whole orderline?
+            Product temp = selectedProductsListLB.SelectedItem as Product;
+            var find = orderlineList.FirstOrDefault(x => x.Product == temp);
+            if(find != null)
+            {
+                --find.Count;
+            }
+
+            if(find.Count < 1)
+            {
+                orderlineList.Remove(find);
+            }
 
             showSelectedProducts();
         }

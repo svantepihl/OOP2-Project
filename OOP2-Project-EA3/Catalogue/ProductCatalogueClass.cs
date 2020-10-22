@@ -164,7 +164,11 @@ namespace OOP2_Project_EA3
             {
                 throw new InvalidOperationException("Cannot dispatch more items than there is stock!");
             }
-            _products[index].Stock -= items;
+            else
+            {
+                _products[index].Stock -= items;
+            }
+            
         }
 
         /// <summary>
