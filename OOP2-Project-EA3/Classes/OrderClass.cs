@@ -15,6 +15,7 @@ namespace OOP2_Project_EA3
         private bool _paymentRefunded;
         private bool _dispatched;
         private List<OrderLine> _items;
+        private DateTime _dispatchDate; //får man lägga till egna variabler?
 
         /// <summary>
         /// A orders unique 'order number'.
@@ -86,6 +87,15 @@ namespace OOP2_Project_EA3
         {
             get => _dispatched;
             set => _dispatched = value;
+        }
+
+        ///<summary>
+        ///Date and Time when order was dispatched or estimated dispatch date
+        /// </summary>
+        public DateTime DispatchDate
+        {
+            get => _dispatchDate;
+            set => _dispatchDate = value;
         }
 
         /// <summary>Returns a string that represents the current object.</summary>

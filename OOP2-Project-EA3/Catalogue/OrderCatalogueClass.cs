@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
@@ -158,5 +159,31 @@ namespace OOP2_Project_EA3
         {
             _orders.Single(x => x.Number == orderNumber).Dispatched = true;
         }
+
+
+        //// <summary>
+        /// Get all pending orders
+        /// </summary>
+        /// <returns>An IEnumerable with all objects stored in the catalogue.</returns>
+        public IEnumerable<Order> GetPendingOrders()
+        {
+            var queryPendingOrders = from order in _orders.ToList()
+                                     where order.Dispatched == false && order.PaymentRefunded == false
+                                     select order;
+
+            return queryPendingOrders;
+        }
+
+        public IEnumerable<Order> GetDispatchedOrders()
+        {
+            var queryDispatchedOrders = from order in _orders.ToList()
+                                        where order.Dispatched == true
+                                        select order;
+
+            return queryDispatchedOrders;
+        }
+
+
+
     }
 }

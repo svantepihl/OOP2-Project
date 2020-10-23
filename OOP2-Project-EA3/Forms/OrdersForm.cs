@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
+using System.CodeDom.Compiler;
 
 namespace OOP2_Project_EA3
 {
@@ -17,7 +18,6 @@ namespace OOP2_Project_EA3
             InitializeComponent();
             ShowOrders();
             ShowCustomersWithOrders();
-            GetOrderLines();
 
             _warehouse.Orders.CatalogueChanged += Orders_CatalogueChanged;
 
@@ -32,55 +32,76 @@ namespace OOP2_Project_EA3
         private void GetOrderLines()
         {
             orderLineListLB.Items.Clear();
+            Order selectedOrder = ordersListLB.SelectedItem as Order;
 
-            List<Order> allOrders = _warehouse.Orders.GetAll().ToList();
-            foreach (Order order in allOrders)
+            if (selectedOrder != null)
             {
-                for(int i = 0; i < order.Items.Count; i++)
+                for(int i = 0; i < selectedOrder.Items.Count; i++)
                 {
-                    orderLineListLB.Items.Add("#" + order.Items[i].Product.Code + " " + order.Items[i].Product.Name + " " + order.Items[i].Count);
+                    orderLineListLB.Items.Add(selectedOrder.Items[i].ToString());
                 }
+
             }
         }
 
         private void ProcessOrders()
         {
-
-            List<Order> allOrders = _warehouse.Orders.GetAll().ToList();
-            List<OrderLine> ol = new List<OrderLine>();
+            List<Order> listOfOrders = _warehouse.Orders.GetPendingOrders().ToList();
             List<string> paymentFailed = new List<string>();
             List<string> notAvailible = new List<string>();
             List<string> dispatched = new List<string>();
 
-            foreach(Order o in allOrders)
-            {
-                if (!o.Dispatched)
-                {
-                    if (o.PaymentCompleted == false)
-                    {
-                        paymentFailed.Add("#" + o.Number.ToString());
-                    }
-                    else
-                    {
-                        ol = o.Items;
-                        bool check = true;
+            var paymentComplete = from order in listOfOrders
+                                  where order.PaymentCompleted == true
+                                  select order;
 
-                        for (int i = 0; i < o.Items.Count; i++)
+            foreach(var order in paymentComplete)
+            {
+                for (int i = 0; i < paymentComplete.ToList().Count; i++)
+                {
+                    if (!_warehouse.Products.ValidateProduct(order.Items[i].Product))
+                    {
+                        
+                    }
+                }
+
+            }
+
+
+           foreach (Order o in _warehouse.Orders.GetPendingOrders().ToList())
+            {
+
+                if (o.PaymentCompleted == false)
+                {
+                    paymentFailed.Add("#" + o.Number.ToString());
+                }
+                else
+                {
+                    ol = o.Items;
+                    bool check = true;
+    
+
+                    for (int i = 0; i < o.Items.Count; i++)
+                    {
+                        if(_warehouse.Products.ValidateProduct(o.Items[i].Product))
                         {
-                            if(_warehouse.Products.ValidateProduct(o.Items[i].Product))
+                            int stock = _warehouse.Products.GetStock(ol[i].Product.Code);
+
+                            if (!(stock >= ol[i].Count) || o.Items[i].Product.Firstavailable > DateTime.Now)
                             {
-                                int stock = _warehouse.Products.GetStock(ol[i].Product.Code);
-                                if (!(stock >= ol[i].Count) || o.Items[i].Product.Firstavailable > DateTime.Now)
-                                {
-                                    check = false;
-                                }
+                                check = false;
                             }
-                            else
-                            {
-                                o.PaymentRefunded = true;
-                            }
-   
                         }
+                        else
+                        {
+                            o.PaymentRefunded = true;
+                        }
+   
+                    }
+
+
+
+
                         if(o.PaymentRefunded)
                         {
                             //remove order?
@@ -102,7 +123,7 @@ namespace OOP2_Project_EA3
                             updated.PaymentCompleted = o.PaymentCompleted;
                             updated.PaymentRefunded = o.PaymentRefunded;
                             updated.Number = o.Number;
-                            updated.OrderDate = o.OrderDate;
+                            updated.DispatchDate = DateTime.Now; 
 
                             _warehouse.Orders.Update(o, updated);
                             dispatched.Add("#" + o.Number.ToString());
@@ -114,7 +135,6 @@ namespace OOP2_Project_EA3
 
 
                     }
-                }
             }
             
             string paymentdenied = String.Format("Following orders cannot be dispatched because of incomplete payment: \n{0} \n", String.Join(Environment.NewLine, paymentFailed));
@@ -128,30 +148,27 @@ namespace OOP2_Project_EA3
         private void ShowOrders()
         {
             ordersListLB.Items.Clear();
-            List<Order> allOrders = _warehouse.Orders.GetAll().ToList();
 
-            foreach (Order o in allOrders)
+            if(dispatchedOrdersRBtn.Checked)
             {
-                if(o.Dispatched && dispatchedOrdersRBtn.Checked)
-                {
-                    ordersListLB.Items.Add(o);
-                }
-                else if(!o.Dispatched && pendingOrdersRBtn.Checked)
-                {
-                    ordersListLB.Items.Add(o);
-                }
-                
+                foreach(var o in _warehouse.Orders.GetDispatchedOrders())
+                ordersListLB.Items.Add(o);
             }
-            
+            else if(pendingOrdersRBtn.Checked)
+            {
+                foreach(var o in _warehouse.Orders.GetPendingOrders())
+                ordersListLB.Items.Add(o);
+            }        
         }
 
         private void ShowCustomersWithOrders()
-        {
-            customerPendingListLB.Items.Clear();
+        {   
 
-            List<Order> allOrders = _warehouse.Orders.GetAll().ToList();
+          customerPendingListLB.Items.Clear();
 
-            foreach(Order o in allOrders)
+            List<Order> pendingOrders = _warehouse.Orders.GetPendingOrders().ToList();
+
+            foreach(Order o in pendingOrders)
             {
                 customerPendingListLB.Items.Add(o.Customer);
             }
@@ -197,6 +214,7 @@ namespace OOP2_Project_EA3
                 customerNameTB.Text = selected.Customer.Name;
                 customerEmailTB.Text = selected.Customer.Email.ToString();
                 customerPhoneTB.Text = selected.Customer.Phone.ToString();
+                GetOrderLines();
             }
             
         }

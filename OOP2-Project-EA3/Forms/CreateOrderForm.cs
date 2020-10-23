@@ -89,7 +89,7 @@ namespace OOP2_Project_EA3
             int number;
             if(allOrders.Count == 0)
             {
-                number = 0;
+                number = 1;
             }
             else
             {
