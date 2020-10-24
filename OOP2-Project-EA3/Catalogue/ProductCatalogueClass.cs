@@ -181,5 +181,7 @@ namespace OOP2_Project_EA3
             return _products.Exists(x => 
                 x.Code == product.Code && x.Name == product.Name && Math.Abs(x.Price - product.Price) < 0.01);
         }
+
+
     }
 }

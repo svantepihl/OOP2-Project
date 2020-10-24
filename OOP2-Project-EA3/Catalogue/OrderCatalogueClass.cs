@@ -183,7 +183,57 @@ namespace OOP2_Project_EA3
             return queryDispatchedOrders;
         }
 
+        public string EarliestDispatch(Order order)
+        {
 
+            string earliestDispatchDate = "";
+            List<DateTime> allReleaseDates = new List<DateTime>();
+            List<DateTime> allNextStocking = new List<DateTime>();
+
+            for (int i = 0; i < order.Items.Count; i++)
+            {
+                allReleaseDates.Add(order.Items[i].Product.Firstavailable);
+            }
+
+            var findRelease = from releaseDate in allReleaseDates
+                              where DateTime.Now < releaseDate
+                              select releaseDate;
+
+            //if theres a releasedate that is later than todays date then shipment cant be made until at least then so thats the earliest estimated
+            if (findRelease.ToList().Count > 0)
+            {
+                earliestDispatchDate = findRelease.Max().ToString();
+            }
+            else
+            {
+                //else check if there is no stock on some item and if not then add when the next shipment comes in
+                for (int i = 0; i < order.Items.Count; i++)
+                {
+                    if (order.Items[i].Product.Stock < order.Items[i].Count)
+                    {
+                        allNextStocking.Add(order.Items[i].Product.NextStocking);
+                    }
+                }
+
+                var stocking = from nextStock in allNextStocking
+                               where DateTime.Now < nextStock
+                               select nextStock;
+                //if there is no stock then earliest date is when that arrives, if not then check if payment is whats holding up, and if none then its ready to ship
+                if (stocking.ToList().Count > 0)
+                {
+                    earliestDispatchDate = stocking.Max().ToString();
+                }
+                else if (order.PaymentCompleted == false)
+                {
+                    earliestDispatchDate = "Waiting for payment";
+                }
+                else
+                {
+                    earliestDispatchDate = "Ready";
+                }
+            }
+            return earliestDispatchDate;
+        }
 
     }
 }

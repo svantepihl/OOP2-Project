@@ -32,9 +32,10 @@ namespace OOP2_Project_EA3
         private void GetOrderLines()
         {
             orderLineListLB.Items.Clear();
+
             Order selectedOrder = ordersListLB.SelectedItem as Order;
 
-            if (selectedOrder != null)
+           if (selectedOrder != null)
             {
                 for(int i = 0; i < selectedOrder.Items.Count; i++)
                 {
@@ -47,9 +48,6 @@ namespace OOP2_Project_EA3
         private void ProcessOrders()
         {
             List<Order> listOfOrders = _warehouse.Orders.GetPendingOrders().ToList();
-            List<string> paymentFailed = new List<string>();
-            List<string> notAvailible = new List<string>();
-            List<string> dispatched = new List<string>();
 
             var paymentComplete = from order in listOfOrders
                                   where order.PaymentCompleted == true
@@ -57,92 +55,68 @@ namespace OOP2_Project_EA3
 
             foreach(var order in paymentComplete)
             {
-                for (int i = 0; i < paymentComplete.ToList().Count; i++)
+                for (int i = 0; i < order.Items.Count; i++)
                 {
                     if (!_warehouse.Products.ValidateProduct(order.Items[i].Product))
                     {
-                        
+                        order.PaymentRefunded = true;
                     }
                 }
 
             }
 
+            var ordersNotRefunded = from order in paymentComplete
+                                where order.PaymentRefunded == false
+                                select order;
 
-           foreach (Order o in _warehouse.Orders.GetPendingOrders().ToList())
+            bool checkStock = true;
+            bool checkAvailability = true;
+
+
+            foreach(var order in ordersNotRefunded)
             {
-
-                if (o.PaymentCompleted == false)
+                for(int i = 0; i < order.Items.Count; i++)
                 {
-                    paymentFailed.Add("#" + o.Number.ToString());
-                }
-                else
-                {
-                    ol = o.Items;
-                    bool check = true;
-    
+                    int stock = _warehouse.Products.GetStock(order.Items[i].Product.Code);
 
-                    for (int i = 0; i < o.Items.Count; i++)
+                    if(stock < order.Items[i].Count)
                     {
-                        if(_warehouse.Products.ValidateProduct(o.Items[i].Product))
-                        {
-                            int stock = _warehouse.Products.GetStock(ol[i].Product.Code);
-
-                            if (!(stock >= ol[i].Count) || o.Items[i].Product.Firstavailable > DateTime.Now)
-                            {
-                                check = false;
-                            }
-                        }
-                        else
-                        {
-                            o.PaymentRefunded = true;
-                        }
-   
+                        checkStock = false;
+                    }
+                    if(order.Items[i].Product.Firstavailable > DateTime.Now)
+                    {
+                        checkAvailability = false;
                     }
 
+                }
 
+                
 
-
-                        if(o.PaymentRefunded)
-                        {
-                            //remove order?
-                            //add to message that payment was refunded for order and it has been removed
-                        }
-                        else if (check)
-                        {
-                            for (int i = 0; i < o.Items.Count; i++)
-                            {
-                                _warehouse.Products.DispatchStock(o.Items[i].Product.Code, o.Items[i].Count);
-                            }
-
-                            Order updated = new Order();
-
-                            updated.Dispatched = true;
-                            updated.Customer = o.Customer;
-                            updated.DeliveryAddress = o.DeliveryAddress;
-                            updated.Items = o.Items;
-                            updated.PaymentCompleted = o.PaymentCompleted;
-                            updated.PaymentRefunded = o.PaymentRefunded;
-                            updated.Number = o.Number;
-                            updated.DispatchDate = DateTime.Now; 
-
-                            _warehouse.Orders.Update(o, updated);
-                            dispatched.Add("#" + o.Number.ToString());
-                        }
-                        else
-                        {
-                            notAvailible.Add("#" + o.Number.ToString());
-                        }
-
-
+                if(checkStock && checkAvailability)
+                {
+                    for (int i = 0; i < order.Items.Count; i++)
+                    {
+                        _warehouse.Products.DispatchStock(order.Items[i].Product.Code, order.Items[i].Count);
                     }
+
+                    Order updated = new Order();
+
+                    updated.Dispatched = true;
+                    updated.Customer = order.Customer;
+                    updated.DeliveryAddress = order.DeliveryAddress;
+                    updated.Items = order.Items;
+                    updated.PaymentCompleted = order.PaymentCompleted;
+                    updated.PaymentRefunded = order.PaymentRefunded;
+                    updated.Number = order.Number;
+                    updated.DispatchDate = DateTime.Now;
+                    updated.OrderDate = order.OrderDate;
+
+                    _warehouse.Orders.Update(order, updated);
+                }
+
+                checkStock = true;
+                checkAvailability = true;
             }
-            
-            string paymentdenied = String.Format("Following orders cannot be dispatched because of incomplete payment: \n{0} \n", String.Join(Environment.NewLine, paymentFailed));
-            string disp = String.Format("Following orders have been dispatched: \n{0} \n", String.Join(Environment.NewLine, dispatched));
-            string noavailability = String.Format("Following orders can't be dispatched because of no availability: \n{0} \n", String.Join(Environment.NewLine, notAvailible));
-           
-            MessageBox.Show(paymentdenied + noavailability + "------------------------------\n" + disp);
-
         }
 
         private void ShowOrders()
@@ -170,7 +144,7 @@ namespace OOP2_Project_EA3
 
             foreach(Order o in pendingOrders)
             {
-                customerPendingListLB.Items.Add(o.Customer);
+                customerPendingListLB.Items.Add("#" + o.Customer.Number + " " + o.Customer.Name + " Order:" + o.Number);
             }
         }
 
@@ -210,7 +184,18 @@ namespace OOP2_Project_EA3
             Order selected = ordersListLB.SelectedItem as Order;
             if(selected != null)
             {
-                dateTB.Text = selected.OrderDate.ToString();
+                if(pendingOrdersRBtn.Checked == true)
+                {
+                    //find the earliest date where all products can be shipped, firstavailible and nextstocking
+
+                    dateTB.Text = _warehouse.Orders.EarliestDispatch(selected);
+
+                }
+                else
+                {
+                    dateTB.Text = selected.DispatchDate.ToString();
+                }
+                
                 customerNameTB.Text = selected.Customer.Name;
                 customerEmailTB.Text = selected.Customer.Email.ToString();
                 customerPhoneTB.Text = selected.Customer.Phone.ToString();
@@ -224,6 +209,7 @@ namespace OOP2_Project_EA3
             ProcessOrders();
         }
 
-       
+        
+
     }
 }

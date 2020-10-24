@@ -115,7 +115,7 @@ namespace OOP2_Project_EA3
                temp.Items = orderlineList;
                 _warehouse.Orders.Add(temp);
                 this.Close();
-                MessageBox.Show("Order was added succefully!");
+                MessageBox.Show("Order was added succefully!" + temp.OrderDate.ToString());
 
             }
 

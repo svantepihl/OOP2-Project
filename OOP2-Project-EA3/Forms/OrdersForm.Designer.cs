@@ -51,20 +51,20 @@
             // ordersListLB
             // 
             this.ordersListLB.FormattingEnabled = true;
-            this.ordersListLB.ItemHeight = 25;
-            this.ordersListLB.Location = new System.Drawing.Point(271, 71);
+            this.ordersListLB.ItemHeight = 20;
+            this.ordersListLB.Location = new System.Drawing.Point(217, 57);
             this.ordersListLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.ordersListLB.Name = "ordersListLB";
-            this.ordersListLB.Size = new System.Drawing.Size(234, 529);
+            this.ordersListLB.Size = new System.Drawing.Size(188, 424);
             this.ordersListLB.TabIndex = 0;
             this.ordersListLB.SelectedIndexChanged += new System.EventHandler(this.ordersListLB_SelectedIndexChanged);
             // 
             // processOrderBtn
             // 
-            this.processOrderBtn.Location = new System.Drawing.Point(9, 44);
+            this.processOrderBtn.Location = new System.Drawing.Point(7, 35);
             this.processOrderBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.processOrderBtn.Name = "processOrderBtn";
-            this.processOrderBtn.Size = new System.Drawing.Size(232, 95);
+            this.processOrderBtn.Size = new System.Drawing.Size(186, 76);
             this.processOrderBtn.TabIndex = 9;
             this.processOrderBtn.Text = "Process orders";
             this.processOrderBtn.UseVisualStyleBackColor = true;
@@ -73,91 +73,91 @@
             // customerPhoneLabel
             // 
             this.customerPhoneLabel.AutoSize = true;
-            this.customerPhoneLabel.Location = new System.Drawing.Point(532, 300);
+            this.customerPhoneLabel.Location = new System.Drawing.Point(426, 240);
             this.customerPhoneLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customerPhoneLabel.Name = "customerPhoneLabel";
-            this.customerPhoneLabel.Size = new System.Drawing.Size(145, 25);
+            this.customerPhoneLabel.Size = new System.Drawing.Size(118, 20);
             this.customerPhoneLabel.TabIndex = 8;
             this.customerPhoneLabel.Text = "Customer phone";
             // 
             // customerPhoneTB
             // 
-            this.customerPhoneTB.Location = new System.Drawing.Point(532, 329);
+            this.customerPhoneTB.Location = new System.Drawing.Point(426, 263);
             this.customerPhoneTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerPhoneTB.Name = "customerPhoneTB";
-            this.customerPhoneTB.Size = new System.Drawing.Size(155, 31);
+            this.customerPhoneTB.Size = new System.Drawing.Size(125, 27);
             this.customerPhoneTB.TabIndex = 7;
             // 
             // customerEmailTB
             // 
-            this.customerEmailTB.Location = new System.Drawing.Point(532, 260);
+            this.customerEmailTB.Location = new System.Drawing.Point(426, 208);
             this.customerEmailTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerEmailTB.Name = "customerEmailTB";
-            this.customerEmailTB.Size = new System.Drawing.Size(155, 31);
+            this.customerEmailTB.Size = new System.Drawing.Size(125, 27);
             this.customerEmailTB.TabIndex = 6;
             // 
             // customerEmailLabel
             // 
             this.customerEmailLabel.AutoSize = true;
-            this.customerEmailLabel.Location = new System.Drawing.Point(532, 234);
+            this.customerEmailLabel.Location = new System.Drawing.Point(426, 187);
             this.customerEmailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customerEmailLabel.Name = "customerEmailLabel";
-            this.customerEmailLabel.Size = new System.Drawing.Size(136, 25);
+            this.customerEmailLabel.Size = new System.Drawing.Size(113, 20);
             this.customerEmailLabel.TabIndex = 5;
             this.customerEmailLabel.Text = "Customer email";
             // 
             // customerNameLabel
             // 
             this.customerNameLabel.AutoSize = true;
-            this.customerNameLabel.Location = new System.Drawing.Point(532, 159);
+            this.customerNameLabel.Location = new System.Drawing.Point(426, 127);
             this.customerNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customerNameLabel.Name = "customerNameLabel";
-            this.customerNameLabel.Size = new System.Drawing.Size(138, 25);
+            this.customerNameLabel.Size = new System.Drawing.Size(113, 20);
             this.customerNameLabel.TabIndex = 3;
             this.customerNameLabel.Text = "Customer name";
             // 
             // customerNameTB
             // 
-            this.customerNameTB.Location = new System.Drawing.Point(532, 186);
+            this.customerNameTB.Location = new System.Drawing.Point(426, 149);
             this.customerNameTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerNameTB.Name = "customerNameTB";
-            this.customerNameTB.Size = new System.Drawing.Size(155, 31);
+            this.customerNameTB.Size = new System.Drawing.Size(125, 27);
             this.customerNameTB.TabIndex = 4;
             // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(532, 89);
+            this.dateLabel.Location = new System.Drawing.Point(426, 71);
             this.dateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(141, 25);
+            this.dateLabel.Size = new System.Drawing.Size(118, 20);
             this.dateLabel.TabIndex = 1;
             this.dateLabel.Text = "Date dispatched";
             // 
             // dateTB
             // 
-            this.dateTB.Location = new System.Drawing.Point(532, 116);
+            this.dateTB.Location = new System.Drawing.Point(426, 93);
             this.dateTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dateTB.Name = "dateTB";
-            this.dateTB.Size = new System.Drawing.Size(155, 31);
+            this.dateTB.Size = new System.Drawing.Size(125, 27);
             this.dateTB.TabIndex = 2;
             // 
             // orderListLabel
             // 
             this.orderListLabel.AutoSize = true;
-            this.orderListLabel.Location = new System.Drawing.Point(271, 44);
+            this.orderListLabel.Location = new System.Drawing.Point(217, 35);
             this.orderListLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.orderListLabel.Name = "orderListLabel";
-            this.orderListLabel.Size = new System.Drawing.Size(157, 25);
+            this.orderListLabel.Size = new System.Drawing.Size(130, 20);
             this.orderListLabel.TabIndex = 15;
             this.orderListLabel.Text = "Dispatched orders";
             // 
             // addNewOrderBtn
             // 
-            this.addNewOrderBtn.Location = new System.Drawing.Point(9, 159);
+            this.addNewOrderBtn.Location = new System.Drawing.Point(7, 127);
             this.addNewOrderBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.addNewOrderBtn.Name = "addNewOrderBtn";
-            this.addNewOrderBtn.Size = new System.Drawing.Size(232, 71);
+            this.addNewOrderBtn.Size = new System.Drawing.Size(186, 57);
             this.addNewOrderBtn.TabIndex = 16;
             this.addNewOrderBtn.Text = "Add new order";
             this.addNewOrderBtn.UseVisualStyleBackColor = true;
@@ -166,10 +166,10 @@
             // pendingOrdersRBtn
             // 
             this.pendingOrdersRBtn.AutoSize = true;
-            this.pendingOrdersRBtn.Location = new System.Drawing.Point(36, 311);
+            this.pendingOrdersRBtn.Location = new System.Drawing.Point(29, 249);
             this.pendingOrdersRBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.pendingOrdersRBtn.Name = "pendingOrdersRBtn";
-            this.pendingOrdersRBtn.Size = new System.Drawing.Size(157, 29);
+            this.pendingOrdersRBtn.Size = new System.Drawing.Size(129, 24);
             this.pendingOrdersRBtn.TabIndex = 17;
             this.pendingOrdersRBtn.TabStop = true;
             this.pendingOrdersRBtn.Text = "Pending orders";
@@ -180,10 +180,10 @@
             // 
             this.dispatchedOrdersRBtn.AutoSize = true;
             this.dispatchedOrdersRBtn.Checked = true;
-            this.dispatchedOrdersRBtn.Location = new System.Drawing.Point(36, 279);
+            this.dispatchedOrdersRBtn.Location = new System.Drawing.Point(29, 223);
             this.dispatchedOrdersRBtn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dispatchedOrdersRBtn.Name = "dispatchedOrdersRBtn";
-            this.dispatchedOrdersRBtn.Size = new System.Drawing.Size(182, 29);
+            this.dispatchedOrdersRBtn.Size = new System.Drawing.Size(151, 24);
             this.dispatchedOrdersRBtn.TabIndex = 18;
             this.dispatchedOrdersRBtn.TabStop = true;
             this.dispatchedOrdersRBtn.Text = "Dispatched orders";
@@ -193,48 +193,48 @@
             // orderLineListLB
             // 
             this.orderLineListLB.FormattingEnabled = true;
-            this.orderLineListLB.ItemHeight = 25;
-            this.orderLineListLB.Location = new System.Drawing.Point(714, 71);
+            this.orderLineListLB.ItemHeight = 20;
+            this.orderLineListLB.Location = new System.Drawing.Point(571, 57);
             this.orderLineListLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.orderLineListLB.Name = "orderLineListLB";
-            this.orderLineListLB.Size = new System.Drawing.Size(210, 529);
+            this.orderLineListLB.Size = new System.Drawing.Size(169, 424);
             this.orderLineListLB.TabIndex = 19;
             // 
             // orderLineListLabel
             // 
             this.orderLineListLabel.AutoSize = true;
-            this.orderLineListLabel.Location = new System.Drawing.Point(714, 44);
+            this.orderLineListLabel.Location = new System.Drawing.Point(571, 35);
             this.orderLineListLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.orderLineListLabel.Name = "orderLineListLabel";
-            this.orderLineListLabel.Size = new System.Drawing.Size(154, 25);
+            this.orderLineListLabel.Size = new System.Drawing.Size(126, 20);
             this.orderLineListLabel.TabIndex = 20;
             this.orderLineListLabel.Text = "Ordered products";
             // 
             // customerPendingListLB
             // 
             this.customerPendingListLB.FormattingEnabled = true;
-            this.customerPendingListLB.ItemHeight = 25;
-            this.customerPendingListLB.Location = new System.Drawing.Point(979, 71);
+            this.customerPendingListLB.ItemHeight = 20;
+            this.customerPendingListLB.Location = new System.Drawing.Point(783, 57);
             this.customerPendingListLB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.customerPendingListLB.Name = "customerPendingListLB";
-            this.customerPendingListLB.Size = new System.Drawing.Size(253, 529);
+            this.customerPendingListLB.Size = new System.Drawing.Size(203, 424);
             this.customerPendingListLB.TabIndex = 21;
             // 
             // customersPendingListLabel
             // 
             this.customersPendingListLabel.AutoSize = true;
-            this.customersPendingListLabel.Location = new System.Drawing.Point(979, 44);
+            this.customersPendingListLabel.Location = new System.Drawing.Point(783, 35);
             this.customersPendingListLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.customersPendingListLabel.Name = "customersPendingListLabel";
-            this.customersPendingListLabel.Size = new System.Drawing.Size(262, 25);
+            this.customersPendingListLabel.Size = new System.Drawing.Size(215, 20);
             this.customersPendingListLabel.TabIndex = 22;
             this.customersPendingListLabel.Text = "Customers with pending orders";
             // 
             // OrdersForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1306, 871);
+            this.ClientSize = new System.Drawing.Size(1045, 697);
             this.Controls.Add(this.customersPendingListLabel);
             this.Controls.Add(this.customerPendingListLB);
             this.Controls.Add(this.orderLineListLabel);
