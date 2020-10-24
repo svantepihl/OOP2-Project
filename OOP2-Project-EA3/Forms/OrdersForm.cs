@@ -45,80 +45,6 @@ namespace OOP2_Project_EA3
             }
         }
 
-        private void ProcessOrders()
-        {
-            List<Order> listOfOrders = _warehouse.Orders.GetPendingOrders().ToList();
-
-            var paymentComplete = from order in listOfOrders
-                                  where order.PaymentCompleted == true
-                                  select order;
-
-            foreach(var order in paymentComplete)
-            {
-                for (int i = 0; i < order.Items.Count; i++)
-                {
-                    if (!_warehouse.Products.ValidateProduct(order.Items[i].Product))
-                    {
-                        order.PaymentRefunded = true;
-                    }
-                }
-
-            }
-
-            var ordersNotRefunded = from order in paymentComplete
-                                where order.PaymentRefunded == false
-                                select order;
-
-            bool checkStock = true;
-            bool checkAvailability = true;
-
-
-            foreach(var order in ordersNotRefunded)
-            {
-                for(int i = 0; i < order.Items.Count; i++)
-                {
-                    int stock = _warehouse.Products.GetStock(order.Items[i].Product.Code);
-
-                    if(stock < order.Items[i].Count)
-                    {
-                        checkStock = false;
-                    }
-                    if(order.Items[i].Product.Firstavailable > DateTime.Now)
-                    {
-                        checkAvailability = false;
-                    }
-
-                }
-
-                
-
-                if(checkStock && checkAvailability)
-                {
-                    for (int i = 0; i < order.Items.Count; i++)
-                    {
-                        _warehouse.Products.DispatchStock(order.Items[i].Product.Code, order.Items[i].Count);
-                    }
-
-                    Order updated = new Order();
-
-                    updated.Dispatched = true;
-                    updated.Customer = order.Customer;
-                    updated.DeliveryAddress = order.DeliveryAddress;
-                    updated.Items = order.Items;
-                    updated.PaymentCompleted = order.PaymentCompleted;
-                    updated.PaymentRefunded = order.PaymentRefunded;
-                    updated.Number = order.Number;
-                    updated.DispatchDate = DateTime.Now;
-                    updated.OrderDate = order.OrderDate;
-
-                    _warehouse.Orders.Update(order, updated);
-                }
-
-                checkStock = true;
-                checkAvailability = true;
-            }
-        }
-
         private void ShowOrders()
         {
             ordersListLB.Items.Clear();
@@ -144,7 +70,7 @@ namespace OOP2_Project_EA3
 
             foreach(Order o in pendingOrders)
             {
-                customerPendingListLB.Items.Add("#" + o.Customer.Number + " " + o.Customer.Name + " Order:" + o.Number);
+                customerPendingListLB.Items.Add("#" + o.Customer.Number + ":" + o.Customer.Name + ", Order#:" + o.Number);
             }
         }
 
@@ -186,10 +112,7 @@ namespace OOP2_Project_EA3
             {
                 if(pendingOrdersRBtn.Checked == true)
                 {
-                    //find the earliest date where all products can be shipped, firstavailible and nextstocking
-
                     dateTB.Text = _warehouse.Orders.EarliestDispatch(selected);
-
                 }
                 else
                 {
@@ -206,7 +129,9 @@ namespace OOP2_Project_EA3
 
         private void processOrderBtn_Click(object sender, EventArgs e)
         {
-            ProcessOrders();
+           _warehouse.BatchProcessOrders();
+            ShowCustomersWithOrders();
+            ShowOrders();
         }
 
         

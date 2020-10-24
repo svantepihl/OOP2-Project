@@ -158,6 +158,8 @@ namespace OOP2_Project_EA3
         public void DispatchOrder(int orderNumber)
         {
             _orders.Single(x => x.Number == orderNumber).Dispatched = true;
+            _orders.Single(x => x.Number == orderNumber).DispatchDate = DateTime.Now;
+            WriteToFile();
         }
 
 
@@ -234,6 +236,5 @@ namespace OOP2_Project_EA3
             }
             return earliestDispatchDate;
         }
-
     }
 }
