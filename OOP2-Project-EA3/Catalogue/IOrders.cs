@@ -27,7 +27,5 @@ namespace OOP2_Project_EA3
         IEnumerable<Order> GetPendingOrders();
 
         IEnumerable<Order> GetDispatchedOrders();
-
-        string EarliestDispatch(Order order);
     }
 }
