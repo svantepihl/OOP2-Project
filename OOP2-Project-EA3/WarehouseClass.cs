@@ -65,7 +65,7 @@ namespace OOP2_Project_EA3
                     {
                         checkStock = false;
                     }
-                    if (order.Items[i].Product.Firstavailable > DateTime.Now)
+                    if (order.Items[i].Product.Firstavailable >= DateTime.Now)
                     {
                         checkAvailability = false;
                     }
