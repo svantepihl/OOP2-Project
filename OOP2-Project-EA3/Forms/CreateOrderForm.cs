@@ -18,6 +18,8 @@ namespace OOP2_Project_EA3
 
         private List<OrderLine> orderlineList = new List<OrderLine>();
 
+        private List<OrderLine> duplicateList = new List<OrderLine>();
+
         public CreateOrderForm(Warehouse warehouse)
         {
             _warehouse = warehouse;
@@ -59,6 +61,14 @@ namespace OOP2_Project_EA3
                     selectedProductsListLB.Items.Add(o.Product);
                 }
             }
+
+            foreach(OrderLine o in duplicateList)
+            {
+                for (int i = 0; i < o.Count; i++)
+                {
+                    selectedProductsListLB.Items.Add(o.Product);
+                }
+            }
         }
         //Select the customer
         private void selectCustomerBtn_Click(object sender, System.EventArgs e)
@@ -76,8 +86,20 @@ namespace OOP2_Project_EA3
             tempOrderLine.Product = selectProductListLB.SelectedItem as Product;
             tempOrderLine.Count = Decimal.ToInt32(selectQuantityNUD.Value);
 
-            orderlineList.Add(tempOrderLine);
+            if(selectedCustomer == null)
+            {
+                MessageBox.Show("Please select a customer first");
+            }
 
+            if (orderlineList.Exists(x => x.Product == tempOrderLine.Product))
+            {
+                duplicateList.Add(tempOrderLine);
+            }
+
+            else
+            {
+                orderlineList.Add(tempOrderLine);
+            }
             showSelectedProducts();
         }
 
@@ -112,7 +134,20 @@ namespace OOP2_Project_EA3
                 {
                     temp.PaymentCompleted = false;
                 }
-               temp.Items = orderlineList;
+
+                if(duplicateList.Count != 0)
+                {
+                    foreach(OrderLine duplicate in duplicateList)
+                    {
+                        var sameProduct = orderlineList.Find(x => x.Product == duplicate.Product);
+                        int i = orderlineList.IndexOf(sameProduct);
+                        sameProduct.Count += duplicate.Count;
+                        orderlineList[i] = sameProduct;
+                        
+                    }
+                }
+
+                temp.Items = orderlineList;
                 _warehouse.Orders.Add(temp);
                 this.Close();
                 MessageBox.Show("Order was added succefully!" + temp.OrderDate.ToString());
