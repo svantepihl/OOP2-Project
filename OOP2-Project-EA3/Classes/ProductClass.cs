@@ -88,7 +88,7 @@ namespace OOP2_Project_EA3
 
 
         /// <summary>
-        /// Date the product was created.
+        /// Date the product will be released.
         /// </summary>
         public DateTime Firstavailable
         {

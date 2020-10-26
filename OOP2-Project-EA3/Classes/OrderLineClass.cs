@@ -25,5 +25,10 @@ namespace OOP2_Project_EA3
             get => _count;
             set => _count = value;
         }
+
+        public override string ToString()
+        {
+            return Count + " " + Product.Name;
+        }
     }
 }
