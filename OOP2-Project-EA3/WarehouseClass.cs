@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing.Text;
 using System.IO;
 using System.Linq;
-using System.Text.Json;
 using System.Windows.Forms;
 
 namespace OOP2_Project_EA3

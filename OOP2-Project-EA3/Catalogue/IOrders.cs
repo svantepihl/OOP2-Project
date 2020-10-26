@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Configuration;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace OOP2_Project_EA3
 {

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
-using System.CodeDom.Compiler;
 
 namespace OOP2_Project_EA3
 {
