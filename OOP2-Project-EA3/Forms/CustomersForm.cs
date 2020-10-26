@@ -91,7 +91,33 @@ namespace OOP2_Project_EA3
 
         private void updateCustomerBtn_Click(object sender, System.EventArgs e)
         {
-            if (customerListLB.SelectedItem != null)
+            if (!String.IsNullOrEmpty(customerNumberTB.Text))
+            {
+                try
+                {
+                    Customer current = _warehouse.Customers.Find(int.Parse(customerNumberTB.Text));
+                    Customer updated = new Customer();
+                    updated.Number = int.Parse(customerNumberTB.Text);
+                    updated.Name = customerNameTB.Text;
+                    updated.Email = customerEmailTB.Text;
+                    updated.Phone = customerPhoneTB.Text;
+                    if (_warehouse.Customers.Update(current, updated))
+                    {
+                        MessageBox.Show("Customer successfully updated!");
+                    }
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No customer is currently selected!");
+            }
+            
+            // Gamla
+            /*if (customerListLB.SelectedItem != null)
             {
                 try
                 {
@@ -114,7 +140,7 @@ namespace OOP2_Project_EA3
             else
             {
                 MessageBox.Show("No customer is currently selected!");
-            }
+            }*/
         }
 
         private void ShowCustomerOrders()
