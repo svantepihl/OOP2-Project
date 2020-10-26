@@ -91,6 +91,7 @@ namespace OOP2_Project_EA3
                 orderListLabel.Text = "Pending orders";
                 dateLabel.Text = "Est. dispatch date";
                 ShowOrders();
+                GetOrderLines();
             }
         }
 
@@ -101,6 +102,7 @@ namespace OOP2_Project_EA3
                 orderListLabel.Text = "Dispatched orders";
                 dateLabel.Text = "Date dispatched";
                 ShowOrders();
+                GetOrderLines();
             }
         }
 
@@ -131,6 +133,7 @@ namespace OOP2_Project_EA3
            _warehouse.BatchProcessOrders();
             ShowCustomersWithOrders();
             ShowOrders();
+            GetOrderLines();
         }
 
         

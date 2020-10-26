@@ -67,8 +67,9 @@ namespace OOP2_Project_EA3
         {
 
             OrderLine tempOrderLine = new OrderLine();
+            Product temp = selectProductListLB.SelectedItem as Product;
 
-            tempOrderLine.Product = selectProductListLB.SelectedItem as Product;
+            tempOrderLine.Product = _warehouse.Products.Find(temp.Code);
             tempOrderLine.Count = Decimal.ToInt32(selectQuantityNUD.Value);
 
             orderlineList.Add(tempOrderLine);
@@ -107,7 +108,9 @@ namespace OOP2_Project_EA3
                 {
                     temp.PaymentCompleted = false;
                 }
+
                temp.Items = orderlineList;
+
                 _warehouse.Orders.Add(temp);
                 this.Close();
                 MessageBox.Show("Order was added succefully!" + temp.OrderDate.ToString());
@@ -132,11 +135,12 @@ namespace OOP2_Project_EA3
             if(find != null)
             {
                 --find.Count;
-            }
+            
 
-            if(find.Count < 1)
-            {
-                orderlineList.Remove(find);
+                if(find.Count < 1)
+                {
+                    orderlineList.Remove(find);
+                }
             }
 
             showSelectedProducts();

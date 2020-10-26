@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Windows.Forms;
@@ -9,12 +11,13 @@ namespace OOP2_Project_EA3
     {
         // Tre knappar, en till kunder, en till orders och en till produkter
         private Warehouse Warehouse;
+        private FileSystemWatcher fsw;
 
         public WareHouseForm(Warehouse warehouse)
         {
             Warehouse = warehouse;
             InitializeComponent();
-            
+
 
             //Watch for new orders in .\neworders
             WatchNewOrders();
@@ -23,7 +26,8 @@ namespace OOP2_Project_EA3
         private void WatchNewOrders()
         {
             Directory.CreateDirectory("neworders");
-            FileSystemWatcher fsw = new FileSystemWatcher(".\\neworders", "*.json");
+            fsw = new FileSystemWatcher("./neworders", "*.json");
+            fsw.EnableRaisingEvents = true;
             fsw.SynchronizingObject = this;
             fsw.Created += Fsw_Created;
         }
@@ -33,8 +37,32 @@ namespace OOP2_Project_EA3
             Thread.Sleep(500);
             string json = File.ReadAllText(e.FullPath);
             Order o = JsonSerializer.Deserialize<Order>(json);
-            Warehouse.Orders.Add(o);
+
+            // Kolla att order numret inte redan finns i orderkatalogen
+            if (!Warehouse.Orders.GetAll().Any(x => x.Number == o.Number))
+            {
+                try
+                {
+                    // Kolla att kunden finns & ersätt med referens från kundkatalogen
+                    o.Customer = Warehouse.Customers.Find(o.Customer.Number);
+                    foreach (var orderLine in o.Items)
+                    {
+                        // För alla orderlines kolla att produkten finns & ersätt med referens från produktkatalog
+                        orderLine.Product = Warehouse.Products.Find(orderLine.Product.Code);
+                    }
+                    Warehouse.Orders.Add(o);
+                    
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show("Was not able to add order from JSON-file, file has been removed, please try again!");
+                    File.Delete(e.FullPath);
+                }
+            }
+
+            
             File.Delete(e.FullPath);
+            MessageBox.Show("A new order was added to the system!");
         }
 
         private void ordersBtn_Click(object sender, System.EventArgs e)
