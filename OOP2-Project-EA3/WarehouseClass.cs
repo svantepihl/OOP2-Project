@@ -39,7 +39,11 @@ namespace OOP2_Project_EA3
 
             for (int i = 0; i < order.Items.Count; i++)
             {
-                allReleaseDates.Add(order.Items[i].Product.Firstavailable);
+                int tempCode = order.Items[i].Product.Code;
+
+                Product tempProduct = Products.Find(tempCode);
+
+                allReleaseDates.Add(tempProduct.Firstavailable);
             }
 
             var findRelease = allReleaseDates.Where(x => DateTime.Now < x);
