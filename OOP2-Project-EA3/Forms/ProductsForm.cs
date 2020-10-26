@@ -75,7 +75,35 @@ namespace OOP2_Project_EA3
 
         private void updateProductBtn_Click(object sender, System.EventArgs e)
         {
-            try
+            if (!String.IsNullOrEmpty(productCodeTB.Text))
+            {
+                try
+                {
+                    Product current = _warehouse.Products.Find(int.Parse(productCodeTB.Text));
+                    Product updated = new Product();
+                    updated.Name = productNameTB.Text;
+                    updated.Code = Int32.Parse(productCodeTB.Text);
+                    updated.Price = double.Parse(productPriceTB.Text);
+                    updated.Stock = Int32.Parse(productStockTB.Text);
+                    updated.Firstavailable = DateTime.Parse(availableDatePicker.Text);
+                    updated.NextStocking = DateTime.Parse(restockDatePicker.Text);
+                    if (_warehouse.Products.Update(current, updated))
+                    {
+                        MessageBox.Show("Product" + updated.Name + " was successfully updated!");
+                    }
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No customer is currently selected!");
+            }
+            
+            // Gamla
+            /*try
             {
                 Product current = productListLB.SelectedItem as Product;
                 Product updated = new Product();
@@ -93,7 +121,7 @@ namespace OOP2_Project_EA3
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
-            }
+            }*/
         }
 
         // TODO: Lägga till produkt till katalogen,
