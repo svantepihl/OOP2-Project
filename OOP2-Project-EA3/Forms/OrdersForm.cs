@@ -29,6 +29,7 @@ namespace OOP2_Project_EA3
             GetOrderLines();
         }
 
+
         private void GetOrderLines()
         {
             orderLineListLB.Items.Clear();
@@ -112,7 +113,7 @@ namespace OOP2_Project_EA3
             {
                 if(pendingOrdersRBtn.Checked == true)
                 {
-                    dateTB.Text = _warehouse.Orders.EarliestDispatch(selected);
+                    dateTB.Text = _warehouse.EarliestDispatch(selected);
                 }
                 else
                 {

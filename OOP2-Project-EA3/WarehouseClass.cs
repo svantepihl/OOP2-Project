@@ -4,6 +4,7 @@ using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Windows.Forms;
 
 namespace OOP2_Project_EA3
 {
@@ -23,33 +24,95 @@ namespace OOP2_Project_EA3
             Orders = new OrderCatalogue(folder);
         }
 
+
+
+        //// <summary>
+        /// Get the earliest time an order can be dispatched
+        /// </summary>
+        /// <returns>Return a string with when an order can be dispatched.</returns>
+        public string EarliestDispatch(Order order)
+        {
+
+            string earliestDispatchDate = "";
+            List<DateTime> allReleaseDates = new List<DateTime>();
+            List<DateTime> allNextStocking = new List<DateTime>();
+
+            for (int i = 0; i < order.Items.Count; i++)
+            {
+                allReleaseDates.Add(order.Items[i].Product.Firstavailable);
+            }
+
+            var findRelease = allReleaseDates.Where(x => DateTime.Now < x);
+
+            
+            //if theres a releasedate that is later than todays date then shipment cant be made until at least then so thats the earliest estimated
+            if (allReleaseDates.Where(x => DateTime.Now < x).ToList().Count > 0)
+            {
+                earliestDispatchDate = findRelease.Max().ToString();
+            }
+            else
+            {
+                //else check if there is no stock on some item and if not then add when the next shipment comes in
+                for (int i = 0; i < order.Items.Count; i++)
+                {
+                    int tempCode = order.Items[i].Product.Code;
+
+                    Product tempProduct = Products.Find(tempCode);
+
+                    if (tempProduct.Stock < order.Items[i].Count)
+                    {
+                        allNextStocking.Add(order.Items[i].Product.NextStocking);
+                    }
+                }
+
+                var stocking = allNextStocking.Where(o => DateTime.Now < o);
+
+                //if there is no stock then earliest date is when that arrives, if not then check if payment is whats holding up, and if none then its ready to ship
+                if (allNextStocking.Where(o => DateTime.Now < o).ToList().Count > 0)
+                {
+                    earliestDispatchDate = stocking.Max().ToString();
+                }
+                else if (order.PaymentCompleted == false)
+                {
+                    earliestDispatchDate = "Waiting for payment";
+                }
+                else
+                {
+                    earliestDispatchDate = "Ready";
+                }
+            }
+            return earliestDispatchDate;
+        }
+
+
         /// <summary>
         /// Process all orders that are not dispatched and where payment is collected and not refunded.
         /// </summary>
         public void BatchProcessOrders()
         {
             List<Order> listOfOrders = Orders.GetPendingOrders().ToList();
+            List<int> listOfProcessed = new List<int>();
 
-            var paymentComplete = from order in listOfOrders
-                                  where order.PaymentCompleted == true
-                                  select order;
+            var paymentComplete = listOfOrders.Where(o => o.PaymentCompleted == true);
 
             foreach (var order in paymentComplete)
             {
                 for (int i = 0; i < order.Items.Count; i++)
                 {
-                    if (!Products.ValidateProduct(order.Items[i].Product))
+                    int tempCode = order.Items[i].Product.Code;
+
+                    Product tempProduct = Products.Find(tempCode);
+
+                    if (!Products.ValidateProduct(tempProduct))
                     {
-                        order.PaymentRefunded = true;
+                        Orders.RefundOrder(order.Number);
                         return;
                     }
                 }
 
             }
 
-            var ordersNotRefunded = from order in paymentComplete
-                                    where order.PaymentRefunded == false
-                                    select order;
+            var ordersNotRefunded = paymentComplete.Where(o => o.PaymentRefunded == false);
 
             bool checkStock = true;
             bool checkAvailability = true;
@@ -59,7 +122,13 @@ namespace OOP2_Project_EA3
             {
                 for (int i = 0; i < order.Items.Count; i++)
                 {
-                    int stock = Products.GetStock(order.Items[i].Product.Code);
+                    
+
+                    int tempCode = order.Items[i].Product.Code;
+
+                    Product tempProduct = Products.Find(tempCode);
+
+                    int stock = Products.GetStock(tempProduct.Code);
 
                     if (stock < order.Items[i].Count)
                     {
@@ -80,48 +149,16 @@ namespace OOP2_Project_EA3
                     }
 
                     Orders.DispatchOrder(order.Number);
-
+                    listOfProcessed.Add(order.Number);
                 }
 
                 checkStock = true;
                 checkAvailability = true;
             }
+            
+            string processedOrders = string.Join(",", listOfProcessed);
+            MessageBox.Show("Orders: " + processedOrders + " has been processed");
 
         }
-            /* // Adds all items where payment is made and not dispatched yet and places them in a queue based on OrderDate in ascending orders
-             Queue<Order> orderQueue = new Queue<Order>(Orders.GetAll()
-                 .Where(x=> x.Dispatched == false && x.PaymentCompleted == true && x.PaymentRefunded == false)
-                 .OrderBy(x => x.OrderDate));
-
-             while (orderQueue.Count > 0)
-             {
-                 // Process the next order in the queue
-                 ProcessOrder(orderQueue.Dequeue());
-             }
-        }
-
-        /// <summary>
-        /// Processes the order given in the argument.
-        /// If all products are valid and there is enough stock the order is marked as dispatched inventory is updated.
-        /// </summary>
-        /// <param name="order">Order to be processed</param>
-        private void ProcessOrder(Order order)
-        {
-
-            // Check that all products in the order are valid products, if not refund order.
-            if (order.Items.Exists(x => !Products.ValidateProduct(x.Product)))
-            {
-                Orders.RefundOrder(order.Number);
-                return;
-            }
-
-            // TODO: Kolla firstavailable för alla produkter är innan dagens datum.
-            // Check that there is enough stock for all items in the order, if so update stock and mark order as dispatched.
-            if (order.Items.TrueForAll(x => Products.GetStock(x.Product.Code) - x.Count < 0))
-            {
-                order.Items.ForEach(x=> Products.DispatchStock(x.Product.Code,x.Count));
-                Orders.DispatchOrder(order.Number);
-            }
-        }*/
     }
 }
