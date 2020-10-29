@@ -22,7 +22,7 @@ namespace OOP2_Project_EA3
                 temp.Number = Int32.Parse(customerNumberTB.Text);
                 temp.Phone = customerPhoneTB.Text;
                 _warehouse.Customers.Add(temp);
-                this.Close();
+                Close();
             }
             catch (Exception exception)
             {

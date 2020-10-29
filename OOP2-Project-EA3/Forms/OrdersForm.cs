@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Windows.Forms;
-using System.Linq;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace OOP2_Project_EA3
 {
@@ -20,7 +21,7 @@ namespace OOP2_Project_EA3
             _warehouse.Orders.CatalogueChanged += Orders_CatalogueChanged;
 
         }
-        private void Orders_CatalogueChanged(object sender, System.EventArgs e)
+        private void Orders_CatalogueChanged(object sender, EventArgs e)
         {
             ShowOrders();
             ShowCustomersWithOrders();
@@ -51,12 +52,12 @@ namespace OOP2_Project_EA3
             if(dispatchedOrdersRBtn.Checked)
             {
                 foreach(var o in _warehouse.Orders.GetDispatchedOrders())
-                ordersListLB.Items.Add(o);
+                    ordersListLB.Items.Add(o);
             }
             else if(pendingOrdersRBtn.Checked)
             {
                 foreach(var o in _warehouse.Orders.GetPendingOrders())
-                ordersListLB.Items.Add(o);
+                    ordersListLB.Items.Add(o);
             }        
         }
 
@@ -73,20 +74,20 @@ namespace OOP2_Project_EA3
             }
         }
 
-        private void OrdersForm_Load(object sender, System.EventArgs e)
+        private void OrdersForm_Load(object sender, EventArgs e)
         {
         }
 
-        private void addNewOrderBtn_Click(object sender, System.EventArgs e)
+        private void addNewOrderBtn_Click(object sender, EventArgs e)
         {
             CreateOrderForm createOrder = new CreateOrderForm(_warehouse);
             createOrder.Show();
 
         }
 
-        private void dispatchedOrdersRBtn_CheckedChanged(object sender, System.EventArgs e)
+        private void dispatchedOrdersRBtn_CheckedChanged(object sender, EventArgs e)
         {
-            if (pendingOrdersRBtn.Checked == true)
+            if (pendingOrdersRBtn.Checked)
             {
                 orderListLabel.Text = "Pending orders";
                 dateLabel.Text = "Est. dispatch date";
@@ -95,9 +96,9 @@ namespace OOP2_Project_EA3
             }
         }
 
-        private void pendingOrdersRBtn_CheckedChanged(object sender, System.EventArgs e)
+        private void pendingOrdersRBtn_CheckedChanged(object sender, EventArgs e)
         {
-            if (dispatchedOrdersRBtn.Checked == true)
+            if (dispatchedOrdersRBtn.Checked)
             {
                 orderListLabel.Text = "Dispatched orders";
                 dateLabel.Text = "Date dispatched";
@@ -111,18 +112,18 @@ namespace OOP2_Project_EA3
             Order selected = ordersListLB.SelectedItem as Order;
             if(selected != null)
             {
-                if(pendingOrdersRBtn.Checked == true)
+                if(pendingOrdersRBtn.Checked)
                 {
                     dateTB.Text = _warehouse.EarliestDispatch(selected);
                 }
                 else
                 {
-                    dateTB.Text = selected.DispatchDate.ToString();
+                    dateTB.Text = selected.DispatchDate.ToString(CultureInfo.InvariantCulture);
                 }
                 
                 customerNameTB.Text = selected.Customer.Name;
-                customerEmailTB.Text = selected.Customer.Email.ToString();
-                customerPhoneTB.Text = selected.Customer.Phone.ToString();
+                customerEmailTB.Text = selected.Customer.Email;
+                customerPhoneTB.Text = selected.Customer.Phone;
                 GetOrderLines();
             }
             

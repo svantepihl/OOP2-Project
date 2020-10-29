@@ -1,11 +1,14 @@
-﻿namespace OOP2_Project_EA3
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace OOP2_Project_EA3
 {
     partial class WareHouseForm
     {
         /// <summary>
         ///  Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         ///  Clean up any resources being used.
@@ -84,8 +87,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button ordersBtn;
-        private System.Windows.Forms.Button customersBtn;
-        private System.Windows.Forms.Button productsBtn;
+        private Button ordersBtn;
+        private Button customersBtn;
+        private Button productsBtn;
     }
 }

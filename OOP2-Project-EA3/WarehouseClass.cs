@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -24,10 +25,11 @@ namespace OOP2_Project_EA3
 
 
 
-        //// <summary>
-        /// Get the earliest time an order can be dispatched
+        /// <summary>
+        ///  Returns the earliest dispatch date for a specific order
         /// </summary>
-        /// <returns>Return a string with when an order can be dispatched.</returns>
+        /// <param name="order"></param>
+        /// <returns> The earliest dispatch date as a string</returns>
         public string EarliestDispatch(Order order)
         {
 
@@ -50,7 +52,7 @@ namespace OOP2_Project_EA3
             //if theres a releasedate that is later than todays date then shipment cant be made until at least then so thats the earliest estimated
             if (allReleaseDates.Where(x => DateTime.Now < x).ToList().Count > 0)
             {
-                earliestDispatchDate = findRelease.Max().ToString();
+                earliestDispatchDate = findRelease.Max().ToString(CultureInfo.InvariantCulture);
             }
             else
             {
@@ -72,7 +74,7 @@ namespace OOP2_Project_EA3
                 //if there is no stock then earliest date is when that arrives, if not then check if payment is whats holding up, and if none then its ready to ship
                 if (allNextStocking.Where(o => DateTime.Now < o).ToList().Count > 0)
                 {
-                    earliestDispatchDate = stocking.Max().ToString();
+                    earliestDispatchDate = stocking.Max().ToString(CultureInfo.InvariantCulture);
                 }
                 else if (order.PaymentCompleted == false)
                 {
@@ -95,9 +97,10 @@ namespace OOP2_Project_EA3
             List<Order> listOfOrders = Orders.GetPendingOrders().ToList();
             List<int> listOfProcessed = new List<int>();
 
-            var paymentComplete = listOfOrders.Where(o => o.PaymentCompleted == true);
+            var paymentComplete = listOfOrders.Where(o => o.PaymentCompleted).ToList();
 
-            foreach (var order in paymentComplete)
+            var enumerable = paymentComplete.ToList();
+            foreach (var order in enumerable)
             {
                 for (int i = 0; i < order.Items.Count; i++)
                 {
@@ -114,7 +117,7 @@ namespace OOP2_Project_EA3
 
             }
 
-            var ordersNotRefunded = paymentComplete.Where(o => o.PaymentRefunded == false);
+            var ordersNotRefunded = enumerable.Where(o => o.PaymentRefunded == false);
 
             bool checkStock = true;
             bool checkAvailability = true;

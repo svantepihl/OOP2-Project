@@ -21,7 +21,7 @@ namespace OOP2_Project_EA3
         /// <param name="folder">Location of folder to store the json file "customers.json".</param>
         public CustomerCatalogue(string folder)
         {
-            this._folder = folder;
+            _folder = folder;
             InitiateCatalogue();
         }
 

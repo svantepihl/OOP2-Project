@@ -1,11 +1,14 @@
-﻿namespace OOP2_Project_EA3
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace OOP2_Project_EA3
 {
     partial class CreateCustomerForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -146,14 +149,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label customerNumberLabel;
-        private System.Windows.Forms.Label customerEmailLabel;
-        private System.Windows.Forms.TextBox customerEmailTB;
-        private System.Windows.Forms.TextBox customerPhoneTB;
-        private System.Windows.Forms.Label customerPhoneLabel;
-        private System.Windows.Forms.TextBox customerNameTB;
-        private System.Windows.Forms.Label customerNameLabel;
-        private System.Windows.Forms.TextBox customerNumberTB;
-        private System.Windows.Forms.Button createCustomerBtn;
+        private Label customerNumberLabel;
+        private Label customerEmailLabel;
+        private TextBox customerEmailTB;
+        private TextBox customerPhoneTB;
+        private Label customerPhoneLabel;
+        private TextBox customerNameTB;
+        private Label customerNameLabel;
+        private TextBox customerNumberTB;
+        private Button createCustomerBtn;
     }
 }

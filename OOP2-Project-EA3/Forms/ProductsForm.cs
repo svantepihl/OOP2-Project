@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -17,14 +18,14 @@ namespace OOP2_Project_EA3
         }
 
 
-        private void createNewProductBtn_Click(object sender, System.EventArgs e)
+        private void createNewProductBtn_Click(object sender, EventArgs e)
         {
             CreateProductForm createProductForm = new CreateProductForm(_warehouse);
             createProductForm.Show();
             _warehouse.Products.CatalogueChanged += Products_CatalogueChanged;
         }
 
-        private void Products_CatalogueChanged(object sender, System.EventArgs e)
+        private void Products_CatalogueChanged(object sender, EventArgs e)
         {
             GetProducts();
         }
@@ -58,12 +59,12 @@ namespace OOP2_Project_EA3
 
         }
 
-        private void productListLB_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void productListLB_SelectedIndexChanged(object sender, EventArgs e)
         {
             Product temp = productListLB.SelectedItem as Product;
             if (temp != null)
             {
-                productPriceTB.Text = temp.Price.ToString();
+                productPriceTB.Text = temp.Price.ToString(CultureInfo.InvariantCulture);
                 productCodeTB.Text = temp.Code.ToString();
                 productNameTB.Text = temp.Name;
                 productStockTB.Text = temp.Stock.ToString();
@@ -72,7 +73,7 @@ namespace OOP2_Project_EA3
             }
         }
 
-        private void updateProductBtn_Click(object sender, System.EventArgs e)
+        private void updateProductBtn_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(productCodeTB.Text))
             {
