@@ -10,7 +10,7 @@ namespace OOP2_Project_EA3
     public partial class WareHouseForm : Form
     {
         // Tre knappar, en till kunder, en till orders och en till produkter
-        private Warehouse _warehouse;
+        private readonly Warehouse _warehouse;
         private FileSystemWatcher _fsw;
 
         public WareHouseForm(Warehouse warehouse)
@@ -26,9 +26,10 @@ namespace OOP2_Project_EA3
         private void WatchNewOrders()
         {
             Directory.CreateDirectory("neworders");
-            _fsw = new FileSystemWatcher("./neworders", "*.json");
-            _fsw.EnableRaisingEvents = true;
-            _fsw.SynchronizingObject = this;
+            _fsw = new FileSystemWatcher("./neworders", "*.json")
+            {
+                EnableRaisingEvents = true, SynchronizingObject = this
+            };
             _fsw.Created += Fsw_Created;
         }
 

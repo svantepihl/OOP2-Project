@@ -8,7 +8,7 @@ namespace OOP2_Project_EA3
 {
     public partial class ProductsForm : Form
     {
-        private Warehouse _warehouse;
+        private readonly Warehouse _warehouse;
         public ProductsForm(Warehouse warehouse)
         {
             _warehouse = warehouse;
@@ -80,13 +80,15 @@ namespace OOP2_Project_EA3
                 try
                 {
                     Product current = _warehouse.Products.Find(int.Parse(productCodeTB.Text));
-                    Product updated = new Product();
-                    updated.Name = productNameTB.Text;
-                    updated.Code = Int32.Parse(productCodeTB.Text);
-                    updated.Price = double.Parse(productPriceTB.Text);
-                    updated.Stock = Int32.Parse(productStockTB.Text);
-                    updated.Firstavailable = DateTime.Parse(availableDatePicker.Text);
-                    updated.NextStocking = DateTime.Parse(restockDatePicker.Text);
+                    Product updated = new Product
+                    {
+                        Name = productNameTB.Text,
+                        Code = Int32.Parse(productCodeTB.Text),
+                        Price = double.Parse(productPriceTB.Text),
+                        Stock = Int32.Parse(productStockTB.Text),
+                        Firstavailable = DateTime.Parse(availableDatePicker.Text),
+                        NextStocking = DateTime.Parse(restockDatePicker.Text)
+                    };
                     if (_warehouse.Products.Update(current, updated))
                     {
                         MessageBox.Show("Product" + updated.Name + " was successfully updated!");
