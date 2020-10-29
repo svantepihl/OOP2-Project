@@ -104,9 +104,5 @@ namespace OOP2_Project_EA3
                 MessageBox.Show("No customer is currently selected!");
             }
         }
-
-        // TODO: Lägga till produkt till katalogen,
-        // Ändra produktinformation, visa alla produkter, visa datum för nästa restocking
-        // Kommer antagligen behöva någon sorts lista för att spara produkter.
     }
 }

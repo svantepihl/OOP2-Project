@@ -162,7 +162,5 @@ namespace OOP2_Project_EA3
         {
             ShowCustomerOrders();
         }
-
-        // TODO: L�gga till nya kunder, updatera kundinformation, visa alla ark
     }
 }

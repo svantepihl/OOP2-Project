@@ -72,8 +72,11 @@ namespace OOP2_Project_EA3
             OrderLine tempOrderLine = new OrderLine();
             Product temp = selectProductListLB.SelectedItem as Product;
 
-            tempOrderLine.Product = _warehouse.Products.Find(temp.Code);
-            tempOrderLine.Count = Decimal.ToInt32(selectQuantityNUD.Value);
+            if (temp != null)
+            {
+                tempOrderLine.Product = _warehouse.Products.Find(temp.Code);
+                tempOrderLine.Count = Decimal.ToInt32(selectQuantityNUD.Value);
+            }
 
             _orderlineList.Add(tempOrderLine);
 
@@ -82,8 +85,17 @@ namespace OOP2_Project_EA3
 
         private void placeOrderBtn_Click(object sender, EventArgs e)
         {
+            if (_selectedCustomer == null)
+            {
+                MessageBox.Show("Please select a customer for the order!");
+                return;
+            }
+            else if (string.IsNullOrEmpty(shippingAdressTB.Text))
+            {
+                MessageBox.Show("Please select a customer for the order!");
+                return;
+            }
 
-            //if(selectedCustomer != null && shippingAddressTB.Text != null && orderlineList != null)?
             List<Order> allOrders = _warehouse.Orders.GetAll().ToList();
             int number;
             if(allOrders.Count == 0)

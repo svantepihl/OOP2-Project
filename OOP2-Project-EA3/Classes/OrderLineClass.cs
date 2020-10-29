@@ -1,5 +1,4 @@
 ﻿
-// TODO: {Här skriver vi saker som behöver göras i denna class}
 
 namespace OOP2_Project_EA3
 {

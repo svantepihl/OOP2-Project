@@ -19,7 +19,13 @@ namespace OOP2_Project_EA3
                 Customer temp = new Customer();
                 temp.Name = customerNameTB.Text;
                 temp.Email = customerEmailTB.Text;
-                temp.Number = Int32.Parse(customerNumberTB.Text);
+                int tempNumber;
+                if (!int.TryParse(customerNumberTB.Text, out tempNumber))
+                {
+                    MessageBox.Show("Choose a valid customer number");
+                    return;
+                }
+                temp.Number = tempNumber;
                 temp.Phone = customerPhoneTB.Text;
                 _warehouse.Customers.Add(temp);
                 Close();

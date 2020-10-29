@@ -50,7 +50,6 @@ namespace OOP2_Project_EA3
             get => _phone;
             set
             {
-                // TODO: Kolla att det är ett riktigt telefonnummer
                 if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentNullException(nameof(value),"Phone number cannot be empty or null!");
@@ -67,7 +66,6 @@ namespace OOP2_Project_EA3
             get => _email;
             set
             {
-                // TODO: Kolla om det är en riktigt epostadress
                 if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentNullException(nameof(value),"Email cannot be empty or null!");
