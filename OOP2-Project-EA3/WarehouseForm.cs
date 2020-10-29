@@ -10,7 +10,7 @@ namespace OOP2_Project_EA3
     public partial class WareHouseForm : Form
     {
         // Tre knappar, en till kunder, en till orders och en till produkter
-        private Warehouse Warehouse;
+        private readonly Warehouse Warehouse;
         private FileSystemWatcher fsw;
 
         public WareHouseForm(Warehouse warehouse)
@@ -26,9 +26,10 @@ namespace OOP2_Project_EA3
         private void WatchNewOrders()
         {
             Directory.CreateDirectory("neworders");
-            fsw = new FileSystemWatcher("./neworders", "*.json");
-            fsw.EnableRaisingEvents = true;
-            fsw.SynchronizingObject = this;
+            fsw = new FileSystemWatcher("./neworders", "*.json")
+            {
+                EnableRaisingEvents = true, SynchronizingObject = this
+            };
             fsw.Created += Fsw_Created;
         }
 
@@ -53,7 +54,7 @@ namespace OOP2_Project_EA3
                     Warehouse.Orders.Add(o);
                     
                 }
-                catch (Exception exception)
+                catch (Exception)
                 {
                     MessageBox.Show("Was not able to add order from JSON-file, file has been removed, please try again!");
                     File.Delete(e.FullPath);

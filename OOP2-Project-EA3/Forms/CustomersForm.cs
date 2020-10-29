@@ -7,7 +7,7 @@ namespace OOP2_Project_EA3
 {
     public partial class CustomersForm : Form
     {
-        private Warehouse _warehouse;
+        private readonly Warehouse _warehouse;
         public CustomersForm(Warehouse warehouse)
         {
             _warehouse = warehouse;
@@ -95,11 +95,13 @@ namespace OOP2_Project_EA3
                 try
                 {
                     Customer current = _warehouse.Customers.Find(int.Parse(customerNumberTB.Text));
-                    Customer updated = new Customer();
-                    updated.Number = int.Parse(customerNumberTB.Text);
-                    updated.Name = customerNameTB.Text;
-                    updated.Email = customerEmailTB.Text;
-                    updated.Phone = customerPhoneTB.Text;
+                    Customer updated = new Customer
+                    {
+                        Number = int.Parse(customerNumberTB.Text),
+                        Name = customerNameTB.Text,
+                        Email = customerEmailTB.Text,
+                        Phone = customerPhoneTB.Text
+                    };
                     if (_warehouse.Customers.Update(current, updated))
                     {
                         MessageBox.Show("Customer successfully updated!");
@@ -114,32 +116,6 @@ namespace OOP2_Project_EA3
             {
                 MessageBox.Show("No customer is currently selected!");
             }
-            
-            // Gamla
-            /*if (customerListLB.SelectedItem != null)
-            {
-                try
-                {
-                    Customer current = customerListLB.SelectedItem as Customer;
-                    Customer updated = new Customer();
-                    updated.Number = int.Parse(customerNumberTB.Text);
-                    updated.Name = customerNameTB.Text;
-                    updated.Email = customerEmailTB.Text;
-                    updated.Phone = customerPhoneTB.Text;
-                    if (_warehouse.Customers.Update(current, updated))
-                    {
-                        MessageBox.Show("Customer successfully updated!");
-                    }
-                }
-                catch (Exception exception)
-                {
-                    MessageBox.Show(exception.Message);
-                }
-            }
-            else
-            {
-                MessageBox.Show("No customer is currently selected!");
-            }*/
         }
 
         private void ShowCustomerOrders()
@@ -170,7 +146,7 @@ namespace OOP2_Project_EA3
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 
             }
