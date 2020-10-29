@@ -33,7 +33,7 @@ namespace OOP2_Project_EA3
         public string EarliestDispatch(Order order)
         {
 
-            string earliestDispatchDate = "";
+            string earliestDispatchDate;
             List<DateTime> allReleaseDates = new List<DateTime>();
             List<DateTime> allNextStocking = new List<DateTime>();
 

@@ -77,15 +77,16 @@ namespace OOP2_Project_EA3
 
         private void customerListLB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (customerListLB.SelectedItem != null)
-            {
+
                 Customer temp =  customerListLB.SelectedItem as Customer;
-                customerNumberTB.Text = temp.Number.ToString();
-                customerNameTB.Text = temp.Name;
-                customerPhoneTB.Text = temp.Phone;
-                customerEmailTB.Text = temp.Email;
-                ShowCustomerOrders();
-            }
+                if (temp != null)
+                {
+                    customerNumberTB.Text = temp.Number.ToString();
+                    customerNameTB.Text = temp.Name;
+                    customerPhoneTB.Text = temp.Phone;
+                    customerEmailTB.Text = temp.Email;
+                    ShowCustomerOrders();
+                }
         }
 
         private void updateCustomerBtn_Click(object sender, EventArgs e)

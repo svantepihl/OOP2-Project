@@ -60,8 +60,10 @@ namespace OOP2_Project_EA3
         private void selectCustomerBtn_Click(object sender, EventArgs e)
         {
             _selectedCustomer = selectCustomerListLB.SelectedItem as Customer;
-            customerNameTB.Text = _selectedCustomer.Name;
-
+            if (_selectedCustomer != null)
+            {
+                customerNameTB.Text = _selectedCustomer.Name;
+            }
         }
 
         private void addSelectedProductBtn_Click(object sender, EventArgs e)
@@ -81,7 +83,7 @@ namespace OOP2_Project_EA3
         private void placeOrderBtn_Click(object sender, EventArgs e)
         {
 
-            //if(selectedCustomer != null && shippingAdressTB.Text != null && orderlineList != null)?
+            //if(selectedCustomer != null && shippingAddressTB.Text != null && orderlineList != null)?
             List<Order> allOrders = _warehouse.Orders.GetAll().ToList();
             int number;
             if(allOrders.Count == 0)
