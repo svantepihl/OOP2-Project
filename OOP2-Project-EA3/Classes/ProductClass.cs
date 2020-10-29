@@ -25,10 +25,8 @@ namespace OOP2_Project_EA3
                 {
                     throw new ArgumentOutOfRangeException(nameof(value), "Product code must be positive.");
                 }
-                else
-                {
-                    _code = value;
-                }
+
+                _code = value;
             }
         }
 
@@ -60,10 +58,8 @@ namespace OOP2_Project_EA3
                 {
                     throw new ArgumentOutOfRangeException(nameof(value), "Price cannot be negative.");
                 }
-                else
-                {
-                    _price = Math.Round(value, 2);
-                }
+
+                _price = Math.Round(value, 2);
             }
         }
 
@@ -79,10 +75,8 @@ namespace OOP2_Project_EA3
                 {
                     throw new ArgumentOutOfRangeException(nameof(value), "Stock cannot be negative!");
                 }
-                else
-                {
-                    _stock = value;
-                }
+
+                _stock = value;
             }
         }
 

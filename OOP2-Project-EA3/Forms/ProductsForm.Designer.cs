@@ -1,11 +1,14 @@
-﻿namespace OOP2_Project_EA3
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace OOP2_Project_EA3
 {
     partial class ProductsForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -273,25 +276,25 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox productListLB;
-        private System.Windows.Forms.TextBox productCodeTB;
-        private System.Windows.Forms.Label productCodeLabel;
-        private System.Windows.Forms.TextBox productNameTB;
-        private System.Windows.Forms.Label productNameLabel;
-        private System.Windows.Forms.Label productPriceLabel;
-        private System.Windows.Forms.TextBox productPriceTB;
-        private System.Windows.Forms.TextBox productStockTB;
-        private System.Windows.Forms.Label productStockLabel;
-        private System.Windows.Forms.Button updateProductBtn;
-        private System.Windows.Forms.Label productAvailableLabel;
-        private System.Windows.Forms.Label productStockingLabel;
-        private System.Windows.Forms.ListBox productStockZeroListLB;
-        private System.Windows.Forms.Button createNewProductBtn;
-        private System.Windows.Forms.DateTimePicker availableDatePicker;
-        private System.Windows.Forms.DateTimePicker restockDatePicker;
-        private System.Windows.Forms.Label nextRestockLabel;
-        private System.Windows.Forms.Label nearestDateLabel;
-        private System.Windows.Forms.Label allProductsLabel;
-        private System.Windows.Forms.Label zeroStockProductsLabel;
+        private ListBox productListLB;
+        private TextBox productCodeTB;
+        private Label productCodeLabel;
+        private TextBox productNameTB;
+        private Label productNameLabel;
+        private Label productPriceLabel;
+        private TextBox productPriceTB;
+        private TextBox productStockTB;
+        private Label productStockLabel;
+        private Button updateProductBtn;
+        private Label productAvailableLabel;
+        private Label productStockingLabel;
+        private ListBox productStockZeroListLB;
+        private Button createNewProductBtn;
+        private DateTimePicker availableDatePicker;
+        private DateTimePicker restockDatePicker;
+        private Label nextRestockLabel;
+        private Label nearestDateLabel;
+        private Label allProductsLabel;
+        private Label zeroStockProductsLabel;
     }
 }

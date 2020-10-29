@@ -1,11 +1,14 @@
-﻿namespace OOP2_Project_EA3
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace OOP2_Project_EA3
 {
     partial class OrdersForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -264,23 +267,23 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox ordersListLB;
-        private System.Windows.Forms.Button processOrderBtn;
-        private System.Windows.Forms.Label customerPhoneLabel;
-        private System.Windows.Forms.TextBox customerPhoneTB;
-        private System.Windows.Forms.TextBox customerEmailTB;
-        private System.Windows.Forms.Label customerEmailLabel;
-        private System.Windows.Forms.Label customerNameLabel;
-        private System.Windows.Forms.TextBox customerNameTB;
-        private System.Windows.Forms.Label dateLabel;
-        private System.Windows.Forms.TextBox dateTB;
-        private System.Windows.Forms.Label orderListLabel;
-        private System.Windows.Forms.Button addNewOrderBtn;
-        private System.Windows.Forms.RadioButton pendingOrdersRBtn;
-        private System.Windows.Forms.RadioButton dispatchedOrdersRBtn;
-        private System.Windows.Forms.ListBox orderLineListLB;
-        private System.Windows.Forms.Label orderLineListLabel;
-        private System.Windows.Forms.ListBox customerPendingListLB;
-        private System.Windows.Forms.Label customersPendingListLabel;
+        private ListBox ordersListLB;
+        private Button processOrderBtn;
+        private Label customerPhoneLabel;
+        private TextBox customerPhoneTB;
+        private TextBox customerEmailTB;
+        private Label customerEmailLabel;
+        private Label customerNameLabel;
+        private TextBox customerNameTB;
+        private Label dateLabel;
+        private TextBox dateTB;
+        private Label orderListLabel;
+        private Button addNewOrderBtn;
+        private RadioButton pendingOrdersRBtn;
+        private RadioButton dispatchedOrdersRBtn;
+        private ListBox orderLineListLB;
+        private Label orderLineListLabel;
+        private ListBox customerPendingListLB;
+        private Label customersPendingListLabel;
     }
 }

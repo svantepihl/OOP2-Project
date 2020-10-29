@@ -1,11 +1,14 @@
-﻿namespace OOP2_Project_EA3
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace OOP2_Project_EA3
 {
     partial class CreateOrderForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -231,19 +234,19 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox selectCustomerListLB;
-        private System.Windows.Forms.ListBox selectProductListLB;
-        private System.Windows.Forms.ListBox selectedProductsListLB;
-        private System.Windows.Forms.NumericUpDown selectQuantityNUD;
-        private System.Windows.Forms.Button addSelectedProductBtn;
-        private System.Windows.Forms.TextBox shippingAdressTB;
-        private System.Windows.Forms.Label shippingAddressLabel;
-        private System.Windows.Forms.RadioButton orderPaidRBtn;
-        private System.Windows.Forms.RadioButton orderUnpaidRBtn;
-        private System.Windows.Forms.Button placeOrderBtn;
-        private System.Windows.Forms.Button selectCustomerBtn;
-        private System.Windows.Forms.Label customerNameLabel;
-        private System.Windows.Forms.TextBox customerNameTB;
-        private System.Windows.Forms.Button removeSelectedProductBtn;
+        private ListBox selectCustomerListLB;
+        private ListBox selectProductListLB;
+        private ListBox selectedProductsListLB;
+        private NumericUpDown selectQuantityNUD;
+        private Button addSelectedProductBtn;
+        private TextBox shippingAdressTB;
+        private Label shippingAddressLabel;
+        private RadioButton orderPaidRBtn;
+        private RadioButton orderUnpaidRBtn;
+        private Button placeOrderBtn;
+        private Button selectCustomerBtn;
+        private Label customerNameLabel;
+        private TextBox customerNameTB;
+        private Button removeSelectedProductBtn;
     }
 }

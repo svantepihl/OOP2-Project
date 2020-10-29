@@ -1,11 +1,14 @@
-﻿namespace OOP2_Project_EA3
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace OOP2_Project_EA3
 {
     partial class CreateProductForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -188,18 +191,18 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox productNameTB;
-        private System.Windows.Forms.Label productStockingLabel;
-        private System.Windows.Forms.Label productAvilableLabel;
-        private System.Windows.Forms.Label productStockLabel;
-        private System.Windows.Forms.TextBox productStockTB;
-        private System.Windows.Forms.TextBox productPriceTB;
-        private System.Windows.Forms.Label productPriceLabel;
-        private System.Windows.Forms.Label productNameLabel;
-        private System.Windows.Forms.Label productCodeLabel;
-        private System.Windows.Forms.TextBox productCodeTB;
-        private System.Windows.Forms.Button createProductBtn;
-        private System.Windows.Forms.DateTimePicker availableDatePicker;
-        private System.Windows.Forms.DateTimePicker restockDatePicker;
+        private TextBox productNameTB;
+        private Label productStockingLabel;
+        private Label productAvilableLabel;
+        private Label productStockLabel;
+        private TextBox productStockTB;
+        private TextBox productPriceTB;
+        private Label productPriceLabel;
+        private Label productNameLabel;
+        private Label productCodeLabel;
+        private TextBox productCodeTB;
+        private Button createProductBtn;
+        private DateTimePicker availableDatePicker;
+        private DateTimePicker restockDatePicker;
     }
 }

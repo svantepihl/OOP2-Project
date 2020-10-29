@@ -24,7 +24,7 @@ namespace OOP2_Project_EA3
                 temp.Firstavailable = DateTime.Parse(availableDatePicker.Text);
                 temp.NextStocking = DateTime.Parse(restockDatePicker.Text);
                 _warehouse.Products.Add(temp);
-                this.Close();
+                Close();
                 MessageBox.Show("Product was added succefully!");
             }
             catch (Exception exception)

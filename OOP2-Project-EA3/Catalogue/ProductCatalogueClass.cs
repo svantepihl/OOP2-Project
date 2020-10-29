@@ -21,7 +21,7 @@ namespace OOP2_Project_EA3
         /// <param name="folder">Location of folder to store the json file "products.json".</param>
         public ProductCatalogue(string folder)
         {
-            this._folder = folder;
+            _folder = folder;
             InitiateCatalogue();
         }
 
@@ -164,11 +164,9 @@ namespace OOP2_Project_EA3
             {
                 throw new InvalidOperationException("Cannot dispatch more items than there is stock!");
             }
-            else
-            {
-                _products[index].Stock -= items;
-            }
-            
+
+            _products[index].Stock -= items;
+
         }
 
         /// <summary>

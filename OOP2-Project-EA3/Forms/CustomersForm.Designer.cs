@@ -1,3 +1,6 @@
+using System.ComponentModel;
+using System.Windows.Forms;
+
 namespace OOP2_Project_EA3
 {
     partial class CustomersForm
@@ -5,7 +8,7 @@ namespace OOP2_Project_EA3
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -238,21 +241,21 @@ namespace OOP2_Project_EA3
 
         #endregion
 
-        private System.Windows.Forms.ListBox customerListLB;
-        private System.Windows.Forms.Label customerNumberLabel;
-        private System.Windows.Forms.TextBox customerNumberTB;
-        private System.Windows.Forms.Label customerNameLabel;
-        private System.Windows.Forms.TextBox customerNameTB;
-        private System.Windows.Forms.Label customerPhoneLabel;
-        private System.Windows.Forms.TextBox customerPhoneTB;
-        private System.Windows.Forms.TextBox customerEmailTB;
-        private System.Windows.Forms.Label customerEmailLabel;
-        private System.Windows.Forms.Button createNewCustomerBtn;
-        private System.Windows.Forms.Button updateCustomerBtn;
-        private System.Windows.Forms.RadioButton customerActiveRBtn;
-        private System.Windows.Forms.RadioButton customerArchivedRBtn;
-        private System.Windows.Forms.ListBox customerOrderListLB;
-        private System.Windows.Forms.Label customerListLabel;
-        private System.Windows.Forms.Label customerOrderListLabel;
+        private ListBox customerListLB;
+        private Label customerNumberLabel;
+        private TextBox customerNumberTB;
+        private Label customerNameLabel;
+        private TextBox customerNameTB;
+        private Label customerPhoneLabel;
+        private TextBox customerPhoneTB;
+        private TextBox customerEmailTB;
+        private Label customerEmailLabel;
+        private Button createNewCustomerBtn;
+        private Button updateCustomerBtn;
+        private RadioButton customerActiveRBtn;
+        private RadioButton customerArchivedRBtn;
+        private ListBox customerOrderListLB;
+        private Label customerListLabel;
+        private Label customerOrderListLabel;
     }
 }

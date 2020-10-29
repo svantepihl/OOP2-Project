@@ -55,13 +55,13 @@ namespace OOP2_Project_EA3
             GetCustomers();
         }
 
-        private void createNewCustomerBtn_Click(object sender, System.EventArgs e)
+        private void createNewCustomerBtn_Click(object sender, EventArgs e)
         {
             CreateCustomerForm createCustomerForm = new CreateCustomerForm(_warehouse);
             createCustomerForm.Show();
         }
 
-        private void Customers_CatalogueChanged(object sender, System.EventArgs e)
+        private void Customers_CatalogueChanged(object sender, EventArgs e)
         {
             GetCustomers();
         }
@@ -75,7 +75,7 @@ namespace OOP2_Project_EA3
             }
         }
 
-        private void customerListLB_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void customerListLB_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (customerListLB.SelectedItem != null)
             {
@@ -88,7 +88,7 @@ namespace OOP2_Project_EA3
             }
         }
 
-        private void updateCustomerBtn_Click(object sender, System.EventArgs e)
+        private void updateCustomerBtn_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(customerNumberTB.Text))
             {
@@ -158,7 +158,7 @@ namespace OOP2_Project_EA3
                 {
                     ordersToShow = _warehouse.Orders.GetAll().Where(x =>
                         x.Customer.Number == customerNumber &&
-                        x.Dispatched == true && x.OrderDate < DateTime.Today.AddMonths(-1)).ToList();
+                        x.Dispatched && x.OrderDate < DateTime.Today.AddMonths(-1)).ToList();
                 }
 
                 customerOrderListLB.Items.Clear();
@@ -170,9 +170,9 @@ namespace OOP2_Project_EA3
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                
+                // ignored
             }
         }
 

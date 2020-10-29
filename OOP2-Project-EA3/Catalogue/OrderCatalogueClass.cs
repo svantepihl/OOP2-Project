@@ -21,7 +21,7 @@ namespace OOP2_Project_EA3
         /// <param name="folder">Location of folder to store the json file "products.json".</param>
         public OrderCatalogue(string folder)
         {
-            this._folder = folder;
+            _folder = folder;
             InitiateCatalogue();
         }
 
@@ -163,10 +163,11 @@ namespace OOP2_Project_EA3
         }
 
 
-        //// <summary>
+        /// <returns></returns>
+        /// <summary>
         /// Get all pending orders
         /// </summary>
-        /// <returns>An IEnumerable with all objects stored in the catalogue.</returns>
+        /// <returns>An IEnumerable with all pending orders in the catalogue.</returns>
         public IEnumerable<Order> GetPendingOrders()
         {
             var queryPendingOrders = from order in _orders.ToList()
@@ -175,14 +176,16 @@ namespace OOP2_Project_EA3
 
             return queryPendingOrders;
         }
-        //// <summary>
-        /// Get all dispatched orders
-        /// </summary>
-        /// <returns>An IEnumerable with all dispatched objects stored in the catalogue.</returns>
+        
+        
+       /// <summary>
+       /// Get all dispatched orders
+       /// </summary>
+       /// <returns>An IEnumerable with all dispatched objects stored in the catalogue.</returns>
         public IEnumerable<Order> GetDispatchedOrders()
         {
             var queryDispatchedOrders = from order in _orders.ToList()
-                                        where order.Dispatched == true
+                                        where order.Dispatched
                                         select order;
 
             return queryDispatchedOrders;

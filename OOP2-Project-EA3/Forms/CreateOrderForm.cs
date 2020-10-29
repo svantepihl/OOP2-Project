@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -9,9 +10,9 @@ namespace OOP2_Project_EA3
     {
         private Warehouse _warehouse;
 
-        private Customer selectedCustomer;
+        private Customer _selectedCustomer;
 
-        private List<OrderLine> orderlineList = new List<OrderLine>();
+        private List<OrderLine> _orderlineList = new List<OrderLine>();
 
         public CreateOrderForm(Warehouse warehouse)
         {
@@ -43,11 +44,11 @@ namespace OOP2_Project_EA3
             }
         }
         //SHow all the products in the basket
-        private void showSelectedProducts()
+        private void ShowSelectedProducts()
         {
             selectedProductsListLB.Items.Clear();
 
-            foreach(OrderLine o in orderlineList)
+            foreach(OrderLine o in _orderlineList)
             {
                 for (int i = 0; i < o.Count; i++)
                 {
@@ -56,14 +57,14 @@ namespace OOP2_Project_EA3
             }
         }
         //Select the customer
-        private void selectCustomerBtn_Click(object sender, System.EventArgs e)
+        private void selectCustomerBtn_Click(object sender, EventArgs e)
         {
-            selectedCustomer = selectCustomerListLB.SelectedItem as Customer;
-            customerNameTB.Text = selectedCustomer.Name;
+            _selectedCustomer = selectCustomerListLB.SelectedItem as Customer;
+            customerNameTB.Text = _selectedCustomer.Name;
 
         }
 
-        private void addSelectedProductBtn_Click(object sender, System.EventArgs e)
+        private void addSelectedProductBtn_Click(object sender, EventArgs e)
         {
 
             OrderLine tempOrderLine = new OrderLine();
@@ -72,12 +73,12 @@ namespace OOP2_Project_EA3
             tempOrderLine.Product = _warehouse.Products.Find(temp.Code);
             tempOrderLine.Count = Decimal.ToInt32(selectQuantityNUD.Value);
 
-            orderlineList.Add(tempOrderLine);
+            _orderlineList.Add(tempOrderLine);
 
-            showSelectedProducts();
+            ShowSelectedProducts();
         }
 
-        private void placeOrderBtn_Click(object sender, System.EventArgs e)
+        private void placeOrderBtn_Click(object sender, EventArgs e)
         {
 
             //if(selectedCustomer != null && shippingAdressTB.Text != null && orderlineList != null)?
@@ -96,8 +97,9 @@ namespace OOP2_Project_EA3
             try
             {
                 Order temp = new Order();
+                temp.Items = new List<OrderLine>();
                 temp.Number = number;
-                temp.Customer = selectedCustomer;
+                temp.Customer = _warehouse.Customers.GetAll().Single(x=>x.Number == _selectedCustomer.Number);
                 temp.DeliveryAddress = shippingAdressTB.Text;
                 temp.OrderDate = DateTime.Now;
                 if (orderPaidRBtn.Checked)
@@ -109,11 +111,21 @@ namespace OOP2_Project_EA3
                     temp.PaymentCompleted = false;
                 }
 
-               temp.Items = orderlineList;
-
+                foreach (var orderLine in _orderlineList)
+                {
+                    if (temp.Items.Exists(x=> x.Product.Code == orderLine.Product.Code))
+                    {
+                        temp.Items.Single(x => x.Product.Code == orderLine.Product.Code).Count += orderLine.Count;
+                    }
+                    else
+                    {
+                        temp.Items.Add(orderLine);
+                    }
+                }
+                
                 _warehouse.Orders.Add(temp);
-                this.Close();
-                MessageBox.Show("Order was added succefully!" + temp.OrderDate.ToString());
+                Close();
+                MessageBox.Show("Order was added succefully!" + temp.OrderDate.ToString(CultureInfo.InvariantCulture));
 
             }
 
@@ -131,7 +143,7 @@ namespace OOP2_Project_EA3
         private void removeSelectedProductBtn_Click(object sender, EventArgs e)
         {
             Product temp = selectedProductsListLB.SelectedItem as Product;
-            var find = orderlineList.FirstOrDefault(x => x.Product == temp);
+            var find = _orderlineList.FirstOrDefault(x => x.Product == temp);
             if(find != null)
             {
                 --find.Count;
@@ -139,11 +151,11 @@ namespace OOP2_Project_EA3
 
                 if(find.Count < 1)
                 {
-                    orderlineList.Remove(find);
+                    _orderlineList.Remove(find);
                 }
             }
 
-            showSelectedProducts();
+            ShowSelectedProducts();
         }
 
         private void shippingAdressTB_TextChanged(object sender, EventArgs e)
